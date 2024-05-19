@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Documentation</title>
-      <style>
+    <style>
         .container {
             display: flex;
             flex-direction: row;
@@ -13,7 +13,7 @@
         }
 
         .left-column {
-            width: 300px;
+            width: 30%;
             overflow-y: auto;
             background-color: #f0f0f0;
             padding: 20px;
@@ -54,6 +54,7 @@
             .container {
                 flex-direction: column;
             }
+
             .right-column {
                 width: 100%;
             }
@@ -65,53 +66,135 @@
     <div class="container">
         <div class="left-column">
             <h1>API Documentation</h1>
-            <h3>Master Repo</h3>
+            <h3>Master API</h3>
             <div id="api-list">
-    <h3>Document Applicability Admin</h3>
-    <ul>
-        <li><a href="#" onclick="showModel('doc-app-list',this)">Post/document-applicability-admin/list</a></li>
-        <li><a href="#" onclick="showModel('doc-app-detail',this)">Get /document-applicability-admin/{id}/details</a></li>
-        <li><a href="#" onclick="showModel('doc-app-post',this)">Post/document-applicability-admin</a></li>
-        <li><a href="#" onclick="showModel('doc-app-update',this)">Put /document-applicability-admin/{id}</a></li>
-        <li><a href="#" onclick="showModel('doc-app-status',this)">Put /document-applicability-admin/{id}/status</a></li>
-        <li><a href="#" onclick="showModel('doc-app-delete',this)">Delete /document-applicability-admin/{id}</a></li>
-    </ul>
-
-    <h3>Field Applicable</h3>
-    <ul>
-        <li><a href="#" onclick="showModel('doc-field-get',this)">Get /document-applicability-admin/{id}/fields-applicable/list</a></li>
-        <li><a href="#" onclick="showModel('doc-field-details',this)">Get /document-applicability-admin/{id}/fields-applicable/{field_id}/details</a></li>
-        <li><a href="#" onclick="showModel('doc-field-post',this)">Post /document-applicability-admin/{id}/fields-applicable</a></li>
-        <li><a href="#" onclick="showModel('doc-field-put',this)">Put /document-applicability-admin/{id}/fields-applicable/{field_id}</a></li>
-        <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete /document-applicability-admin/{id}/fields-applicable</a></li>
-        <li><a href="#" onclick="showModel('doc-field-clone',this)">Put /document-applicability-admin/{id}/fields-applicable/{field_id}/clone</a></li>
-    </ul>
-
-    <h3>Multi Parts</h3>
-    <ul>
-        <li><a href="#" onclick="showModel('doc-multi-get',this)">Get /document-applicability-admin/{id}/multi-parts/list</a></li>
-        <li><a href="#" onclick="showModel('doc-multi-details',this)">Get /document-applicability-admin/{id}/multi-parts/{part_id}/details</a></li>
-        <li><a href="#" onclick="showModel('doc-multi-post',this)">Post /document-applicability-admin/{id}/multi-parts</a></li>
-        <li><a href="#" onclick="showModel('doc-multi-put',this)">Put /document-applicability-admin/{id}/multi-parts/{part_id}</a></li>
-        <li><a href="#" onclick="showModel('doc-multi-delete',this)">Delete /document-applicability-admin/{id}/multi-parts</a></li>
-        <li><a href="#" onclick="showModel('doc-multi-clone',this)">Put /document-applicability-admin/{id}/multi-parts/{part_id}/clone</a></li>
-    </ul>
-
-    <h3>Applicability Rule Sets</h3>
-    <ul>
-        <li><a href="#" onclick="showModel('doc-ruleset-get',this)">Get /document-applicability-admin/{id}/ruleset/list</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-details',this)">Get /document-applicability-admin/{id}/ruleset/{part_id}/details</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-post',this)">Post /document-applicability-admin/{id}/ruleset</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-put',this)">Put /document-applicability-admin/{id}/ruleset/{part_id}</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-delete',this)">Delete /document-applicability-admin/{id}/rulesets</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-clone',this)">Put /document-applicability-admin/{id}/ruleset/{rule_set_id}/clone</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-ruletype',this)">Get /document-applicability-admin/ruleset/rule/type/list</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-operatortype',this)">Get /document-applicability-admin/ruleset/rule/operator/list</a></li>
-        <li><a href="#" onclick="showModel('doc-ruleset-ruletypevalue',this)">Get /document-applicability-admin/ruleset/rule/{typeid}/values/list</a></li>
-    </ul>
-    <h3>Document Master</h3>
-</div>
-
+                <h3>Document Applicability Admin</h3>
+                <ul>
+                    <li><a href="#" onclick="showModel('doc-app-list',this)">Post/document-applicability-admin/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-app-detail',this)">Get
+                            /document-applicability-admin/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-post',this)">Post/document-applicability-admin</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-update',this)">Put
+                            /document-applicability-admin/{id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-action',this)">Post
+                            /document-applicability-admin/{id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-delete',this)">Delete
+                            /document-applicability-admin/{id}</a></li>
+                </ul>
+                <ul>
+                    <h3>Field Applicable</h3>
+                    <li><a href="#" onclick="showModel('doc-field-get',this)">Get
+                            /document-applicability-admin/{id}/fields-applicable/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-details',this)">Get
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-post',this)">Post
+                            /document-applicability-admin/{id}/fields-applicable</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-put',this)">Put
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-action',this)">Post
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete
+                            /document-applicability-admin/{id}/fields-applicable</a></li>
+                </ul>
+                <ul>
+                    <h3>Multi Parts</h3>
+                    <li><a href="#" onclick="showModel('doc-multi-get',this)">Get
+                            /document-applicability-admin/{id}/multi-parts/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-details',this)">Get
+                            /document-applicability-admin/{id}/multi-parts/{part_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-post',this)">Post
+                            /document-applicability-admin/{id}/multi-parts</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-put',this)">Put
+                            /document-applicability-admin/{id}/multi-parts/{part_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-action',this)">Post
+                            /document-applicability-admin/{id}/multi-parts/{part_id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-delete',this)">Delete
+                            /document-applicability-admin/{id}/multi-parts</a></li>
+                </ul>
+                <ul>
+                    <h3>Applicability Rule Sets</h3>
+                    <li><a href="#" onclick="showModel('doc-ruleset-get',this)">Get
+                            /document-applicability-admin/{id}/ruleset/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-details',this)">Get
+                            /document-applicability-admin/{id}/ruleset/{part_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-post',this)">Post
+                            /document-applicability-admin/{id}/ruleset</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-put',this)">Put
+                            /document-applicability-admin/{id}/ruleset/{part_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-action',this)">Post
+                            /document-applicability-admin/{id}/rulesets/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-delete',this)">Delete
+                            /document-applicability-admin/{id}/rulesets</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-ruletype',this)">Get
+                            /document-applicability-admin/ruleset/ruletype/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-operatortype',this)">Get
+                            /document-applicability-admin/ruleset/ruletype/operator/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-ruletypevalue',this)">Get
+                            /document-applicability-admin/ruleset/rule/{typeid}/values/list</a></li>
+                </ul>
+                <h3>Document Master</h3>
+                <ul>
+                    <h3>Document</h3>
+                    <li><a href="#" onclick="showModel('doc-master-list',this)">Get /api/document/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-details',this)">Get /api/document/{id}/details</a>
+                    </li>
+                    <h3>Document Display Group</h3>
+                    <li><a href="#" onclick="showModel('doc-master-displaygroup',this)"> Get
+                            /api/document/display-group</a></li>
+                    <h3>Document Type</h3>
+                    <li><a href="#" onclick="showModel('doc-master-type-list',this)"> Get /api/document/type/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-type-details',this)"> Get
+                            /api/document/type/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-type-post',this)"> Post /api/document/type</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-type-put',this)"> Put /api/document/type/{id}</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-type-delete',this)"> Delete
+                            /api/document/type</a></li>
+                    <h3>Document SubType</h3>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-list',this)"> Get
+                            /api/document/subtype/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-details',this)"> Get
+                            /api/document/subtype/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-post',this)"> Post /api/document/subtype</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-put',this)"> Put
+                            /api/document/subtype/{id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-delete',this)"> Delete
+                            /api/document/subtype</a></li>
+                    <h3>Document Tags</h3>
+                    <li><a href="#" onclick="showModel('doc-master-tags-list',this)"> Get /api/document/tags/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-details',this)"> Get
+                            /api/document/tags/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-post',this)"> Post /api/document/tags</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-put',this)"> Put /api/document/tags/{id}</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-delete',this)"> Delete
+                            /api/document/tags</a></li>
+                </ul>
+                <h3>Seafarer API</h3>
+                <ul>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post /api/seafarer/{cdc_number}/documents/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
+                            /api/seafarer/{cdc_number}/document/{doc_id}/details</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-post',this)">Post
+                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-put',this)">Put
+                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-delete',this)">Delete
+                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload',this)">Post
+                            /api/seafarer/{cdc_number}/document/{doc_id}/upload-document</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="right-column">
             <div class="models" id="doc-models">
@@ -120,10 +203,11 @@
                 <pre id="request-doc-app"></pre>
                 <h3>Response</h3>
                 <pre id="response-doc-app"></pre>
+                <h3>Comments</h3>
+                <pre id="comments-doc-app"></pre>
             </div>
         </div>
     </div>
-
     <script>
         // Common function to format and insert JSON into pre tagids
         function displayJson(preId, jsonData) {
@@ -147,31 +231,61 @@
                     "vessel_ids": [],
                     "mandatory": true
                 },
-                response: [
-                    {
-                        "id": "1",
-                        "name": "Pre Joining Employment Medical Examination",
-                        "description": "Pre Joining Employment Medical Examination",
-                        "type": {
-                            "document_type": "Travel Documents",
-                            "document_sub_type": "International Travel Documents"
+                response: {
+                    "total_records": 1,
+                    "data": [
+                        {
+                            "id": "1",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "code": "PRE-JOIN",
+                            "description": "Pre Joining Employment Medical Examination",
+                            "type": {
+                                "id": 1,
+                                "name": "Travel Documents",
+                                "subType": {
+                                    "id": 2,
+                                    "name": "International Travel Documents"
+                                }
+                            },
+                            "displaygroup": {
+                                "id": 1,
+                                "name": "Medical Certificate"
+                            }
                         }
-                    }
-                ]
+                    ]
+                }
             },
             'doc-app-detail': {
                 request: {
                     "id": "1"
                 },
                 response: {
+                    "id": "1",
                     "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "document_type_id": 1,
-                        "document_sub_type_id": 2
+                        "id": 1,
+                        "name": "Travel Documents",
+                        "subType": {
+                            "id": 2,
+                            "name": "International Travel Documents"
+                        }
                     },
-                    "tagids": [1, 2],
-                    "display_group": 1,
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "TagName1"
+                        },
+                        {
+                            "id": 2,
+                            "name": "TagName2"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": 1,
+                        "name": "Medical Certificate"
+                    },
                     "period": {
                         "cushion_period": 30,
                         "validity_period": 120,
@@ -182,9 +296,10 @@
                         "is_multiple_parts": true,
                         "is_internal_document": false,
                         "has_parent_certificate": false,
-                        "is_verification_required": false
+                        "is_verification_required": false,
+                        "option_to_create_purchase_order": false
                     },
-                    "parentdocument": {
+                    "parent_document": {
                         "document_id": null,
                         "is_optional_document": false
                     },
@@ -199,13 +314,30 @@
             'doc-app-post': {
                 request: {
                     "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "document_type_id": 1,
-                        "document_sub_type_id": 2,
-                        "document_display_group": 3
+                        "id": 1,
+                        "name": "Travel Documents",
+                        "subType": {
+                            "id": 2,
+                            "name": "International Travel Documents"
+                        }
                     },
-                    "tagids": [1, 2],
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "TagName1"
+                        },
+                        {
+                            "id": 2,
+                            "name": "TagName2"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": 1,
+                        "name": "Medical Certificate"
+                    },
                     "period": {
                         "cushion_period": 30,
                         "validity_period": 120,
@@ -216,9 +348,10 @@
                         "is_multiple_parts": true,
                         "is_internal_document": false,
                         "has_parent_certificate": false,
-                        "is_verification_required": false
+                        "is_verification_required": false,
+                        "option_to_create_purchase_order": false
                     },
-                    "parentdocument": {
+                    "parent_document": {
                         "document_id": 1,
                         "is_optional_document": false
                     },
@@ -238,13 +371,30 @@
             'doc-app-update': {
                 request: {
                     "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "document_type_id": 1,
-                        "document_sub_type_id": 2,
-                        "document_display_group": 3
+                        "id": 1,
+                        "name": "Travel Documents",
+                        "subType": {
+                            "id": 2,
+                            "name": "International Travel Documents"
+                        }
                     },
-                    "tagids": [1, 2],
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "TagName1"
+                        },
+                        {
+                            "id": 2,
+                            "name": "TagName2"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": 1,
+                        "name": "Medical Certificate"
+                    },
                     "period": {
                         "cushion_period": 30,
                         "validity_period": 120,
@@ -255,9 +405,10 @@
                         "is_multiple_parts": true,
                         "is_internal_document": false,
                         "has_parent_certificate": false,
-                        "is_verification_required": false
+                        "is_verification_required": false,
+                        "option_to_create_purchase_order": false
                     },
-                    "parentdocument": {
+                    "parent_document": {
                         "document_id": 1,
                         "is_optional_document": false
                     },
@@ -274,18 +425,33 @@
                     "error": "Error message describing the reason for failure"
                 }
             },
-            'doc-app-status': {
+            'doc-app-action': {
                 request: {
                     "action": "activate" // or "disable"
                 },
                 response: {
                     "success": true,
-                    "message": "Document applicability status updated successfully"
+                    "message": "Document applicability action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
                 }
             },
             'doc-app-delete': {
                 request: {
-                    "id": "1"
+                    "id": 1
                 },
                 response: {
                     "success": true,
@@ -298,24 +464,38 @@
                 },
                 "response": [
                     {
-                        "field_id": 1,
+                        "id": 1,
                         "enabled": true,
                         "file_type_id": "1",
                         "field_name": "Issue Date",
                         "title": "Issue date",
-                        "mandatory": true,
-                        "validationregex": "^\\d{4}-\\d{2}-\\d{2}$",
-                        "validationmessage": "Please enter a date in the format YYYY-MM-DD"
+                        "options_value": [],
+                        "place_holder": null,
+                        "is_mandatory": true,
+                        "order": 1,
+                        "validations": [
+                            {
+                                "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                "message": "Please enter a date in the format YYYY-MM-DD"
+                            }
+                        ]
                     },
                     {
-                        "field_id": 2,
+                        "id": 2,
                         "enabled": true,
                         "file_type_id": "1",
                         "field_name": "Expiration Date",
                         "title": "Expiration date",
-                        "mandatory": true,
-                        "validationregex": "^\\d{4}-\\d{2}-\\d{2}$",
-                        "validationmessage": "Please enter a date in the format YYYY-MM-DD"
+                        "options_value": [],
+                        "place_holder": null,
+                        "is_mandatory": true,
+                        "order": 2,
+                        "validations": [
+                            {
+                                "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                "message": "Please enter a date in the format YYYY-MM-DD"
+                            }
+                        ]
                     }
                 ]
             },
@@ -326,14 +506,21 @@
                 },
                 "response":
                 {
-                    "field_id": 1,
+                    "id": 1,
                     "enabled": true,
                     "file_type_id": "1",
                     "field_name": "Issue Date",
                     "title": "Issue date",
-                    "mandatory": true,
-                    "validationregex": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "validationmessage": "Please enter a date in the format YYYY-MM-DD"
+                    "options_value": [],
+                    "place_holder": null,
+                    "is_mandatory": true,
+                    "order": 1,
+                    "validations": [
+                        {
+                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "message": "Please enter a date in the format YYYY-MM-DD"
+                        }
+                    ]
                 }
             },
             'doc-field-post': {
@@ -342,9 +529,16 @@
                     "file_type_id": "1",
                     "field_name": "Issue Date",
                     "title": "Issue date",
-                    "mandatory": true,
-                    "validationregex": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "validationmessage": "Please enter a date in the format YYYY-MM-DD"
+                    "options_value": [],
+                    "place_holder": null,
+                    "is_mandatory": true,
+                    "order": 1,
+                    "validations": [
+                        {
+                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "message": "Please enter a date in the format YYYY-MM-DD"
+                        }
+                    ]
                 },
                 response: {
                     "success": true,
@@ -357,31 +551,53 @@
                     "file_type_id": "1",
                     "field_name": "Issue Date",
                     "title": "Issue date",
-                    "mandatory": true,
-                    "validationregex": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "validationmessage": "Please enter a date in the format YYYY-MM-DD"
+                    "options_value": [],
+                    "place_holder": null,
+                    "is_mandatory": true,
+                    "order": 1,
+                    "validations": [
+                        {
+                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "message": "Please enter a date in the format YYYY-MM-DD"
+                        }
+                    ]
                 },
                 response: {
                     "success": true,
                     "message": "Document field updated successfully",
                 }
             },
-            'doc-field-delete': {
+            'doc-field-action': {
                 request: {
-                    "field_ids": [1, 2, 3]
+                    "action": "activate" // or "disable"
                 },
                 response: {
                     "success": true,
-                    "message": "Document field deleted successfully",
+                    "message": "Document field action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
                 }
             },
-            'doc-field-clone': {
+            'doc-field-delete': {
                 request: {
-                    "field_id": 1
+                    "field_ids": [1]
                 },
                 response: {
                     "success": true,
-                    "message": "Document field cloned successfully",
+                    "message": "Document Field deleted successfully"
                 }
             },
             'doc-multi-get': {
@@ -393,21 +609,21 @@
                         "id": 1,
                         "name": "CRA",
                         "number": "I",
-                        "enabled": true,
-                        "mandatory": false,
-                        "attachmentAllowed": true,
-                        "detailsRequired": true,
-                        "aggregate": false
+                        "is_enabled": true,
+                        "is_mandatory": false,
+                        "is_attachment_allowed": true,
+                        "is_details_required": true,
+                        "is_aggregate": false
                     },
                     {
                         "id": 2,
                         "name": "Full time /",
                         "number": "II",
-                        "enabled": true,
-                        "mandatory": false,
-                        "attachmentAllowed": true,
-                        "detailsRequired": true,
-                        "aggregate": false
+                        "is_enabled": true,
+                        "is_mandatory": false,
+                        "is_attachment_allowed": true,
+                        "is_details_required": true,
+                        "is_aggregate": false
                     },
                 ]
             },
@@ -421,11 +637,11 @@
                     "id": 1,
                     "name": "CRA",
                     "number": "I",
-                    "enabled": true,
-                    "mandatory": false,
-                    "attachmentAllowed": true,
-                    "detailsRequired": true,
-                    "aggregate": false
+                    "is_enabled": true,
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
+                    "is_aggregate": false
                 }
             },
             'doc-multi-post': {
@@ -433,10 +649,11 @@
                     "name": "CRA",
                     "number": "I",
                     "enabled": true,
-                    "mandatory": false,
-                    "attachmentAllowed": true,
-                    "detailsRequired": true,
-                    "aggregate": false
+                    "is_enabled": true,
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
+                    "is_aggregate": false
                 },
                 response: {
                     "success": true,
@@ -447,11 +664,11 @@
                 request: {
                     "name": "CRA",
                     "number": "I",
-                    "enabled": true,
-                    "mandatory": false,
-                    "attachmentAllowed": true,
-                    "detailsRequired": true,
-                    "aggregate": false
+                    "is_enabled": true,
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
+                    "is_aggregate": false
                 },
                 response: {
                     "success": true,
@@ -467,13 +684,28 @@
                     "message": "Document multi parts deleted successfully",
                 }
             },
-            'doc-multi-clone': {
+            'doc-multi-action': {
                 request: {
-                    "multi_parts_id": 1
+                    "action": "activate" // or "disable"
                 },
                 response: {
                     "success": true,
-                    "message": "Document multi parts cloned successfully",
+                    "message": "Document multi action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
                 }
             },
 
@@ -484,27 +716,17 @@
                 "response": [
                     {
                         "id": 1,
-                        "name": "Rule set name - optional",
-                        "effectivefromDate": "17-05-2024",
-                        "validtilldate": "17-05-2026",
+                        "name": "Rule set name",
+                        "effective_from_date": "17-05-2024",
+                        "valid_till_date": "17-05-2026",
+                        "is_mandatory": false,
+                        "is_attachment_allowed": true,
+                        "is_details_required": true,
                         "rules": [
                             {
                                 "typeid": 1,
                                 "operatorid": 1,
                                 "type_value_ids": [1, 2, 3],
-                                "mandatory": true
-                            },
-                            {
-                                "typeid": 1,
-                                "operatorid": 2,
-                                "type_value_ids": [1, 2, 3],
-                                "mandatory": false
-                            },
-                            {
-                                "type": "Seafarer State",
-                                "operatorid": 3,
-                                "type_value_ids": [1, 2, 3],
-                                "mandatory": true
                             }
                         ]
                     }
@@ -517,54 +739,34 @@
                 },
                 "response": {
                     "id": 1,
-                    "name": "Rule set name - optional",
-                    "effectivefromDate": "17-05-2024",
-                    "validtilldate": "17-05-2026",
+                    "name": "Rule set name",
+                    "effective_from_date": "17-05-2024",
+                    "valid_till_date": "17-05-2026",
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
                     "rules": [
                         {
                             "typeid": 1,
                             "operatorid": 1,
                             "type_value_ids": [1, 2, 3],
-                            "mandatory": true
-                        },
-                        {
-                            "typeid": 1,
-                            "operatorid": 2,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": false
-                        },
-                        {
-                            "type": "Seafarer State",
-                            "operatorid": 3,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": true
                         }
                     ]
                 }
             },
             "doc-ruleset-post": {
                 "request": {
-                    "name": "Rule set name - optional",
-                    "effectivefromDate": "17-05-2024",
-                    "validtilldate": "17-05-2026",
+                    "name": "Rule set name",
+                    "effective_from_date": "17-05-2024",
+                    "valid_till_date": "17-05-2026",
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
                     "rules": [
                         {
                             "typeid": 1,
                             "operatorid": 1,
                             "type_value_ids": [1, 2, 3],
-                            "mandatory": true
-                        },
-                        {
-                            "typeid": 1,
-                            "operatorid": 2,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": false
-                        },
-                        {
-                            "type": "Seafarer State",
-                            "operatorid": 3,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": true
                         }
                     ]
                 },
@@ -575,27 +777,17 @@
             },
             "doc-ruleset-put": {
                 "request": {
-                    "name": "Rule set name - optional",
-                    "effectivefromDate": "17-05-2024",
-                    "validtilldate": "17-05-2026",
+                    "name": "Rule set name",
+                    "effective_from_date": "17-05-2024",
+                    "valid_till_date": "17-05-2026",
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
                     "rules": [
                         {
                             "typeid": 1,
                             "operatorid": 1,
                             "type_value_ids": [1, 2, 3],
-                            "mandatory": true
-                        },
-                        {
-                            "typeid": 1,
-                            "operatorid": 2,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": false
-                        },
-                        {
-                            "type": "Seafarer State",
-                            "operatorid": 3,
-                            "type_value_ids": [1, 2, 3],
-                            "mandatory": true
                         }
                     ]
                 },
@@ -613,13 +805,28 @@
                     "message": "Document ruleset deleted successfully"
                 }
             },
-            "doc-ruleset-clone": {
-                "request": {
-                    "ruleset_id": 1
+            "doc-ruleset-action": {
+                request: {
+                    "action": "activate" // or "disable"
                 },
-                "response": {
+                response: {
                     "success": true,
-                    "message": "Document ruleset cloned successfully"
+                    "message": "Document ruleset action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
                 }
             },
             "doc-ruleset-ruletype": {
@@ -660,6 +867,473 @@
                     "id": 2,
                     "ruletypevalue": "Oil Tanker"
                 }]
+            },
+            "doc-master-list": {
+                "request": {
+
+                },
+                "response": [{
+                    "id": 1,
+                    "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
+                }]
+            },
+            "doc-master-details": {
+                "request": {
+                    "id": 1,
+                },
+                "response": {
+                    "id": 1,
+                    "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
+                    "description": "Pre Joining Employment Medical Examination",
+                    "type": {
+                        "document_type": "Travel Documents",
+                        "document_sub_type": "International Travel Documents"
+                    }
+                }
+            },
+            "doc-master-displaygroup": {
+                "request": {
+
+                },
+                "response": [{
+                    "id": 1,
+                    "name": "Medical Certificate",
+                },
+                {
+                    "id": 2,
+                    "name": "Flag Certificate",
+                }]
+            },
+            'doc-master-type-list': {
+                request: {
+                },
+                "response": [
+                    {
+                        "id": 1,
+                        "name": "Travel Document",
+                    },
+                    {
+                        "id": 2,
+                        "name": "Inhouse Document",
+                    },
+                ]
+            },
+            'doc-master-type-details': {
+                request: {
+                    "id": "1",
+                    "type_id": "1"
+                },
+                "response":
+                {
+                    "id": 1,
+                    "name": "Travel Document",
+                }
+            },
+            'doc-master-type-post': {
+                request: {
+                    "name": "Travel Document",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document type added successfully",
+                }
+            },
+            'doc-master-type-put': {
+                request: {
+                    "name": "Travel Document",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document type updated successfully",
+                }
+            },
+            'doc-master-type-delete': {
+                request: {
+                    "type_ids": [1, 2, 3]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document type deleted successfully",
+                }
+            },
+            'doc-master-subtype-list': {
+                request: {
+                },
+                "response": [
+                    {
+                        "id": 1,
+                        "name": "Training Certificate",
+                    },
+                    {
+                        "id": 2,
+                        "name": "International Travel Document",
+                    },
+                ]
+            },
+            'doc-master-subtype-details': {
+                request: {
+                    "id": "1",
+                    "subtype_id": "1"
+                },
+                "response":
+                {
+                    "id": 1,
+                    "name": "Training Certificate",
+                }
+            },
+            'doc-master-subtype-post': {
+                request: {
+                    "name": "International Travel Document",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document subtype added successfully",
+                }
+            },
+            'doc-master-subtype-put': {
+                request: {
+                    "name": "Training Certificate",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document subtype updated successfully",
+                }
+            },
+            'doc-master-subtype-delete': {
+                request: {
+                    "subtype_ids": [1, 2, 3]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document subtype deleted successfully",
+                }
+            },
+            'doc-master-tags-list': {
+                request: {
+                },
+                "response": [
+                    {
+                        "id": 1,
+                        "name": "Visa",
+                    },
+                    {
+                        "id": 2,
+                        "name": "domestic",
+                    },
+                ]
+            },
+            'doc-master-tags-details': {
+                request: {
+                    "id": "1",
+                    "tags_id": "1"
+                },
+                "response":
+                {
+                    "id": 1,
+                    "name": "domestic",
+                }
+            },
+            'doc-master-tags-post': {
+                request: {
+                    "name": "Visa",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document tags added successfully",
+                }
+            },
+            'doc-master-tags-put': {
+                request: {
+                    "name": "Visa",
+                },
+                response: {
+                    "success": true,
+                    "message": "Document tags updated successfully",
+                }
+            },
+            'doc-master-tags-delete': {
+                request: {
+                    "tags_ids": [1, 2, 3]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document tags deleted successfully",
+                }
+            },
+            'doc-seafarer-list': {
+                request: {
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null
+                },
+                response: {
+                    "id": "1",
+                    "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
+                    "description": "Pre Joining Employment Medical Examination",
+                    "type": {
+                        "id": 1,
+                        "name": "Travel Documents",
+                        "subType": {
+                            "id": 2,
+                            "name": "International Travel Documents"
+                        }
+                    },
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "TagName1"
+                        },
+                        {
+                            "id": 2,
+                            "name": "TagName2"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": 1,
+                        "name": "Medical Certificate"
+                    },
+                    "settings": {
+                        "is_mandatory": true,
+                        "is_uploaded": false,
+                        "is_multiple_parts": true,
+                        "verification": {
+                            "isVerificationRequired": false,
+                            "isVerified": false,
+                            "verifiedDate": null
+                        },
+                    }
+                }
+            },
+            'doc-seafarer-details': {
+                request: {
+                },
+                response: {
+                    "id": "1",
+                    "name": "Pre Joining Employment Medical Examination",
+                    "code": "PRE-JOIN",
+                    "description": "Pre Joining Employment Medical Examination",
+                    "type": {
+                        "id": 1,
+                        "name": "Travel Documents",
+                        "subType": {
+                            "id": 2,
+                            "name": "International Travel Documents"
+                        }
+                    },
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "TagName1"
+                        },
+                        {
+                            "id": 2,
+                            "name": "TagName2"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": 1,
+                        "name": "Medical Certificate"
+                    },
+                    "status": "verified",
+                    "settings": {
+                        "is_mandatory": true,
+                        "is_uploaded": false,
+                        "is_multiple_parts": true,
+                        "allow_multiple_attachments": true,
+                        "is_internal_document": false,
+                        "option_to_create_purchase_order": false,
+                        "is_bypass_approval_required": false,
+                        "verification": {
+                            "isVerificationRequired": false,
+                            "isVerified": false,
+                            "verifiedDate": null
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_document": false
+                        },
+                        "comment_details": {
+                            "approval_comment": "",
+                            "remark_comment": "",
+                            "document_bypass_comment": null
+                        },
+                        "field-aplicable": {
+                            "button_lable": {
+                                "save_label": "Save",
+                                "update_label": "Update",
+                                "discard_label": "Discard"
+                            },
+                            "fields": [
+                                {
+                                    "id": 1,
+                                    "enabled": true,
+                                    "order": 1,
+                                    "file_type_id": "1",
+                                    "field_name": "Issue Date",
+                                    "title": "Issue date",
+                                    "place_holder": "YYYY-MM-DD",
+                                    "options_value": [],
+                                    "is_mandatory": true,
+                                    "validations": [
+                                        {
+                                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                            "message": "Please enter a date in the format YYYY-MM-DD"
+                                        }
+                                    ],
+                                    "style": {
+                                        "width": "100%"
+                                    },
+                                    "selected_value": "2023-05-19"
+                                },
+                                {
+                                    "id": 3,
+                                    "enabled": true,
+                                    "order": 2,
+                                    "file_type_id": "3",
+                                    "field_name": "subscriptionPlan",
+                                    "title": "Subscription Plan",
+                                    "type": "radio",
+                                    "options_value": [
+                                        { "value": "basic", "label": "Basic" },
+                                        { "value": "premium", "label": "Premium" },
+                                        { "value": "pro", "label": "Pro" }
+                                    ],
+                                    "is_mandatory": true,
+                                    "style": {
+                                        "width": "100%",
+                                    },
+                                    "selected_value": "basic"
+                                }
+                            ]
+
+                        },
+                        "document_files": [
+                            {
+                                "id": "161220",
+                                "file_name": "ahoyweb1.PNG",
+                                "file_content_type": "image/png",
+                                "file_size": 27004,
+                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
+                                "upload_date": "2023-05-19",
+                                "uploaded_by": "User123",
+                                "status": "uploaded",
+                                "versions": [{
+                                    "id": "161221",
+                                    "file_name": "ahoyweb1121.PNG",
+                                    "file_content_type": "image/png",
+                                    "file_size": 27004,
+                                    "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
+                                    "upload_date": "2023-05-19",
+                                    "uploaded_by": "User1",
+                                    "status": "uploaded"
+                                },
+                                {
+                                    "id": "161222",
+                                    "file_name": "ahoyweb1788.PNG",
+                                    "file_content_type": "image/png",
+                                    "file_size": 27004,
+                                    "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
+                                    "upload_date": "2023-05-20",
+                                    "uploaded_by": "User2",
+                                    "status": "uploaded"
+                                }]
+                            }
+                        ]
+                    }
+                }
+            },
+            'doc-seafarer-fields-post': {
+                request: {
+                    "fields": [{
+                        "field_id": 1,
+                        "selected_value": "2023-05-19"
+                    },
+                    {
+                        "field_id": 3,
+                        "selected_value": "basic"
+                    },
+                    ]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document field added successfully"
+                },
+                comments: {
+                    "response": {
+                        "success": {
+                            "type": "boolean",
+                            "description": "Indicates whether the operation was successful. A value of true means the operation was successful, while false means it failed."
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "A message providing details about the operation's result."
+                        },
+                        "error": {
+                            "type": "string",
+                            "description": "A detailed error message explaining why the operation failed. This field is only present when 'success' is false."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-fields-put': {
+                request: {
+                    "fields": [{
+                        "field_id": 1,
+                        "selected_value": "2023-05-19"
+                    },
+                    {
+                        "field_id": 3,
+                        "selected_value": "basic"
+                    },
+                    ]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document field updated successfully"
+                },
+                comments: {
+                    "response": {
+                        "success": {
+                            "type": "boolean",
+                            "description": "Indicates whether the operation was successful. A value of true means the operation was successful, while false means it failed."
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "A message providing details about the operation's result."
+                        },
+                        "error": {
+                            "type": "string",
+                            "description": "A detailed error message explaining why the operation failed. This field is only present when 'success' is false."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-fields-delete': {
+                request: {
+                },
+                response: {
+                    "success": true,
+                    "message": "Document field deleted successfully"
+                }
+            },
+            'doc-seafarer-document-upload': {
+                request: {
+                    "document_files": [
+                        {
+                            "file_name": "ahoyweb1.PNG",
+                            "file_content_type": "image/png",
+                            "file_uploaded_path": "IN-540540670/Document/general_certificate",
+                        }]
+                },
+                response: {
+                    "success": true,
+                    "message": "Document uploaded successfully"
+                }
             }
         };
 
@@ -677,15 +1351,18 @@
             var requestHeader = document.getElementById("request-doc-header");
             var requestDoc = document.getElementById("request-doc-app");
             var responseDoc = document.getElementById("response-doc-app");
+            var commentsDoc = document.getElementById("comments-doc-app");
 
             if (apiData.hasOwnProperty(apiName)) {
                 requestHeader.textContent = apiDescription;
                 displayJson('request-doc-app', apiData[apiName].request);
                 displayJson('response-doc-app', apiData[apiName].response);
+                displayJson('comments-doc-app', apiData[apiName].comments);
             } else {
                 requestHeader.textContent = "Documentation Not Found";
                 requestDoc.textContent = "No documentation available for this API.";
                 responseDoc.textContent = "No documentation available for this API.";
+                commentsDoc.textContent = "No comments available for this API.";
             }
         }
 
