@@ -176,7 +176,8 @@
                 </ul>
                 <h3>Seafarer API</h3>
                 <ul>
-                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post /api/seafarer/{cdc_number}/documents/list</a>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post
+                            /api/seafarer/{cdc_number}/documents/list</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
                             /api/seafarer/{cdc_number}/document/{doc_id}/details</a>
@@ -220,22 +221,23 @@
                 request: {
                     "page_number": 1,
                     "page_size": 8,
-                    "document_name": "",
-                    "sort_column": "",
-                    "sort_direction": "",
-                    "document_type_ids": [],
-                    "document_subtype_ids": [],
-                    "ecdis_ids": [],
-                    "rank_ids": [],
-                    "vessel_category_ids": [],
-                    "vessel_ids": [],
+                    "document_name": null,
+                    "sort_column": null,
+                    "sort_direction": null,
+                    "document_type_ids": null,
+                    "document_subtype_ids": null,
+                    "ecdis_ids": null,
+                    "rank_ids": null,
+                    "vessel_category_ids": null,
+                    "vessel_ids": null,
                     "mandatory": true
-                },
+                }
+                ,
                 response: {
                     "total_records": 1,
                     "data": [
                         {
-                            "id": "1",
+                            "document_id": "1",
                             "name": "Pre Joining Employment Medical Examination",
                             "code": "PRE-JOIN",
                             "description": "Pre Joining Employment Medical Examination",
@@ -318,25 +320,20 @@
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
                         "id": 1,
-                        "name": "Travel Documents",
                         "subType": {
-                            "id": 2,
-                            "name": "International Travel Documents"
+                            "id": 2
                         }
                     },
                     "tags": [
                         {
                             "id": 1,
-                            "name": "TagName1"
                         },
                         {
-                            "id": 2,
-                            "name": "TagName2"
+                            "id": 2
                         }
                     ],
                     "displaygroup": {
-                        "id": 1,
-                        "name": "Medical Certificate"
+                        "id": 1
                     },
                     "period": {
                         "cushion_period": 30,
@@ -375,25 +372,20 @@
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
                         "id": 1,
-                        "name": "Travel Documents",
                         "subType": {
-                            "id": 2,
-                            "name": "International Travel Documents"
+                            "id": 2
                         }
                     },
                     "tags": [
                         {
                             "id": 1,
-                            "name": "TagName1"
                         },
                         {
-                            "id": 2,
-                            "name": "TagName2"
+                            "id": 2
                         }
                     ],
                     "displaygroup": {
-                        "id": 1,
-                        "name": "Medical Certificate"
+                        "id": 1
                     },
                     "period": {
                         "cushion_period": 30,
@@ -438,12 +430,11 @@
                         "action": {
                             "type": "string",
                             "description": "Specifies the action to be performed.",
-                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enum": ["clone", "active", "inaction"],
                             "enumDescriptions": {
                                 "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
                                 "active": "Marks the document as active.",
-                                "inaction": "Marks the document as inactive.",
-                                "delete": "Deletes the specified document."
+                                "inaction": "Marks the document as inactive."
                             }
                         }
                     }
@@ -464,7 +455,7 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "field_id": 1,
                         "enabled": true,
                         "file_type_id": "1",
                         "field_name": "Issue Date",
@@ -481,7 +472,7 @@
                         ]
                     },
                     {
-                        "id": 2,
+                        "field_id": 2,
                         "enabled": true,
                         "file_type_id": "1",
                         "field_name": "Expiration Date",
@@ -506,7 +497,7 @@
                 },
                 "response":
                 {
-                    "id": 1,
+                    "field_id": 1,
                     "enabled": true,
                     "file_type_id": "1",
                     "field_name": "Issue Date",
@@ -527,7 +518,6 @@
                 request: {
                     "enabled": true,
                     "file_type_id": "1",
-                    "field_name": "Issue Date",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -549,7 +539,6 @@
                 request: {
                     "enabled": true,
                     "file_type_id": "1",
-                    "field_name": "Issue Date",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -606,7 +595,7 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "part_id": 1,
                         "name": "CRA",
                         "number": "I",
                         "is_enabled": true,
@@ -616,7 +605,7 @@
                         "is_aggregate": false
                     },
                     {
-                        "id": 2,
+                        "part_id": 2,
                         "name": "Full time /",
                         "number": "II",
                         "is_enabled": true,
@@ -634,7 +623,7 @@
                 },
                 "response":
                 {
-                    "id": 1,
+                    "part_id": 1,
                     "name": "CRA",
                     "number": "I",
                     "is_enabled": true,
@@ -715,7 +704,7 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "ruleset_id": 1,
                         "name": "Rule set name",
                         "effective_from_date": "17-05-2024",
                         "valid_till_date": "17-05-2026",
@@ -724,6 +713,7 @@
                         "is_details_required": true,
                         "rules": [
                             {
+                                "rule_id": 1,
                                 "typeid": 1,
                                 "operatorid": 1,
                                 "type_value_ids": [1, 2, 3],
@@ -738,7 +728,7 @@
                     "ruleset_id": "1"
                 },
                 "response": {
-                    "id": 1,
+                    "ruleset_id": 1,
                     "name": "Rule set name",
                     "effective_from_date": "17-05-2024",
                     "valid_till_date": "17-05-2026",
@@ -747,6 +737,7 @@
                     "is_details_required": true,
                     "rules": [
                         {
+                            "rule_id": 1,
                             "typeid": 1,
                             "operatorid": 1,
                             "type_value_ids": [1, 2, 3],
@@ -834,11 +825,11 @@
 
                 },
                 "response": [{
-                    "id": 1,
+                    "ruletype_id": 1,
                     "ruletype": "Rank"
                 },
                 {
-                    "id": 2,
+                    "ruletype_id": 2,
                     "ruletype": "Doc"
                 }]
             },
@@ -847,11 +838,11 @@
 
                 },
                 "response": [{
-                    "id": 1,
+                    "operator_id": 1,
                     "operator": "Contain"
                 },
                 {
-                    "id": 2,
+                    "operator_id": 2,
                     "operator": "equal"
                 }]
             },
@@ -873,7 +864,7 @@
 
                 },
                 "response": [{
-                    "id": 1,
+                    "document_id": 1,
                     "name": "Pre Joining Employment Medical Examination",
                     "code": "PRE-JOIN",
                 }]
@@ -883,7 +874,7 @@
                     "id": 1,
                 },
                 "response": {
-                    "id": 1,
+                    "document_id": 1,
                     "name": "Pre Joining Employment Medical Examination",
                     "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
@@ -898,11 +889,11 @@
 
                 },
                 "response": [{
-                    "id": 1,
+                    "displaygroup_id": 1,
                     "name": "Medical Certificate",
                 },
                 {
-                    "id": 2,
+                    "displaygroup_id": 2,
                     "name": "Flag Certificate",
                 }]
             },
@@ -911,23 +902,23 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "type_id": 1,
                         "name": "Travel Document",
                     },
                     {
-                        "id": 2,
+                        "type_id": 2,
                         "name": "Inhouse Document",
                     },
                 ]
             },
             'doc-master-type-details': {
                 request: {
-                    "id": "1",
+                    "document_type_id": "1",
                     "type_id": "1"
                 },
                 "response":
                 {
-                    "id": 1,
+                    "type_id": 1,
                     "name": "Travel Document",
                 }
             },
@@ -963,23 +954,23 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "subtype_id": 1,
                         "name": "Training Certificate",
                     },
                     {
-                        "id": 2,
+                        "subtype_id": 2,
                         "name": "International Travel Document",
                     },
                 ]
             },
             'doc-master-subtype-details': {
                 request: {
-                    "id": "1",
+                    "document_subtype_id": "1",
                     "subtype_id": "1"
                 },
                 "response":
                 {
-                    "id": 1,
+                    "subtype_id": 1,
                     "name": "Training Certificate",
                 }
             },
@@ -1015,11 +1006,11 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "tag_id": 1,
                         "name": "Visa",
                     },
                     {
-                        "id": 2,
+                        "tag_id": 2,
                         "name": "domestic",
                     },
                 ]
@@ -1031,7 +1022,7 @@
                 },
                 "response":
                 {
-                    "id": 1,
+                    "tag_id": 1,
                     "name": "domestic",
                 }
             },
@@ -1065,10 +1056,15 @@
             'doc-seafarer-list': {
                 request: {
                     "type": {
-                        "document_type_id": null,
-                        "document_sub_type_id": null
+                        "document_type": null,
+                        "document_sub_type": null
                     },
-                    "display_group_id": null
+                    "display_group": null,
+                    "rules": [{
+                        rule_type: null,
+                        rule_operator: null,
+                        rule_type_value: null,
+                    }]
                 },
                 response: {
                     "id": "1",
@@ -1076,25 +1072,25 @@
                     "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "id": 1,
+                        "type_id": 1,
                         "name": "Travel Documents",
                         "subType": {
-                            "id": 2,
+                            "subType_id": 2,
                             "name": "International Travel Documents"
                         }
                     },
                     "tags": [
                         {
-                            "id": 1,
+                            "tag_id": 1,
                             "name": "TagName1"
                         },
                         {
-                            "id": 2,
+                            "tag_id": 2,
                             "name": "TagName2"
                         }
                     ],
                     "displaygroup": {
-                        "id": 1,
+                        "displaygroup_id": 1,
                         "name": "Medical Certificate"
                     },
                     "settings": {
@@ -1118,25 +1114,25 @@
                     "code": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "id": 1,
+                        "type_id": 1,
                         "name": "Travel Documents",
                         "subType": {
-                            "id": 2,
+                            "subType_id": 2,
                             "name": "International Travel Documents"
                         }
                     },
                     "tags": [
                         {
-                            "id": 1,
+                            "tag_id": 1,
                             "name": "TagName1"
                         },
                         {
-                            "id": 2,
+                            "tag_id": 2,
                             "name": "TagName2"
                         }
                     ],
                     "displaygroup": {
-                        "id": 1,
+                        "displaygroup_id": 1,
                         "name": "Medical Certificate"
                     },
                     "status": "verified",
@@ -1170,7 +1166,7 @@
                             },
                             "fields": [
                                 {
-                                    "id": 1,
+                                    "field_id": 1,
                                     "enabled": true,
                                     "order": 1,
                                     "file_type_id": "1",
@@ -1191,7 +1187,7 @@
                                     "selected_value": "2023-05-19"
                                 },
                                 {
-                                    "id": 3,
+                                    "field_id": 3,
                                     "enabled": true,
                                     "order": 2,
                                     "file_type_id": "3",
@@ -1214,7 +1210,7 @@
                         },
                         "document_files": [
                             {
-                                "id": "161220",
+                                "file_id": "161220",
                                 "file_name": "ahoyweb1.PNG",
                                 "file_content_type": "image/png",
                                 "file_size": 27004,
@@ -1233,7 +1229,7 @@
                                     "status": "uploaded"
                                 },
                                 {
-                                    "id": "161222",
+                                    "file_id": "161222",
                                     "file_name": "ahoyweb1788.PNG",
                                     "file_content_type": "image/png",
                                     "file_size": 27004,
