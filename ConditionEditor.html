@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Condition Editor</title>
+  <style>
+    .condition-editor {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .condition-row {
+      margin-bottom: 15px;
+    }
+    .condition-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="condition-editor">
+    <h3>Condition Editor</h3>
+    <div id="conditionsContainer"></div>
+    <button id="addConditionButton">Add Condition</button>
+    <div class="actions">
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const controls = [
+      { id: 'issuing_authority', name: 'Issuing Authority' },
+      { id: 'place_of_issue', name: 'Place of Issue' },
+      { id: 'alternate_field', name: 'Alternate Field' }
+    ];
+
+    const conditionsContainer = document.getElementById('conditionsContainer');
+
+    document.getElementById('addConditionButton').addEventListener('click', addCondition);
+
+    function addCondition() {
+      const conditionRow = document.createElement('div');
+      conditionRow.classList.add('condition-row');
+
+      const controlSelect = document.createElement('select');
+      controlSelect.classList.add('control-select');
+      controls.forEach(control => {
+        const option = document.createElement('option');
+        option.value = control.id;
+        option.textContent = control.name;
+        controlSelect.appendChild(option);
+      });
+
+      const valueInput = document.createElement('input');
+      valueInput.type = 'text';
+      valueInput.placeholder = 'Trigger value';
+      valueInput.classList.add('trigger-value');
+
+      const actionSelect = document.createElement('select');
+      actionSelect.classList.add('action-select');
+      const showOption = document.createElement('option');
+      showOption.value = 'show';
+      showOption.textContent = 'Show';
+      actionSelect.appendChild(showOption);
+      const hideOption = document.createElement('option');
+      hideOption.value = 'hide';
+      hideOption.textContent = 'Hide';
+      actionSelect.appendChild(hideOption);
+
+      const targetSelect = document.createElement('select');
+      targetSelect.classList.add('target-select');
+      controls.forEach(control => {
+        const option = document.createElement('option');
+        option.value = control.id;
+        option.textContent = control.name;
+        targetSelect.appendChild(option);
+      });
+
+      conditionRow.appendChild(controlSelect);
+      conditionRow.appendChild(valueInput);
+      conditionRow.appendChild(actionSelect);
+      conditionRow.appendChild(targetSelect);
+
+      conditionsContainer.appendChild(conditionRow);
+    }
+
+    document.getElementById('saveButton').addEventListener('click', saveConditions);
+    document.getElementById('cancelButton').addEventListener('click', () => {
+      conditionsContainer.innerHTML = '';
+    });
+
+    function saveConditions() {
+      const conditions = [];
+      const conditionRows = conditionsContainer.getElementsByClassName('condition-row');
+      for (const row of conditionRows) {
+        const controlId = row.querySelector('.control-select').value;
+        const triggerValue = row.querySelector('.trigger-value').value;
+        const actionType = row.querySelector('.action-select').value;
+        const targetControlId = row.querySelector('.target-select').value;
+
+        conditions.push({
+          control_to_monitor: controlId,
+          trigger_value: triggerValue,
+          action: {
+            type: actionType,
+            target: targetControlId
+          }
+        });
+      }
+
+      console.log('Saved Conditions:', conditions);
+      // Here you would typically send the conditions to your server or update your form configuration.
+    }
+  </script>
+</body>
+</html>
