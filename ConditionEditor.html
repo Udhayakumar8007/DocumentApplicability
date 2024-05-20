@@ -4,25 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Condition Editor</title>
-  <style>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
     .condition-editor {
       border: 1px solid #ccc;
       padding: 20px;
       border-radius: 5px;
-      max-width: 400px;
+      max-width: 600px;
       margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .condition-row {
       margin-bottom: 15px;
-    }
-    .condition-actions {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .condition-row label {
+      flex: 0 0 100%;
+      margin-bottom: 5px;
+      font-size: small; /* Set font size for labels */
+    }
+    .condition-row select,
+    .condition-row input {
+      flex: 0 0 calc(50% - 5px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-top: 5px;
     }
     .actions {
+      margin-top: 20px;
       display: flex;
-      gap: 10px;
+      justify-content: flex-end;
+    }
+    .actions button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .actions button:hover {
+      background-color: #f0f0f0;
+    }
+    .actions button.primary {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .actions button.primary:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -32,95 +69,134 @@
     <div id="conditionsContainer"></div>
     <button id="addConditionButton">Add Condition</button>
     <div class="actions">
-      <button id="saveButton">Save</button>
+      <button id="saveButton" class="primary">Save</button>
       <button id="cancelButton">Cancel</button>
     </div>
   </div>
 
   <script>
-    const controls = [
-      { id: 'issuing_authority', name: 'Issuing Authority' },
-      { id: 'place_of_issue', name: 'Place of Issue' },
-      { id: 'alternate_field', name: 'Alternate Field' }
-    ];
+    document.addEventListener("DOMContentLoaded", function() {
+      const controls = [
+        { id: 'issuing_authority', name: 'Issuing Authority' },
+        { id: 'place_of_issue', name: 'Place of Issue' },
+        { id: 'alternate_field', name: 'Alternate Field' }
+      ];
 
-    const conditionsContainer = document.getElementById('conditionsContainer');
+      const actions = [
+        { id: 'show', name: 'Show' },
+        { id: 'hide', name: 'Hide' },
+        { id: 'enable', name: 'Enable' },
+        { id: 'disable', name: 'Disable' },
+        { id: 'require', name: 'Require' },
+        { id: 'optional', name: 'Optional' },
+        { id: 'set_value', name: 'Set Value' },
+        { id: 'clear_value', name: 'Clear Value' } 
+      ];
 
-    document.getElementById('addConditionButton').addEventListener('click', addCondition);
+      const conditionsContainer = document.getElementById('conditionsContainer');
 
-    function addCondition() {
-      const conditionRow = document.createElement('div');
-      conditionRow.classList.add('condition-row');
+      document.getElementById('addConditionButton').addEventListener('click', addCondition);
 
-      const controlSelect = document.createElement('select');
-      controlSelect.classList.add('control-select');
-      controls.forEach(control => {
-        const option = document.createElement('option');
-        option.value = control.id;
-        option.textContent = control.name;
-        controlSelect.appendChild(option);
-      });
+      function addCondition() {
+        const conditionRow = document.createElement('div');
+        conditionRow.classList.add('condition-row');
 
-      const valueInput = document.createElement('input');
-      valueInput.type = 'text';
-      valueInput.placeholder = 'Trigger value';
-      valueInput.classList.add('trigger-value');
+        const controlLabel = createLabel('Select Control');
+        const controlSelect = createSelect(controls);
 
-      const actionSelect = document.createElement('select');
-      actionSelect.classList.add('action-select');
-      const showOption = document.createElement('option');
-      showOption.value = 'show';
-      showOption.textContent = 'Show';
-      actionSelect.appendChild(showOption);
-      const hideOption = document.createElement('option');
-      hideOption.value = 'hide';
-      hideOption.textContent = 'Hide';
-      actionSelect.appendChild(hideOption);
+        const valueLabel = createLabel('Trigger Value');
+        const valueInput = createInput('text', 'Trigger value', 'trigger-value');
 
-      const targetSelect = document.createElement('select');
-      targetSelect.classList.add('target-select');
-      controls.forEach(control => {
-        const option = document.createElement('option');
-        option.value = control.id;
-        option.textContent = control.name;
-        targetSelect.appendChild(option);
-      });
+        const actionLabel = createLabel('Select Action');
+        const actionSelect = createSelect(actions);
 
-      conditionRow.appendChild(controlSelect);
-      conditionRow.appendChild(valueInput);
-      conditionRow.appendChild(actionSelect);
-      conditionRow.appendChild(targetSelect);
+        const targetLabel = createLabel('Target Control');
+        const targetSelect = createSelect(controls);
 
-      conditionsContainer.appendChild(conditionRow);
-    }
+        conditionRow.appendChild(controlLabel);
+        conditionRow.appendChild(controlSelect);
+        conditionRow.appendChild(valueLabel);
+        conditionRow.appendChild(valueInput);
+        conditionRow.appendChild(actionLabel);
+        conditionRow.appendChild(actionSelect);
+        conditionRow.appendChild(targetLabel);
+        conditionRow.appendChild(targetSelect);
 
-    document.getElementById('saveButton').addEventListener('click', saveConditions);
-    document.getElementById('cancelButton').addEventListener('click', () => {
-      conditionsContainer.innerHTML = '';
-    });
-
-    function saveConditions() {
-      const conditions = [];
-      const conditionRows = conditionsContainer.getElementsByClassName('condition-row');
-      for (const row of conditionRows) {
-        const controlId = row.querySelector('.control-select').value;
-        const triggerValue = row.querySelector('.trigger-value').value;
-        const actionType = row.querySelector('.action-select').value;
-        const targetControlId = row.querySelector('.target-select').value;
-
-        conditions.push({
-          control_to_monitor: controlId,
-          trigger_value: triggerValue,
-          action: {
-            type: actionType,
-            target: targetControlId
-          }
-        });
+        conditionsContainer.appendChild(conditionRow);
       }
 
-      console.log('Saved Conditions:', conditions);
-      // Here you would typically send the conditions to your server or update your form configuration.
-    }
+      function createLabel(text) {
+        const label = document.createElement('label');
+        label.textContent = text;
+        return label;
+      }
+
+      function createSelect(options) {
+        const select = document.createElement('select');
+        options.forEach(option => {
+          const optionElement = document.createElement('option');
+          optionElement.value = option.id;
+          optionElement.textContent = option.name;
+          select.appendChild(optionElement);
+        });
+        return select;
+      }
+
+      function createInput(type, placeholder, className) {
+        const input = document.createElement('input');
+        input.type = type;
+        input.placeholder = placeholder;
+        input.classList.add(className);
+        return input;
+      }
+
+      document.getElementById('saveButton').addEventListener('click', saveConditions);
+      document.getElementById('cancelButton').addEventListener('click', () => {
+        conditionsContainer.innerHTML = '';
+      });
+
+      function saveConditions() {
+        const conditions = {
+          show: [],
+          hide: [],
+          enable: [],
+          disable: [],
+          require: [],
+          optional: [],
+          set_value: [],
+          clear_value: [],
+          custom: []
+        };
+
+        const conditionRows = conditionsContainer.getElementsByClassName('condition-row');
+        for (const row of conditionRows) {
+          const controlId = row.querySelector('.control-select').value;
+          const triggerValue = row.querySelector('.trigger-value').value;
+          const actionType = row.querySelector('.action-select').value;
+          const targetControlId = row.querySelector('.target-select').value;
+
+          const condition = {
+            control_to_monitor: controlId,
+            trigger_value: triggerValue,
+            target: targetControlId
+          };
+
+          // Add value for 'set_value' action type
+          if (actionType === 'set_value') {
+            const setValueInput = createInput('text', 'Value to set', 'set-value');
+            row.appendChild(setValueInput);
+            condition.value_to_set = setValueInput.value;
+          }
+
+          
+
+          conditions[actionType].push(condition);
+        }
+
+        console.log('Saved Conditions:', JSON.stringify(conditions, null, 2));
+        // Here you would typically send the conditions to your server or update your form configuration.
+      }
+    });
   </script>
 </body>
 </html>
