@@ -1197,16 +1197,6 @@
                         "allow_versioning": false,
                         "is_verification_required": false,
                         "is_verified": false,
-                        "verified_by": {
-                            "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
-                            "name": "Pratha A",
-                            "role": [
-                                "Administrator",
-                                "SynergyIdentityAdminAdministrator",
-                                "Documentation Executive"
-                            ],
-                            "date": "2022-03-15T07:12:28.255+00:00"
-                        },
                     }
                 }
             }, 'doc-seafarer-request': {
@@ -1263,127 +1253,128 @@
                         "is_bypass_approval_required": false,
                         "allow_versioning": false,
                         "is_verification_required": false,
-                        "is_verified": false,
-                        "verified_by": {
-                            "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
-                            "name": "Pratha A",
-                            "role": [
-                                "Administrator",
-                                "SynergyIdentityAdminAdministrator",
-                                "Documentation Executive"
-                            ],
-                            "date": "2022-03-15T07:12:28.255+00:00"
+                        "is_verified": false
+                    },
+                    "verified_by": {
+                        "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                        "name": "Pratha A",
+                        "role": [
+                            "Administrator",
+                            "SynergyIdentityAdminAdministrator",
+                            "Documentation Executive"
+                        ],
+                        "date": "2022-03-15T07:12:28.255+00:00"
+                    },
+                    "parent_document": {
+                        "document_id": null,
+                        "is_optional_document": false
+                    },
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    },
+                    "field-aplicable": {
+                        "button_lable": {
+                            "save_label": "Save",
+                            "update_label": "Update",
+                            "discard_label": "Discard"
                         },
-                        "parent_document": {
-                            "document_id": null,
-                            "is_optional_document": false
-                        },
-                        "comment_details": {
-                            "approval_comment": "",
-                            "remark_comment": "",
-                            "document_bypass_comment": null
-                        },
-                        "field-aplicable": {
-                            "button_lable": {
-                                "save_label": "Save",
-                                "update_label": "Update",
-                                "discard_label": "Discard"
-                            },
-                            "fields": [
-                                {
-                                    "field_id": 1,
-                                    "enabled": true,
-                                    "order": 1,
-                                    "file_type_id": "1",
-                                    "field_name": "Issue Date",
-                                    "title": "Issue date",
-                                    "place_holder": "YYYY-MM-DD",
-                                    "options_value": [],
-                                    "is_mandatory": true,
-                                    "validations": [
-                                        {
-                                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                            "message": "Please enter a date in the format YYYY-MM-DD"
-                                        }
-                                    ],
-                                    "style": {
-                                        "width": "100%"
-                                    },
-                                    "selected_value": "2023-05-19",
-                                    "condition": [{
-                                        "field_to_monitor_id": 1,
-                                        "field_to_monitor_name": "issuing_authority",
-                                        "trigger_value": "some_value",
-                                        "action": "show",
-                                        "field_target_id": 2,
-                                        "field_target_name": "place_of_issue",
-                                        "value_to_set": null
-                                    }]
-                                },
-                                {
-                                    "field_id": 3,
-                                    "enabled": true,
-                                    "order": 2,
-                                    "file_type_id": "3",
-                                    "field_name": "subscriptionPlan",
-                                    "title": "Subscription Plan",
-                                    "type": "radio",
-                                    "options_value": [
-                                        { "value": "basic", "label": "Basic" },
-                                        { "value": "premium", "label": "Premium" },
-                                        { "value": "pro", "label": "Pro" }
-                                    ],
-                                    "is_mandatory": true,
-                                    "style": {
-                                        "width": "100%",
-                                    },
-                                    "selected_value": "basic",
-                                    "condition": [{
-                                        "field_to_monitor_id": 1,
-                                        "field_to_monitor_name": "issuing_authority",
-                                        "trigger_value": "some_value",
-                                        "action": "show",
-                                        "field_target_id": 2,
-                                        "field_target_name": "place_of_issue",
-                                        "value_to_set": null
-                                    }]
-                                }
-                            ]
-
-                        },
-                        "document_files": [
+                        "fields": [
                             {
-                                "file_id": "161220",
-                                "file_name": "ahoyweb1.PNG",
+                                "field_id": 1,
+                                "enabled": true,
+                                "order": 1,
+                                "file_type_id": "1",
+                                "field_name": "Issue Date",
+                                "title": "Issue date",
+                                "place_holder": "YYYY-MM-DD",
+                                "options_value": [],
+                                "is_mandatory": true,
+                                "validations": [
+                                    {
+                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                        "message": "Please enter a date in the format YYYY-MM-DD"
+                                    }
+                                ],
+                                "style": {
+                                    "width": "100%"
+                                },
+                                "selected_value": "2023-05-19",
+                                "condition": [{
+                                    "field_to_monitor_id": 1,
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action": "show",
+                                    "field_target_id": 2,
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            },
+                            {
+                                "field_id": 3,
+                                "enabled": true,
+                                "order": 2,
+                                "file_type_id": "3",
+                                "field_name": "subscriptionPlan",
+                                "title": "Subscription Plan",
+                                "type": "radio",
+                                "options_value": [
+                                    { "value": "basic", "label": "Basic" },
+                                    { "value": "premium", "label": "Premium" },
+                                    { "value": "pro", "label": "Pro" }
+                                ],
+                                "is_mandatory": true,
+                                "style": {
+                                    "width": "100%",
+                                },
+                                "selected_value": "basic",
+                                "condition": [{
+                                    "field_to_monitor_id": 1,
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action": "show",
+                                    "field_target_id": 2,
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            }
+                        ]
+
+                    },
+                    "document_files": [
+                        {
+                            "file_id": "161220",
+                            "file_name": "ahoyweb1.PNG",
+                            "file_content_type": "image/png",
+                            "file_size": 27004,
+                            "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
+                            "upload_date": "2023-05-19",
+                            "uploaded_by": "User123",
+                            "status": "uploaded",
+                            "versions": [{
+                                "id": "161221",
+                                "file_name": "ahoyweb1121.PNG",
                                 "file_content_type": "image/png",
                                 "file_size": 27004,
                                 "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
                                 "upload_date": "2023-05-19",
-                                "uploaded_by": "User123",
-                                "status": "uploaded",
-                                "versions": [{
-                                    "id": "161221",
-                                    "file_name": "ahoyweb1121.PNG",
-                                    "file_content_type": "image/png",
-                                    "file_size": 27004,
-                                    "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
-                                    "upload_date": "2023-05-19",
-                                    "uploaded_by": "User1",
-                                    "status": "uploaded"
-                                },
-                                {
-                                    "file_id": "161222",
-                                    "file_name": "ahoyweb1788.PNG",
-                                    "file_content_type": "image/png",
-                                    "file_size": 27004,
-                                    "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
-                                    "upload_date": "2023-05-20",
-                                    "uploaded_by": "User2",
-                                    "status": "uploaded"
-                                }]
-                            }
-                        ]
-                    }
+                                "uploaded_by": "User1",
+                                "status": "uploaded"
+                            },
+                            {
+                                "file_id": "161222",
+                                "file_name": "ahoyweb1788.PNG",
+                                "file_content_type": "image/png",
+                                "file_size": 27004,
+                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
+                                "upload_date": "2023-05-20",
+                                "uploaded_by": "User2",
+                                "status": "uploaded"
+                            }]
+                        }
+                    ]
+
                 }
             },
             'doc-seafarer-fields-post': {
