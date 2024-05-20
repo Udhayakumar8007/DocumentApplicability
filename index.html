@@ -83,7 +83,11 @@
                             /document-applicability-admin/{id}</a></li>
                 </ul>
                 <ul>
-                    <h3>Field Applicable</h3>
+                    <h3>Field Applicable
+                        <a style="font-size: small; color: blue; display: contents;"
+                            href="https://raw.githack.com/Udhayakumar8007/DocumentApplicability/main/ConditionEditor.html"
+                            target="_blank">- Condition Editor UI</a>
+                    </h3>
                     <li><a href="#" onclick="showModel('doc-field-get',this)">Get
                             /document-applicability-admin/{id}/fields-applicable/list</a></li>
                     <li><a href="#" onclick="showModel('doc-field-details',this)">Get
@@ -96,6 +100,8 @@
                             /document-applicability-admin/{id}/fields-applicable/{field_id}/action</a></li>
                     <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete
                             /document-applicability-admin/{id}/fields-applicable</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
+                            /document-applicability-admin/{id}/fields-applicable/condition-action/list</a></li>
                 </ul>
                 <ul>
                     <h3>Multi Parts</h3>
@@ -176,6 +182,9 @@
                 </ul>
                 <h3>Seafarer API</h3>
                 <ul>
+                    <li><a href="#" onclick="showModel('doc-seafarer-section',this)">Get
+                            /api/seafarer/{cdc_number}/section-summary/list</a>
+                    </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post
                             /api/seafarer/{cdc_number}/documents/list</a>
                     </li>
@@ -449,6 +458,20 @@
                     "message": "Document applicability deleted successfully"
                 }
             },
+            'doc-field-condition': {
+                request: {
+                },
+                "response": [
+                    { "id": 1, "value": "show", "text": "Show" },
+                    { "id": 2, "value": "hide", "text": "Hide" },
+                    { "id": 3, "value": "enable", "text": "Enable" },
+                    { "id": 4, "value": "disable", "text": "Disable" },
+                    { "id": 5, "value": "require", "text": "Require" },
+                    { "id": 6, "value": "optional", "text": "Optional" },
+                    { "id": 7, "value": "set_value", "text": "Set Value" },
+                    { "id": 8, "value": "clear_value", "text": "Clear Value" }
+                ]
+            },
             'doc-field-get': {
                 request: {
                     "id": "1"
@@ -469,7 +492,16 @@
                                 "regex": "^\\d{4}-\\d{2}-\\d{2}$",
                                 "message": "Please enter a date in the format YYYY-MM-DD"
                             }
-                        ]
+                        ],
+                        "condition": [{
+                            "field_to_monitor_id": 1,
+                            "field_to_monitor_name": "issuing_authority",
+                            "trigger_value": "some_value",
+                            "action": "show",
+                            "field_target_id": 2,
+                            "field_target_name": "place_of_issue",
+                            "value_to_set": null
+                        }]
                     },
                     {
                         "field_id": 2,
@@ -486,7 +518,16 @@
                                 "regex": "^\\d{4}-\\d{2}-\\d{2}$",
                                 "message": "Please enter a date in the format YYYY-MM-DD"
                             }
-                        ]
+                        ],
+                        "condition": [{
+                            "field_to_monitor_id": 1,
+                            "field_to_monitor_name": "issuing_authority",
+                            "trigger_value": "some_value",
+                            "action": "show",
+                            "field_target_id": 2,
+                            "field_target_name": "place_of_issue",
+                            "value_to_set": null
+                        }]
                     }
                 ]
             },
@@ -511,7 +552,16 @@
                             "regex": "^\\d{4}-\\d{2}-\\d{2}$",
                             "message": "Please enter a date in the format YYYY-MM-DD"
                         }
-                    ]
+                    ],
+                    "condition": [{
+                            "field_to_monitor_id": 1,
+                            "field_to_monitor_name": "issuing_authority",
+                            "trigger_value": "some_value",
+                            "action": "show",
+                            "field_target_id": 2,
+                            "field_target_name": "place_of_issue",
+                            "value_to_set": null
+                        }]
                 }
             },
             'doc-field-post': {
@@ -528,7 +578,14 @@
                             "regex": "^\\d{4}-\\d{2}-\\d{2}$",
                             "message": "Please enter a date in the format YYYY-MM-DD"
                         }
-                    ]
+                    ],
+                    "condition": [{
+                            "field_to_monitor_id": 1,
+                            "trigger_value": "some_value",
+                            "action": "show",
+                            "field_target_id": 2,
+                            "value_to_set": null
+                        }]
                 },
                 response: {
                     "success": true,
@@ -549,7 +606,14 @@
                             "regex": "^\\d{4}-\\d{2}-\\d{2}$",
                             "message": "Please enter a date in the format YYYY-MM-DD"
                         }
-                    ]
+                    ],
+                    "condition": [{
+                            "field_to_monitor_id": 1,
+                            "trigger_value": "some_value",
+                            "action": "show",
+                            "field_target_id": 2,
+                            "value_to_set": null
+                        }]
                 },
                 response: {
                     "success": true,
@@ -1329,6 +1393,98 @@
                 response: {
                     "success": true,
                     "message": "Document uploaded successfully"
+                }
+            },
+            'doc-seafarer-section': {
+                request: {
+                },
+                response: {
+                    "section_summary": [
+                        {
+                            "is_complete": true,
+                            "section_identifier": "basic_details",
+                            "completed_fields_count": 7,
+                            "mandatory_fields_count": 7
+                        },
+                        {
+                            "is_complete": true,
+                            "section_identifier": "personal_details",
+                            "completed_fields_count": 2,
+                            "mandatory_fields_count": 2
+                        },
+                        {
+                            "is_complete": true,
+                            "section_identifier": "contact_details",
+                            "completed_fields_count": 3,
+                            "mandatory_fields_count": 3
+                        },
+                        {
+                            "is_complete": true,
+                            "section_identifier": "education_details",
+                            "completed_fields_count": 0,
+                            "mandatory_fields_count": 0
+                        },
+                        {
+                            "is_complete": true,
+                            "section_identifier": "family_details",
+                            "completed_fields_count": 0,
+                            "mandatory_fields_count": 0
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "other_details",
+                            "completed_fields_count": 0,
+                            "mandatory_fields_count": 6
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "documents",
+                            "completed_fields_count": 15,
+                            "mandatory_fields_count": 54
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "covid_19_vaccination_certificate",
+                            "completed_fields_count": 0,
+                            "mandatory_fields_count": 0
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "self_declaration_details",
+                            "completed_fields_count": 0,
+                            "mandatory_fields_count": 1
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "only_training_documents",
+                            "completed_fields_count": 1,
+                            "mandatory_fields_count": 10
+                        },
+                        {
+                            "is_complete": false,
+                            "section_identifier": "without_training_documents",
+                            "completed_fields_count": 14,
+                            "mandatory_fields_count": 44
+                        }
+                    ],
+                    "authentication_summary": {
+                        "is_complete": false,
+                        "section_identifier": "documents"
+                    },
+                    "expiring_document_summary": {
+                        "flag_doc": {
+                            "expiring_doc_count": 3
+                        },
+                        "training": {
+                            "expiring_doc_count": 1
+                        },
+                        "general_doc": {
+                            "expiring_doc_count": 15
+                        },
+                        "non_training": {
+                            "expiring_doc_count": 17
+                        }
+                    },
                 }
             }
         };
