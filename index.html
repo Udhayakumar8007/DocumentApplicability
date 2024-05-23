@@ -101,7 +101,9 @@
                     <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete
                             /document-applicability-admin/{id}/fields-applicable</a></li>
                     <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
-                            /document-applicability-admin/{id}/fields-applicable/condition-action/list</a></li>
+                            /document-applicability-admin/fields-applicable/condition-action/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-fields-type',this)">Get
+                            /document-applicability-admin/fields-applicable/fields/list</a></li>
                 </ul>
                 <ul>
                     <h3>Multi Parts</h3>
@@ -239,12 +241,18 @@
                     "document_name": null,
                     "sort_column": null,
                     "sort_direction": null,
-                    "document_type_ids": null,
-                    "document_subtype_ids": null,
-                    "ecdis_ids": null,
-                    "rank_ids": null,
-                    "vessel_category_ids": null,
-                    "vessel_ids": null,
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "rules": [
+                        {
+                            "rule_type_id": null,
+                            "rule_operator_id": null,
+                            "rule_type_value": null
+                        }
+                    ],
                     "mandatory": true
                 }
                 ,
@@ -466,7 +474,7 @@
             },
             'doc-field-condition': {
                 request: {
-                 },
+                },
                 "response": [
                     { "id": 1, "value": "show", "text": "Show" },
                     { "id": 2, "value": "hide", "text": "Hide" },
@@ -482,6 +490,19 @@
 
                 ]
             },
+            "doc-fields-type": {
+                "request": {},
+                "response": [
+                    { "id": 1, "value": "textbox", "text": "Text Box" },
+                    { "id": 2, "value": "textarea", "text": "Text Area" },
+                    { "id": 3, "value": "checkbox", "text": "Checkbox" },
+                    { "id": 4, "value": "radiobutton", "text": "Radio Button" },
+                    { "id": 5, "value": "dropdown", "text": "Dropdown" },
+                    { "id": 6, "value": "date", "text": "Date Picker" },
+                    { "id": 7, "value": "number", "text": "Number" },
+                    { "id": 8, "value": "email", "text": "Email" },
+                ]
+            },
             'doc-field-get': {
                 request: {
                     "id": "1"
@@ -491,6 +512,7 @@
                         "id": 1,
                         "enabled": true,
                         "file_type_id": "1",
+                        "file_type": "datepicker",
                         "field_name": "Issue Date",
                         "title": "Issue date",
                         "options_value": [],
@@ -504,8 +526,8 @@
                             }
                         ],
                         "condition": [{
-                            "field_to_monitor_id": 1,
-                            "field_to_monitor_name": "issuing_authority",
+                            "field_source_id": 1,
+                            "field_source_name": "issuing_authority",
                             "trigger_value": "some_value",
                             "action_id": 6,
                             "action_name": "show",
@@ -519,6 +541,7 @@
                         "id": 2,
                         "enabled": true,
                         "file_type_id": "1",
+                        "file_type": "datepicker",
                         "field_name": "Expiration Date",
                         "title": "Expiration date",
                         "options_value": [],
@@ -532,8 +555,8 @@
                             }
                         ],
                         "condition": [{
-                            "field_to_monitor_id": 1,
-                            "field_to_monitor_name": "issuing_authority",
+                            "field_source_id": 1,
+                            "field_source_name": "issuing_authority",
                             "trigger_value": "some_value",
                             "action_id": 6,
                             "action_name": "show",
@@ -555,6 +578,7 @@
                     "id": 1,
                     "enabled": true,
                     "file_type_id": "1",
+                    "file_type": "datepicker",
                     "field_name": "Issue Date",
                     "title": "Issue date",
                     "options_value": [],
@@ -568,8 +592,8 @@
                         }
                     ],
                     "condition": [{
-                        "field_to_monitor_id": 1,
-                        "field_to_monitor_name": "issuing_authority",
+                        "field_source_id": 1,
+                        "field_source_name": "issuing_authority",
                         "trigger_value": "some_value",
                         "action_id": 6,
                         "action_name": "show",
@@ -596,7 +620,7 @@
                         }
                     ],
                     "condition": [{
-                        "field_to_monitor_id": 1,
+                        "field_source_id": 1,
                         "trigger_value": "some_value",
                         "action_id": 6,
                         "message": null,
@@ -625,7 +649,7 @@
                         }
                     ],
                     "condition": [{
-                        "field_to_monitor_id": 1,
+                        "field_source_id": 1,
                         "trigger_value": "some_value",
                         "action_id": 7,
                         "message": null,
@@ -790,15 +814,25 @@
                         "name": "Rule set name",
                         "effective_from_date": "17-05-2024",
                         "valid_till_date": "17-05-2026",
-                        "is_mandatory": false,
-                        "is_attachment_allowed": true,
+                        "is_authentication_applicable": false,
+                        "is_bypass_approval_required": false,
+                        "is_attachment_required": true,
                         "is_details_required": true,
                         "rules": [
                             {
                                 "id": 1,
-                                "typeid": 1,
-                                "operatorid": 1,
-                                "type_value_ids": [1, 2, 3],
+                                "type": {
+                                    "id": 1,
+                                    "name": "Rank"
+                                },
+                                "operator": {
+                                    "id": 1,
+                                    "name": "Contain"
+                                },
+                                "type_values": [{
+                                    "id": 1,
+                                    "name": "Contain"
+                                }],
                             }
                         ]
                     }
@@ -814,19 +848,24 @@
                     "name": "Rule set name",
                     "effective_from_date": "17-05-2024",
                     "valid_till_date": "17-05-2026",
-                    "is_mandatory": false,
-                    "is_attachment_allowed": true,
+                    "is_authentication_applicable": false,
+                    "is_bypass_approval_required": false,
+                    "is_attachment_required": true,
                     "is_details_required": true,
                     "rules": [
                         {
                             "id": 1,
-                            "typeid": 1,
-                            "type_name": "Rank",
-                            "operatorid": 1,
-                            "operator_name": "Contain",
-                            "type_value": [{
+                            "type": {
                                 "id": 1,
-                                "value": "Deck"
+                                "name": "Rank"
+                            },
+                            "operator": {
+                                "id": 1,
+                                "name": "Contain"
+                            },
+                            "type_values": [{
+                                "id": 1,
+                                "name": "Contain"
                             }],
                         }
                     ]
@@ -837,8 +876,9 @@
                     "name": "Rule set name",
                     "effective_from_date": "17-05-2024",
                     "valid_till_date": "17-05-2026",
-                    "is_mandatory": false,
-                    "is_attachment_allowed": true,
+                    "is_authentication_applicable": false,
+                    "is_bypass_approval_required": false,
+                    "is_attachment_required": true,
                     "is_details_required": true,
                     "rules": [
                         {
@@ -858,8 +898,9 @@
                     "name": "Rule set name",
                     "effective_from_date": "17-05-2024",
                     "valid_till_date": "17-05-2026",
-                    "is_mandatory": false,
-                    "is_attachment_allowed": true,
+                    "is_authentication_applicable": false,
+                    "is_bypass_approval_required": false,
+                    "is_attachment_required": true,
                     "is_details_required": true,
                     "rules": [
                         {
@@ -924,14 +965,43 @@
                 "request": {
 
                 },
-                "response": [{
-                    "id": 1,
-                    "operator": "Contain"
-                },
-                {
-                    "id": 2,
-                    "operator": "equal"
-                }]
+                "response": [
+                    {
+                        "id": 1,
+                        "operator": "Contain",
+                        "rule_type_ids": [101, 102, 103]
+                    },
+                    {
+                        "id": 2,
+                        "operator": "Equal",
+                        "rule_type_ids": [101, 103]
+                    },
+                    {
+                        "id": 3,
+                        "operator": "LessThan",
+                        "rule_type_ids": [102, 104]
+                    },
+                    {
+                        "id": 4,
+                        "operator": "GreaterThan",
+                        "rule_type_ids": [101, 105]
+                    },
+                    {
+                        "id": 5,
+                        "operator": "LessThanOrEqualTo",
+                        "rule_type_ids": [103, 106]
+                    },
+                    {
+                        "id": 6,
+                        "operator": "GreaterThanOrEqualTo",
+                        "rule_type_ids": [104, 107]
+                    },
+                    {
+                        "id": 7,
+                        "operator": "NotEqualTo",
+                        "rule_type_ids": [101, 108]
+                    }
+                ]
             },
             "doc-ruleset-ruletypevalue": {
                 "request": {
@@ -947,14 +1017,75 @@
                 }]
             },
             "doc-master-list": {
-                "request": {
-
-                },
-                "response": [{
-                    "id": 1,
-                    "name": "Pre Joining Employment Medical Examination",
-                    "code": "PRE-JOIN",
-                }]
+                request: {
+                    "page_number": 1,
+                    "page_size": 8,
+                    "document_name": null,
+                    "sort_column": null,
+                    "sort_direction": null,
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "rules": [
+                        {
+                            "rule_type_id": null,
+                            "rule_operator_id": null,
+                            "rule_type_value": null
+                        }
+                    ],
+                    "mandatory": true
+                }
+                ,
+                response: {
+                    "total_records": 1,
+                    "data": [{
+                        "id": "1",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "code": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "type_id": 1,
+                            "name": "Travel Documents",
+                            "subType": {
+                                "subType_id": 2,
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "tag_id": 1,
+                                "name": "TagName1"
+                            },
+                            {
+                                "tag_id": 2,
+                                "name": "TagName2"
+                            }
+                        ],
+                        "displaygroup": {
+                            "displaygroup_id": 1,
+                            "name": "Medical Certificate"
+                        },
+                        "period": {
+                            "cushion_period": 30,
+                            "validity_period": 120
+                        },
+                        "settings": {
+                            "allow_multiple_attachments": true,
+                            "allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "option_to_create_purchase_order": false,
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_document": false
+                        }
+                    }]
+                }
             },
             "doc-master-details": {
                 "request": {
@@ -987,6 +1118,39 @@
                         "displaygroup_id": 1,
                         "name": "Medical Certificate"
                     },
+                    "period": {
+                        "cushion_period": 30,
+                        "validity_period": 120
+                    },
+                    "settings": {
+                        "allow_multiple_attachments": true,
+                        "allow_versioning": false,
+                        "is_multiple_parts": true,
+                        "is_internal_document": false,
+                        "has_parent_certificate": false,
+                        "is_doc_verification_required": false,
+                        "option_to_create_purchase_order": false,
+                    },
+                    "parent_document": {
+                        "document_id": null,
+                        "is_optional_document": false
+                    },
+                    "permissions": {
+                        "view": [
+                            { "rank_id": 1, "rank_name": "Executive" },
+                            { "rank_id": 2, "rank_name": "Manager" }
+                        ],
+                        "edit": [
+                            { "rank_id": 1, "rank_name": "Executive" },
+                            { "rank_id": 2, "rank_name": "Manager" }
+                        ],
+                        "verify": [
+                            { "rank_id": 1, "rank_name": "Executive" }
+                        ],
+                        "delete": [
+                            { "rank_id": 1, "rank_name": "Executive" }
+                        ]
+                    }
                 }
             },
             "doc-master-displaygroup": {
@@ -1298,6 +1462,7 @@
                                 "enabled": true,
                                 "order": 1,
                                 "file_type_id": "1",
+                                "file_type": "datepicker",
                                 "field_name": "Issue Date",
                                 "title": "Issue date",
                                 "place_holder": "YYYY-MM-DD",
@@ -1329,9 +1494,9 @@
                                 "enabled": true,
                                 "order": 2,
                                 "file_type_id": "3",
+                                "file_type": "dropdown",
                                 "field_name": "subscriptionPlan",
                                 "title": "Subscription Plan",
-                                "type": "radio",
                                 "options_value": [
                                     { "value": "basic", "label": "Basic" },
                                     { "value": "premium", "label": "Premium" },
@@ -1491,79 +1656,81 @@
                 request: {
                 },
                 response: {
-                    "section_summary": [
-                        {
-                            "is_complete": true,
-                            "section_identifier": "basic_details",
-                            "completed_fields_count": 7,
-                            "mandatory_fields_count": 7
-                        },
-                        {
-                            "is_complete": true,
-                            "section_identifier": "personal_details",
-                            "completed_fields_count": 2,
-                            "mandatory_fields_count": 2
-                        },
-                        {
-                            "is_complete": true,
-                            "section_identifier": "contact_details",
-                            "completed_fields_count": 3,
-                            "mandatory_fields_count": 3
-                        },
-                        {
-                            "is_complete": true,
-                            "section_identifier": "education_details",
-                            "completed_fields_count": 0,
-                            "mandatory_fields_count": 0
-                        },
-                        {
-                            "is_complete": true,
-                            "section_identifier": "family_details",
-                            "completed_fields_count": 0,
-                            "mandatory_fields_count": 0
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "other_details",
-                            "completed_fields_count": 0,
-                            "mandatory_fields_count": 6
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "documents",
-                            "completed_fields_count": 15,
-                            "mandatory_fields_count": 54
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "covid_19_vaccination_certificate",
-                            "completed_fields_count": 0,
-                            "mandatory_fields_count": 0
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "self_declaration_details",
-                            "completed_fields_count": 0,
-                            "mandatory_fields_count": 1
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "only_training_documents",
-                            "completed_fields_count": 1,
-                            "mandatory_fields_count": 10
-                        },
-                        {
-                            "is_complete": false,
-                            "section_identifier": "without_training_documents",
-                            "completed_fields_count": 14,
-                            "mandatory_fields_count": 44
-                        }
-                    ],
-                    "authentication_summary": {
+                    "summary": {
+                        "sections": [
+                            {
+                                "section_identifier": "basic_details",
+                                "is_complete": true,
+                                "completed_fields_count": 7,
+                                "mandatory_fields_count": 7
+                            },
+                            {
+                                "section_identifier": "personal_details",
+                                "is_complete": true,
+                                "completed_fields_count": 2,
+                                "mandatory_fields_count": 2
+                            },
+                            {
+                                "section_identifier": "contact_details",
+                                "is_complete": true,
+                                "completed_fields_count": 3,
+                                "mandatory_fields_count": 3
+                            },
+                            {
+                                "section_identifier": "education_details",
+                                "is_complete": true,
+                                "completed_fields_count": 0,
+                                "mandatory_fields_count": 0
+                            },
+                            {
+                                "section_identifier": "family_details",
+                                "is_complete": true,
+                                "completed_fields_count": 0,
+                                "mandatory_fields_count": 0
+                            },
+                            {
+                                "section_identifier": "other_details",
+                                "is_complete": false,
+                                "completed_fields_count": 0,
+                                "mandatory_fields_count": 6
+                            },
+                            {
+                                "section_identifier": "documents",
+                                "is_complete": false,
+                                "completed_fields_count": 15,
+                                "mandatory_fields_count": 54
+                            },
+                            {
+                                "section_identifier": "covid_19_vaccination_certificate",
+                                "is_complete": false,
+                                "completed_fields_count": 0,
+                                "mandatory_fields_count": 0
+                            },
+                            {
+                                "section_identifier": "self_declaration_details",
+                                "is_complete": false,
+                                "completed_fields_count": 0,
+                                "mandatory_fields_count": 1
+                            },
+                            {
+                                "section_identifier": "only_training_documents",
+                                "is_complete": false,
+                                "completed_fields_count": 1,
+                                "mandatory_fields_count": 10
+                            },
+                            {
+                                "section_identifier": "without_training_documents",
+                                "is_complete": false,
+                                "completed_fields_count": 14,
+                                "mandatory_fields_count": 44
+                            }
+                        ]
+                    },
+                    "authentication": {
                         "is_complete": false,
                         "section_identifier": "documents"
                     },
-                    "expiring_document_summary": {
+                    "expiring_document": {
                         "flag_doc": {
                             "expiring_doc_count": 3
                         },
@@ -1576,7 +1743,7 @@
                         "non_training": {
                             "expiring_doc_count": 17
                         }
-                    },
+                    }
                 }
             }
         };
