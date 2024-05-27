@@ -266,57 +266,73 @@
                     },
                     "data": [
                         {
-                            "id": "1",
+                            "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                             "name": "Pre Joining Employment Medical Examination",
-                            "code": "PRE-JOIN",
+                            "identifier": "PRE-JOIN",
                             "description": "Pre Joining Employment Medical Examination",
                             "type": {
-                                "id": 1,
+                                "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "travel_documents",
                                 "name": "Travel Documents",
                                 "subType": {
-                                    "id": 2,
+                                    "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "identifier": "international_travel_documents",
                                     "name": "International Travel Documents"
                                 }
                             },
+                            "tags": [
+                                {
+                                    "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "name": "Employment"
+                                },
+                                {
+                                    "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "name": "Travel"
+                                }
+                            ],
                             "displaygroup": {
-                                "id": 1,
+                                "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "medical_certificate",
                                 "name": "Medical Certificate"
-                            }
+                            },
                         }
                     ]
                 }
             },
             'doc-app-detail': {
                 request: {
-                    "id": "1"
+
                 },
                 response: {
                     "status": "success",
                     "data": {
-                        "id": "1",
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                         "name": "Pre Joining Employment Medical Examination",
-                        "code": "PRE-JOIN",
+                        "identifier": "PRE-JOIN",
                         "description": "Pre Joining Employment Medical Examination",
                         "type": {
-                            "id": 1,
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
                             "name": "Travel Documents",
                             "subType": {
-                                "id": 2,
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
                                 "name": "International Travel Documents"
                             }
                         },
                         "tags": [
                             {
-                                "id": 1,
-                                "name": "TagName1"
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
                             },
                             {
-                                "id": 2,
-                                "name": "TagName2"
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
                             }
                         ],
                         "displaygroup": {
-                            "id": 1,
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
                             "name": "Medical Certificate"
                         },
                         "period": {
@@ -348,28 +364,28 @@
             'doc-app-post': {
                 request: {
                     "name": "Pre Joining Employment Medical Examination",
-                    "code": "PRE-JOIN",
+                    "identifier": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "id": 1,
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
                         "subType": {
-                            "id": 2
+                            "id": "123e4567-e89b-12d3-a456-426614174001"
                         }
                     },
                     "tags": [
                         {
-                            "id": 1,
+                            "id": "123e4567-e89b-12d3-a456-426614174002"
                         },
                         {
-                            "id": 2
+                            "id": "123e4567-e89b-12d3-a456-426614174003"
                         }
                     ],
                     "displaygroup": {
-                        "id": 1
+                        "id": "123e4567-e89b-12d3-a456-426614174004"
                     },
                     "period": {
                         "cushion_period": 30,
-                        "validity_period": 120,
+                        "validity_period": 120
                     },
                     "settings": {
                         "allow_multiple_attachments": true,
@@ -381,7 +397,7 @@
                         "option_to_create_purchase_order": false
                     },
                     "parent_document": {
-                        "document_id": 1,
+                        "document_id": "123e4567-e89b-12d3-a456-426614174005",
                         "is_optional_document": false
                     },
                     "permissions": {
@@ -400,28 +416,28 @@
             'doc-app-update': {
                 request: {
                     "name": "Pre Joining Employment Medical Examination",
-                    "code": "PRE-JOIN",
+                    "identifier": "PRE-JOIN",
                     "description": "Pre Joining Employment Medical Examination",
                     "type": {
-                        "id": 1,
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
                         "subType": {
-                            "id": 2
+                            "id": "123e4567-e89b-12d3-a456-426614174001"
                         }
                     },
                     "tags": [
                         {
-                            "id": 1,
+                            "id": "123e4567-e89b-12d3-a456-426614174002"
                         },
                         {
-                            "id": 2
+                            "id": "123e4567-e89b-12d3-a456-426614174003"
                         }
                     ],
                     "displaygroup": {
-                        "id": 1
+                        "id": "123e4567-e89b-12d3-a456-426614174004"
                     },
                     "period": {
                         "cushion_period": 30,
-                        "validity_period": 120,
+                        "validity_period": 120
                     },
                     "settings": {
                         "allow_multiple_attachments": true,
@@ -433,7 +449,7 @@
                         "option_to_create_purchase_order": false
                     },
                     "parent_document": {
-                        "document_id": 1,
+                        "document_id": "123e4567-e89b-12d3-a456-426614174005",
                         "is_optional_document": false
                     },
                     "permissions": {
@@ -474,7 +490,6 @@
             },
             'doc-app-delete': {
                 request: {
-                    "id": 1
                 },
                 response: {
                     "success": true,
@@ -484,44 +499,122 @@
             'doc-field-condition': {
                 request: {
                 },
-                "response": [
-                    { "id": 1, "value": "show", "text": "Show" },
-                    { "id": 2, "value": "hide", "text": "Hide" },
-                    { "id": 3, "value": "enable", "text": "Enable" },
-                    { "id": 4, "value": "disable", "text": "Disable" },
-                    { "id": 5, "value": "require", "text": "Require" },
-                    { "id": 6, "value": "optional", "text": "Optional" },
-                    { "id": 7, "value": "set_value", "text": "Set Value" },
-                    { "id": 8, "value": "clear_value", "text": "Clear Value" },
-                    { "id": 9, "value": "readonly", "text": "Read Only" },
-                    { "id": 10, "value": "show_message", "text": "Show Message" },
-                    { "id": 11, "value": "show_tooltip", "text": "Show Tooltip" },
-
-                ]
+                "response": {
+                    "status": "success",
+                    "data": [
+                        { "id": "123e4567-e89b-12d3-a456-426614174000", "type": "show", "text": "Show" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174001", "type": "hide", "text": "Hide" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174002", "type": "enable", "text": "Enable" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174003", "type": "disable", "text": "Disable" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174004", "type": "require", "text": "Require" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174005", "type": "optional", "text": "Optional" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174006", "type": "set_type", "text": "Set Value" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174007", "type": "clear_value", "text": "Clear Value" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174008", "type": "readonly", "text": "Read Only" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174009", "type": "show_message", "text": "Show Message" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174010", "type": "show_tooltip", "text": "Show Tooltip" }
+                    ]
+                }
             },
             "doc-fields-type": {
                 "request": {},
-                "response": [
-                    { "id": 1, "value": "textbox", "text": "Text Box" },
-                    { "id": 2, "value": "textarea", "text": "Text Area" },
-                    { "id": 3, "value": "checkbox", "text": "Checkbox" },
-                    { "id": 4, "value": "radiobutton", "text": "Radio Button" },
-                    { "id": 5, "value": "dropdown", "text": "Dropdown" },
-                    { "id": 6, "value": "date", "text": "Date Picker" },
-                    { "id": 7, "value": "number", "text": "Number" },
-                    { "id": 8, "value": "email", "text": "Email" },
-                ]
+                "response": {
+                    "status": "success",
+                    "data": [
+                        [
+                            { "id": "123e4567-e89b-12d3-a456-426614174011", "type": "textbox", "text": "Text Box" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174012", "type": "textarea", "text": "Text Area" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174013", "type": "checkbox", "text": "Checkbox" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174014", "type": "radiobutton", "text": "Radio Button" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174015", "type": "dropdown", "text": "Dropdown" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174016", "type": "date", "text": "Date Picker" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174017", "type": "number", "text": "Number" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174018", "type": "email", "text": "Email" }
+                        ]
+
+                    ]
+                }
             },
             'doc-field-get': {
                 request: {
-                    "id": "1"
                 },
-                "response": [
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174018",
+                            "enabled": true,
+                            "field_type_id": "987567-e89b-12d3-a456-426614174018",
+                            "field_type": "datepicker",
+                            "field_name": "Issue Date",
+                            "title": "Issue date",
+                            "options_value": [],
+                            "place_holder": null,
+                            "is_mandatory": true,
+                            "order": 1,
+                            "validations": [
+                                {
+                                    "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                    "message": "Please enter a date in the format YYYY-MM-DD"
+                                }
+                            ],
+                            "condition": [{
+                                "field_source_id": "753e4567-e89b-12d3-a456-426614174018",
+                                "field_source_name": "issuing_authority",
+                                "trigger_value": "some_value",
+                                "action_id": "456123e4567-e89b-12d3-a456-426614174018",
+                                "action_name": "show",
+                                "message": null,
+                                "field_target_id": 2,
+                                "field_target_name": "place_of_issue",
+                                "value_to_set": null
+                            }]
+
+                        }
+                        ,
+                        {
+                            "id": "5423e4567-e89b-12d3-a456-426614174018",
+                            "enabled": true,
+                            "field_type_id": "9823e4567-e89b-12d3-a456-426614174018",
+                            "field_type": "datepicker",
+                            "field_name": "Expiration Date",
+                            "title": "Expiration date",
+                            "options_value": [],
+                            "place_holder": null,
+                            "is_mandatory": true,
+                            "order": 2,
+                            "validations": [
+                                {
+                                    "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                    "message": "Please enter a date in the format YYYY-MM-DD"
+                                }
+                            ],
+                            "condition": [{
+                                "field_source_id": "423e4567-e89b-12d3-a456-426614174018",
+                                "field_source_name": "issuing_authority",
+                                "trigger_value": "some_value",
+                                "action_id": "823e4567-e89b-12d3-a456-426614174018",
+                                "action_name": "show",
+                                "message": null,
+                                "field_target_id": "3423e4567-e89b-12d3-a456-426614174018",
+                                "field_target_name": "place_of_issue",
+                                "value_to_set": null
+                            }]
+                        }
+                    ]
+                }
+            },
+            'doc-field-details': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data":
                     {
-                        "id": 1,
+                        "id": "123e4567-e89b-12d3-a456-426614174018",
                         "enabled": true,
-                        "file_type_id": "1",
-                        "file_type": "datepicker",
+                        "field_type_id": "987567-e89b-12d3-a456-426614174018",
+                        "field_type": "datepicker",
                         "field_name": "Issue Date",
                         "title": "Issue date",
                         "options_value": [],
@@ -535,39 +628,10 @@
                             }
                         ],
                         "condition": [{
-                            "field_source_id": 1,
+                            "field_source_id": "753e4567-e89b-12d3-a456-426614174018",
                             "field_source_name": "issuing_authority",
                             "trigger_value": "some_value",
-                            "action_id": 6,
-                            "action_name": "show",
-                            "message": null,
-                            "field_target_id": 2,
-                            "field_target_name": "place_of_issue",
-                            "value_to_set": null
-                        }]
-                    },
-                    {
-                        "id": 2,
-                        "enabled": true,
-                        "file_type_id": "1",
-                        "file_type": "datepicker",
-                        "field_name": "Expiration Date",
-                        "title": "Expiration date",
-                        "options_value": [],
-                        "place_holder": null,
-                        "is_mandatory": true,
-                        "order": 2,
-                        "validations": [
-                            {
-                                "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                "message": "Please enter a date in the format YYYY-MM-DD"
-                            }
-                        ],
-                        "condition": [{
-                            "field_source_id": 1,
-                            "field_source_name": "issuing_authority",
-                            "trigger_value": "some_value",
-                            "action_id": 6,
+                            "action_id": "456123e4567-e89b-12d3-a456-426614174018",
                             "action_name": "show",
                             "message": null,
                             "field_target_id": 2,
@@ -575,48 +639,12 @@
                             "value_to_set": null
                         }]
                     }
-                ]
-            },
-            'doc-field-details': {
-                request: {
-                    "id": "1",
-                    "field_id": "1"
-                },
-                "response":
-                {
-                    "id": 1,
-                    "enabled": true,
-                    "file_type_id": "1",
-                    "file_type": "datepicker",
-                    "field_name": "Issue Date",
-                    "title": "Issue date",
-                    "options_value": [],
-                    "place_holder": null,
-                    "is_mandatory": true,
-                    "order": 1,
-                    "validations": [
-                        {
-                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                            "message": "Please enter a date in the format YYYY-MM-DD"
-                        }
-                    ],
-                    "condition": [{
-                        "field_source_id": 1,
-                        "field_source_name": "issuing_authority",
-                        "trigger_value": "some_value",
-                        "action_id": 6,
-                        "action_name": "show",
-                        "message": null,
-                        "field_target_id": 2,
-                        "field_target_name": "place_of_issue",
-                        "value_to_set": null
-                    }]
                 }
             },
             'doc-field-post': {
                 request: {
                     "enabled": true,
-                    "file_type_id": "1",
+                    "field_type_id": "1",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -645,7 +673,7 @@
             'doc-field-put': {
                 request: {
                     "enabled": true,
-                    "file_type_id": "1",
+                    "field_type_id": "1",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -697,7 +725,7 @@
             },
             'doc-field-delete': {
                 request: {
-                    "field_ids": [1]
+                    "field_ids": ["753e4567-e89b-12d3-a456-426614174018"]
                 },
                 response: {
                     "success": true,
@@ -1182,102 +1210,102 @@
                     "data": [
                         {
                             "id": "b50189c6-8cb0-4e2c-b59b-b7f5bfc2cf4e",
-                            "identifier": "b3c58618-5463-4a69-937d-f9c6b68b44af",
+                            "identifier": "pre_joining_familiarization",
                             "name": "Pre-Joining Familiarization"
                         },
                         {
                             "id": "a12d3f68-9cfd-47c4-8a2e-bb94878194d5",
-                            "identifier": "6e70d1f0-50bb-44a3-ae8e-5b9e0b2a3648",
+                            "identifier": "in_house",
                             "name": "In House"
                         },
                         {
                             "id": "5d2f02a5-9655-4a5b-9295-17d3d734c0da",
-                            "identifier": "132d26f1-3b40-49ad-92d7-1695467d3c8d",
+                            "identifier": "type_specific_ecdis_certificates",
                             "name": "Type Specific ECDIS Certificates"
                         },
                         {
                             "id": "318f4311-77d3-4dcb-97c1-7dd65f8b9810",
-                            "identifier": "ddf4d8c4-fc6c-4f35-a92a-bd5c68e89b12",
+                            "identifier": "travel_identity_and_visas",
                             "name": "Travel Identity and Visas"
                         },
                         {
                             "id": "d87d1f6a-71c6-42fc-b8a2-dac8cf0b0e5f",
-                            "identifier": "18de24c2-1548-4f5c-b5ab-7650aefc6b1c",
+                            "identifier": "joining_documents",
                             "name": "Joining Documents"
                         },
                         {
                             "id": "84ad2e3d-6d85-48b1-9441-b9e10cfd7b25",
-                            "identifier": "b98e4c22-7ff0-44d5-9e0f-8a269a9e6c41",
+                            "identifier": "special_certificates",
                             "name": "Special Certificates"
                         },
                         {
                             "id": "927d080e-fbe2-474d-b6e4-97d712b657c8",
-                            "identifier": "d2103d42-3a34-4b96-92c7-c51c88a9a3e6",
+                            "identifier": "external_courses",
                             "name": "External Courses"
                         },
                         {
                             "id": "9e19291e-76f7-48a0-835b-b5f0125fa73a",
-                            "identifier": "7d6b1f35-6d6a-4162-8a0c-b7db6da68d2f",
+                            "identifier": "oil_chem_gas",
                             "name": "Oil/Chem/Gas"
                         },
                         {
                             "id": "0d3bb9d7-8c1d-48d4-8b1e-34b3f5abf5e1",
-                            "identifier": "2b1e1cf1-7e9c-4a71-8d8e-21d9d16c7288",
+                            "identifier": "dual_fuel_vessel_training_and_certification",
                             "name": "Dual fuel Vessel training and certification"
                         },
                         {
                             "id": "a3b2920c-7c89-44e7-bba5-77e4d8cf5bc1",
-                            "identifier": "6e2b7854-e04e-4f8b-85d7-7fdb70771f7e",
+                            "identifier": "tanker_endorsement_and_training",
                             "name": "Tanker Endorsement and Training"
                         },
                         {
                             "id": "ccf674ff-004f-466f-9d14-d50f1f68fa96",
-                            "identifier": "2ed3e6f3-91b4-4f7f-8b34-908bc60d2d4b",
+                            "identifier": "stcw",
                             "name": "STCW"
                         },
                         {
                             "id": "58621a9c-ffba-4ecb-9f8c-0b3c9e978b45",
-                            "identifier": "3ec9f021-f742-4f32-84b3-6e3ad55e9b08",
+                            "identifier": "gmdss",
                             "name": "GMDSS"
                         },
                         {
                             "id": "3a8326c3-6d9e-4c0e-b745-e0418d8a4817",
-                            "identifier": "5b144495-3fae-4b50-9469-7b54f85c6c5c",
+                            "identifier": "medical",
                             "name": "Medical"
                         },
                         {
                             "id": "3f86d615-8f3b-4892-bdf0-5a30a73f8d9e",
-                            "identifier": "a6d1e6f6-c0b0-4e77-9f97-b2f91c58d97a",
+                            "identifier": "others",
                             "name": "Others"
                         },
                         {
                             "id": "1e5b6d5b-d3d8-4488-8b6f-8cf2fa4cf1c6",
-                            "identifier": "1ed9c3c8-d5c7-47d3-950c-72a04be50ba3",
+                            "identifier": "in_house_2",
                             "name": "In-house"
                         },
                         {
                             "id": "87d7d7d6-4ed9-4c21-8dd9-f29a7745a0f2",
-                            "identifier": "c23d6d5e-78bc-43b1-8a13-6839d35e67ed",
+                            "identifier": "flag_documents",
                             "name": "Flag Documents"
                         },
                         {
                             "id": "22e6d226-9a3a-4d8f-bd72-5c4cbf36c555",
-                            "identifier": "2a3dd4fa-eae7-4691-8a70-195918a4f7a8",
+                            "identifier": "dk_officer_eng_officer",
                             "name": "DK Officer/ENG Officer"
                         },
                         {
                             "id": "ed3f5f54-dc90-4f76-871f-9f4e85a93801",
-                            "identifier": "b01bfc8d-9d22-4db1-b716-c9c45b7a8125",
+                            "identifier": "mandatory_for_all_ranks",
                             "name": "Mandatory for all ranks"
                         },
                         {
                             "id": "dc2bf367-8ab8-4990-8a9f-8c64b6f7ff84",
-                            "identifier": "b705446b-110d-4e4f-b0a4-542452ecf31e",
+                            "identifier": "medical_certificate",
                             "name": "Medical Certificate"
                         },
                         {
                             "id": "b3e4fae4-50b2-42a3-9c4f-5e6b0c1b5de2",
-                            "identifier": "64a2f5ad-c3a8-4a7a-89e6-17ff769f4976",
+                            "identifier": "flag_certificate",
                             "name": "Flag Certificate"
                         }
                     ]
@@ -1292,57 +1320,57 @@
                     "data": [
                         {
                             "id": "3e25b951-6b24-4a0d-b267-10f2c64693a4",
-                            "identifier": "6c4bb8d9-bf08-4a62-b204-8d08e72b56c0",
+                            "identifier": "medical_certificate",
                             "name": "Medical Certificate"
                         },
                         {
                             "id": "2e7b49c0-c546-4205-ba17-73cc6af45b10",
-                            "identifier": "ce4bf747-1835-43a2-a5da-595d81647f61",
+                            "identifier": "general_certificates",
                             "name": "General Certificates"
                         },
                         {
                             "id": "dcb3c2a4-6cf7-4da8-b0bc-24ba5ee52a79",
-                            "identifier": "e37870e3-bfb5-4c38-b82e-eb7a94c56835",
+                            "identifier": "training_certificates",
                             "name": "Training Certificates"
                         },
                         {
                             "id": "e70f4a06-92c5-4a92-8b1d-d4c7b3fbf086",
-                            "identifier": "7e14c421-5743-4480-a1d0-6d85ee6fda58",
+                            "identifier": "travel_documents",
                             "name": "Travel Documents"
                         },
                         {
                             "id": "b0e95b8c-98a4-4212-9850-89b0e83358e6",
-                            "identifier": "ab012065-0c92-42d3-9cc5-e63c92f8b68b",
+                            "identifier": "flag_state_document",
                             "name": "Flag State Document"
                         },
                         {
                             "id": "68fdeae9-ae9f-4c19-8335-e214e12f25f1",
-                            "identifier": "98d47eb2-19e8-4f57-8ff1-0126c26ee8ff",
+                            "identifier": "resume",
                             "name": "Resume"
                         },
                         {
                             "id": "af34c548-1f7e-40f8-8843-4f7f589c3f69",
-                            "identifier": "1a53a6d5-8d6e-4f7f-b8a4-3c6d7bc7cf67",
+                            "identifier": "cover_letter",
                             "name": "Cover Letter"
                         },
                         {
                             "id": "6a5aeb06-c5e9-4015-bf42-0cc3b4ed2487",
-                            "identifier": "fcf5f6e2-0dab-41b3-8c57-42f92ddc33f3",
+                            "identifier": "other",
                             "name": "Other"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "0ce496d2-2da2-4d23-9d88-5c4a65b199e5",
+                            "identifier": "in_house_training",
                             "name": "In House Training"
                         },
                         {
                             "id": "6860c6b3-e6fa-4f47-bd3f-1e1a72d3f268",
-                            "identifier": "f25e7586-4575-43e4-8aaf-fc37a55b5304",
+                            "identifier": "covid_19",
                             "name": "COVID-19"
                         },
                         {
                             "id": "12f23470-d5de-44d2-86c7-eac0f755b92f",
-                            "identifier": "6407c3ae-97c5-4878-b628-9a4339508e20",
+                            "identifier": "joining_document",
                             "name": "Joining Document"
                         }
                     ]
@@ -1355,15 +1383,16 @@
                 {
                     "status": "success",
                     "data": {
-                        "id": "3e25b951-6b24-4a0d-b267-10f2c64693a4",
-                        "identifier": "6c4bb8d9-bf08-4a62-b204-8d08e72b56c0",
-                        "name": "Medical Certificate"
+                        "id": "12f23470-d5de-44d2-86c7-eac0f755b92f",
+                        "identifier": "joining_document",
+                        "name": "Joining Document"
                     }
                 }
             },
             'doc-master-type-post': {
                 request: {
-                    "name": "Medical Certificate",
+                    "identifier": "joining_document",
+                    "name": "Joining Document"
                 },
                 response: {
                     "success": true,
@@ -1372,7 +1401,8 @@
             },
             'doc-master-type-put': {
                 request: {
-                    "name": "Medical Certificate",
+                    "identifier": "joining_document",
+                    "name": "Joining Document"
                 },
                 response: {
                     "success": true,
@@ -1396,104 +1426,104 @@
                     "data": [
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
-                            "type_id": "0ce496d2-2da2-4d23-9d88-5c4a65b199e5",
+                            "identifier": "letters_and_memos",
+                            "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
                             "name": "Letters And Memos"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "54e643c2-ebd1-47ac-881f-ae6fe0d79a3b",
-                            "type_id": "1b2c21f8-36f2-47fa-bd6a-d03e4b87d462",
+                            "identifier": "medical_certificate",
+                            "type_id": "54e643c2-ebd1-47ac-881f-ae6fe0d79a3b",
                             "name": "Medical Certificate"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "db9a5f3e-03e7-45f8-9162-65191b5be029",
-                            "type_id": "3c7a0ef9-1f8e-42d7-935e-bcbb4c86a482",
+                            "identifier": "bahamas",
+                            "type_id": "db9a5f3e-03e7-45f8-9162-65191b5be029",
                             "name": "Bahamas"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "be48b38a-7735-4f7b-b1ad-00e87c3a56db",
-                            "type_id": "6b86e8b4-3e8b-44cb-9e58-b4d3042c6a9e",
+                            "identifier": "belize",
+                            "type_id": "be48b38a-7735-4f7b-b1ad-00e87c3a56db",
                             "name": "Belize"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "d48f1c94-8c2a-4ae2-876b-76ee67f0ba05",
-                            "type_id": "a601bd09-9a56-47b8-835a-f63d607c987d",
+                            "identifier": "chennai",
+                            "type_id": "d48f1c94-8c2a-4ae2-876b-76ee67f0ba05",
                             "name": "Chennai"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "d1284a16-6383-49b9-8b5a-00c792713e50",
-                            "type_id": "c98d9c80-7dc8-4a57-818d-bb5b0b181b7c",
+                            "identifier": "comoros",
+                            "type_id": "d1284a16-6383-49b9-8b5a-00c792713e50",
                             "name": "Comoros"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "716f36cf-4d71-4d75-9df0-c9f69e48d6b3",
-                            "type_id": "d49e7b10-c46f-42f9-9a25-6aece7697f53",
+                            "identifier": "cyprus",
+                            "type_id": "716f36cf-4d71-4d75-9df0-c9f69e48d6b3",
                             "name": "Cyprus"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "8aee4f23-2ab4-4b0f-8f27-cbb688fc118d",
-                            "type_id": "e537bdf6-09d2-4d48-b7b1-c993bf50fd5b",
+                            "identifier": "danish_maritime_authority",
+                            "type_id": "8aee4f23-2ab4-4b0f-8f27-cbb688fc118d",
                             "name": "Danish Maritime Authority"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "f2302313-1455-4edf-87b5-cac8b6797da9",
-                            "type_id": "4f9246ae-19ad-4a16-ae45-29ffef6434b7",
+                            "identifier": "denmark",
+                            "type_id": "f2302313-1455-4edf-87b5-cac8b6797da9",
                             "name": "Denmark"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "fb5e4d2e-53a7-42ac-91a4-33d3b1926b48",
-                            "type_id": "8d8376f3-8e9e-4bf8-9fb9-5c17a7fb93db",
+                            "identifier": "douglas",
+                            "type_id": "fb5e4d2e-53a7-42ac-91a4-33d3b1926b48",
                             "name": "Douglas"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "f5bb9a50-6d98-4b57-988f-e9f8a0e10fb4",
-                            "type_id": "e88cfad9-5c0c-4e8f-b0f0-6d6984ebe16f",
+                            "identifier": "england",
+                            "type_id": "f5bb9a50-6d98-4b57-988f-e9f8a0e10fb4",
                             "name": "England"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "eb835f5a-ec2f-43d0-b5d9-c0736a8f4138",
-                            "type_id": "9a5c34d0-1e38-4bcb-8d38-53a3d8391d39",
+                            "identifier": "george_town",
+                            "type_id": "eb835f5a-ec2f-43d0-b5d9-c0736a8f4138",
                             "name": "George Town"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "89108635-cff1-4e44-8a27-fc1a611be5ab",
-                            "type_id": "d9a17f1a-830e-4c75-baa7-13942b68d59b",
+                            "identifier": "hongkong",
+                            "type_id": "89108635-cff1-4e44-8a27-fc1a611be5ab",
                             "name": "Hongkong"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "6624f3c4-d25b-49e4-82fb-18740b2f58c7",
-                            "type_id": "4371562b-df3c-463f-bfa4-6c7bb769c8b7",
+                            "identifier": "india",
+                            "type_id": "6624f3c4-d25b-49e4-82fb-18740b2f58c7",
                             "name": "India"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "dbdc42d2-5054-43a8-ae1d-bda3d08b1912",
-                            "type_id": "dc7329d8-d9df-4e90-bf1a-4e25307b60b9",
+                            "identifier": "isle_of_man",
+                            "type_id": "dbdc42d2-5054-43a8-ae1d-bda3d08b1912",
                             "name": "Isle Of Man"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "2394eb67-af6d-4f1c-95fc-4a5c72b48d39",
-                            "type_id": "0cf31505-6f57-45d2-a0e3-7a63717e2578",
+                            "identifier": "kolkata",
+                            "type_id": "2394eb67-af6d-4f1c-95fc-4a5c72b48d39",
                             "name": "Kolkata"
                         },
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                            "identifier": "6a967035-2b83-445d-aa5e-0ce7c3d6b187",
-                            "type_id": "369335f9-ae90-48e8-b361-566a3d36f9df",
+                            "identifier": "lemesos",
+                            "type_id": "6a967035-2b83-445d-aa5e-0ce7c3d6b187",
                             "name": "Lemesos"
                         }
                     ]
@@ -1508,15 +1538,17 @@
                     "status": "success",
                     "data": {
                         "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
-                        "identifier": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
-                        "type_id": "0ce496d2-2da2-4d23-9d88-5c4a65b199e5",
+                        "identifier": "letters_and_memos",
+                        "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
                         "name": "Letters And Memos"
                     }
                 }
             },
             'doc-master-subtype-post': {
                 request: {
-                    "name": "Letters And Memos",
+                    "identifier": "letters_and_memos",
+                    "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                    "name": "Letters And Memos"
                 },
                 response: {
                     "success": true,
@@ -1525,7 +1557,9 @@
             },
             'doc-master-subtype-put': {
                 request: {
-                    "name": "Letters And Memos",
+                    "identifier": "letters_and_memos",
+                    "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                    "name": "Letters And Memos"
                 },
                 response: {
                     "success": true,
@@ -1550,42 +1584,42 @@
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440000",
                             "tag": "Finance",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440000"
+                            "identifier": "finance"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440001",
                             "tag": "HR",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440001"
+                            "identifier": "hr"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440002",
                             "tag": "Legal",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440002"
+                            "identifier": "legal"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440003",
                             "tag": "Marketing",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440003"
+                            "identifier": "marketing"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440004",
                             "tag": "Operations",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440004"
+                            "identifier": "operations"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440005",
                             "tag": "Sales",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440005"
+                            "identifier": "sales"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440006",
                             "tag": "IT",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440006"
+                            "identifier": "it"
                         },
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440007",
                             "tag": "R&D",
-                            "identifier": "a29b7100-b29b-11d4-a716-446655440007"
+                            "identifier": "r_and_d"
                         }
                     ]
                 }
@@ -1599,13 +1633,14 @@
                     "data": {
                         "id": "550e8400-e29b-41d4-a716-446655440005",
                         "tag": "Sales",
-                        "identifier": "a29b7100-b29b-11d4-a716-446655440005"
+                        "identifier": "sales"
                     }
                 }
             },
             'doc-master-tags-post': {
                 request: {
-                    "name": "Sales",
+                    "tag": "Sales",
+                    "identifier": "sales"
                 },
                 response: {
                     "success": true,
@@ -1614,7 +1649,8 @@
             },
             'doc-master-tags-put': {
                 request: {
-                    "name": "Sales",
+                    "tag": "Sales",
+                    "identifier": "sales"
                 },
                 response: {
                     "success": true,
@@ -1973,67 +2009,67 @@
                     "summary": {
                         "sections": [
                             {
-                                "section_identifier": "basic_details",
+                                "identifier": "basic_details",
                                 "is_complete": true,
                                 "completed_fields_count": 7,
                                 "mandatory_fields_count": 7
                             },
                             {
-                                "section_identifier": "personal_details",
+                                "identifier": "personal_details",
                                 "is_complete": true,
                                 "completed_fields_count": 2,
                                 "mandatory_fields_count": 2
                             },
                             {
-                                "section_identifier": "contact_details",
+                                "identifier": "contact_details",
                                 "is_complete": true,
                                 "completed_fields_count": 3,
                                 "mandatory_fields_count": 3
                             },
                             {
-                                "section_identifier": "education_details",
+                                "identifier": "education_details",
                                 "is_complete": true,
                                 "completed_fields_count": 0,
                                 "mandatory_fields_count": 0
                             },
                             {
-                                "section_identifier": "family_details",
+                                "identifier": "family_details",
                                 "is_complete": true,
                                 "completed_fields_count": 0,
                                 "mandatory_fields_count": 0
                             },
                             {
-                                "section_identifier": "other_details",
+                                "identifier": "other_details",
                                 "is_complete": false,
                                 "completed_fields_count": 0,
                                 "mandatory_fields_count": 6
                             },
                             {
-                                "section_identifier": "documents",
+                                "identifier": "documents",
                                 "is_complete": false,
                                 "completed_fields_count": 15,
                                 "mandatory_fields_count": 54
                             },
                             {
-                                "section_identifier": "covid_19_vaccination_certificate",
+                                "identifier": "covid_19_vaccination_certificate",
                                 "is_complete": false,
                                 "completed_fields_count": 0,
                                 "mandatory_fields_count": 0
                             },
                             {
-                                "section_identifier": "self_declaration_details",
+                                "identifier": "self_declaration_details",
                                 "is_complete": false,
                                 "completed_fields_count": 0,
                                 "mandatory_fields_count": 1
                             },
                             {
-                                "section_identifier": "only_training_documents",
+                                "identifier": "only_training_documents",
                                 "is_complete": false,
                                 "completed_fields_count": 1,
                                 "mandatory_fields_count": 10
                             },
                             {
-                                "section_identifier": "without_training_documents",
+                                "identifier": "without_training_documents",
                                 "is_complete": false,
                                 "completed_fields_count": 14,
                                 "mandatory_fields_count": 44
@@ -2042,7 +2078,7 @@
                     },
                     "authentication": {
                         "is_complete": false,
-                        "section_identifier": "documents"
+                        "identifier": "documents"
                     },
                     "expiring_document": {
                         "flag_doc": {
