@@ -100,10 +100,7 @@
                             /document-applicability-admin/{id}/fields-applicable/{field_id}/action</a></li>
                     <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete
                             /document-applicability-admin/{id}/fields-applicable</a></li>
-                    <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
-                            /document-applicability-admin/fields-applicable/condition-action/list</a></li>
-                    <li><a href="#" onclick="showModel('doc-fields-type',this)">Get
-                            /document-applicability-admin/fields-applicable/fields/list</a></li>
+
                 </ul>
                 <ul>
                     <h3>Multi Parts</h3>
@@ -134,12 +131,6 @@
                             /document-applicability-admin/{id}/rulesets/action</a></li>
                     <li><a href="#" onclick="showModel('doc-ruleset-delete',this)">Delete
                             /document-applicability-admin/{id}/rulesets</a></li>
-                    <li><a href="#" onclick="showModel('doc-ruleset-ruletype',this)">Get
-                            /document-applicability-admin/ruleset/ruletype/list</a></li>
-                    <li><a href="#" onclick="showModel('doc-ruleset-operatortype',this)">Get
-                            /document-applicability-admin/ruleset/ruletype/operator/list</a></li>
-                    <li><a href="#" onclick="showModel('doc-ruleset-ruletypevalue',this)">Get
-                            /document-applicability-admin/ruleset/rule/{typeid}/values/list</a></li>
                 </ul>
                 <h3>Document Master</h3>
                 <ul>
@@ -181,6 +172,19 @@
                     </li>
                     <li><a href="#" onclick="showModel('doc-master-tags-delete',this)"> Delete
                             /api/document/tags</a></li>
+                    <h3>Document Rule</h3>
+                    <li><a href="#" onclick="showModel('doc-ruleset-ruletype',this)">Get
+                            /api/ruletype/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-operatortype',this)">Get
+                            /api/ruletype/operator/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-ruletypevalue',this)">Get
+                            /api/rule/{typeid}/values/list</a></li>
+                    <h3>Document Field</h3>
+                    <li><a href="#" onclick="showModel('doc-fields-type',this)">Get
+                        /api/fields/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
+                        /api/fields-action/list</a></li>
+                   
                 </ul>
                 <h3>Seafarer API</h3>
                 <ul>
