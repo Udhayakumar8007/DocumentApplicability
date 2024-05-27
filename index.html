@@ -734,11 +734,42 @@
             },
             'doc-multi-get': {
                 request: {
-                    "id": "1"
                 },
-                "response": [
-                    {
-                        "id": 1,
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "753e4567-e89b-12d3-a456-426614174018",
+                            "name": "CRA",
+                            "number": "I",
+                            "is_enabled": true,
+                            "is_mandatory": false,
+                            "is_attachment_allowed": true,
+                            "is_details_required": true,
+                            "is_aggregate": false
+                        },
+                        {
+                            "id": "4553e4567-e89b-12d3-a456-426614174018",
+                            "name": "Full time /",
+                            "number": "II",
+                            "is_enabled": true,
+                            "is_mandatory": false,
+                            "is_attachment_allowed": true,
+                            "is_details_required": true,
+                            "is_aggregate": false
+                        },
+                    ]
+                }
+            },
+            'doc-multi-details': {
+                request: {
+
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": {
+                        "id": "753e4567-e89b-12d3-a456-426614174018",
                         "name": "CRA",
                         "number": "I",
                         "is_enabled": true,
@@ -746,34 +777,7 @@
                         "is_attachment_allowed": true,
                         "is_details_required": true,
                         "is_aggregate": false
-                    },
-                    {
-                        "id": 2,
-                        "name": "Full time /",
-                        "number": "II",
-                        "is_enabled": true,
-                        "is_mandatory": false,
-                        "is_attachment_allowed": true,
-                        "is_details_required": true,
-                        "is_aggregate": false
-                    },
-                ]
-            },
-            'doc-multi-details': {
-                request: {
-                    "id": "1",
-                    "multi_part_id": "1"
-                },
-                "response":
-                {
-                    "id": 1,
-                    "name": "CRA",
-                    "number": "I",
-                    "is_enabled": true,
-                    "is_mandatory": false,
-                    "is_attachment_allowed": true,
-                    "is_details_required": true,
-                    "is_aggregate": false
+                    }
                 }
             },
             'doc-multi-post': {
@@ -809,7 +813,7 @@
             },
             'doc-multi-delete': {
                 request: {
-                    "multi_parts_ids": [1, 2, 3]
+                    "multi_parts_ids": ["753e4567-e89b-12d3-a456-426614174018"]
                 },
                 response: {
                     "success": true,
@@ -843,11 +847,49 @@
 
             "doc-ruleset-get": {
                 "request": {
-                    "id": "1"
                 },
-                "response": [
-                    {
-                        "id": 1,
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
+                            "name": "Rule set name",
+                            "effective_from_date": "17-05-2024",
+                            "valid_till_date": "17-05-2026",
+                            "is_authentication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "is_attachment_required": true,
+                            "is_details_required": true,
+                            "rules": [
+                                {
+                                    "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                    "type": {
+                                        "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d5",
+                                        "name": "Rank"
+                                    },
+                                    "operator": {
+                                        "id": "7db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                        "name": "Contain"
+                                    },
+                                    "type_values": [
+                                        {
+                                            "id": "6b19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                            "name": "Contain"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "doc-ruleset-details": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": {
+                        "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
                         "name": "Rule set name",
                         "effective_from_date": "17-05-2024",
                         "valid_till_date": "17-05-2026",
@@ -857,55 +899,24 @@
                         "is_details_required": true,
                         "rules": [
                             {
-                                "id": 1,
+                                "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
                                 "type": {
-                                    "id": 1,
+                                    "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d5",
                                     "name": "Rank"
                                 },
                                 "operator": {
-                                    "id": 1,
+                                    "id": "7db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
                                     "name": "Contain"
                                 },
-                                "type_values": [{
-                                    "id": 1,
-                                    "name": "Contain"
-                                }],
+                                "type_values": [
+                                    {
+                                        "id": "6b19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                        "name": "Contain"
+                                    }
+                                ]
                             }
                         ]
                     }
-                ]
-            },
-            "doc-ruleset-details": {
-                "request": {
-                    "id": "1",
-                    "ruleset_id": "1"
-                },
-                "response": {
-                    "id": 1,
-                    "name": "Rule set name",
-                    "effective_from_date": "17-05-2024",
-                    "valid_till_date": "17-05-2026",
-                    "is_authentication_applicable": false,
-                    "is_bypass_approval_required": false,
-                    "is_attachment_required": true,
-                    "is_details_required": true,
-                    "rules": [
-                        {
-                            "id": 1,
-                            "type": {
-                                "id": 1,
-                                "name": "Rank"
-                            },
-                            "operator": {
-                                "id": 1,
-                                "name": "Contain"
-                            },
-                            "type_values": [{
-                                "id": 1,
-                                "name": "Contain"
-                            }],
-                        }
-                    ]
                 }
             },
             "doc-ruleset-post": {
@@ -919,12 +930,17 @@
                     "is_details_required": true,
                     "rules": [
                         {
-                            "typeid": 1,
-                            "operatorid": 1,
-                            "type_value_ids": [1, 2, 3],
+                            "typeid": "36a5c3de-3451-4d88-a2b2-24e70c7fcf4b",
+                            "operatorid": "f5f2059a-3eb2-479b-99c0-6fcac814066d",
+                            "type_value_ids": [
+                                "6f5508e2-d8b2-4a0f-88c2-c4b44f77b879",
+                                "3cc34bd4-6ae5-4ab4-a9bb-1b535d5b18d5",
+                                "9b13ee44-cf5c-4f4e-b46e-724361a8176c"
+                            ]
                         }
                     ]
-                },
+                }
+                ,
                 "response": {
                     "success": true,
                     "message": "Document ruleset added successfully"
@@ -941,12 +957,17 @@
                     "is_details_required": true,
                     "rules": [
                         {
-                            "typeid": 1,
-                            "operatorid": 1,
-                            "type_value_ids": [1, 2, 3],
+                            "typeid": "36a5c3de-3451-4d88-a2b2-24e70c7fcf4b",
+                            "operatorid": "f5f2059a-3eb2-479b-99c0-6fcac814066d",
+                            "type_value_ids": [
+                                "6f5508e2-d8b2-4a0f-88c2-c4b44f77b879",
+                                "3cc34bd4-6ae5-4ab4-a9bb-1b535d5b18d5",
+                                "9b13ee44-cf5c-4f4e-b46e-724361a8176c"
+                            ]
                         }
                     ]
-                },
+                }
+                ,
                 "response": {
                     "success": true,
                     "message": "Document ruleset updated successfully"
@@ -954,7 +975,7 @@
             },
             "doc-ruleset-delete": {
                 "request": {
-                    "ruleset_ids": [1, 2, 3]
+                    "ruleset_ids": ["db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3"]
                 },
                 "response": {
                     "success": true,
@@ -990,12 +1011,172 @@
 
                 },
                 "response": [{
-                    "id": 1,
-                    "ruletype": "Rank"
+                    "id": "119b6682-58bf-49c1-80a1-fb7a805713a5",
+                    "ruletype": "Engine Make & Model",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
                 },
                 {
-                    "id": 2,
-                    "ruletype": "Doc"
+                    "id": "2ab5f249-ff2f-4677-8449-948e155f5602",
+                    "ruletype": "Ecdis Type",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "2b7b5a29-347b-4a2d-b7a2-16dd893e1b1d",
+                    "ruletype": "Nationality",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "3d62a9a6-f746-40bc-be5b-d2c067ccf0e4",
+                    "ruletype": "Vessel",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "6b91612b-4339-43fb-af97-388dde301fef",
+                    "ruletype": "Seafarer State Level",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "9543a66a-971e-45a4-b18f-55c47cc3ab4b",
+                    "ruletype": "Rank Category",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "9e864f82-d47b-4947-a163-1b5d688e26d8",
+                    "ruletype": "Flag",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "b1dafebe-1d3f-4a32-a7c3-a795a8342614",
+                    "ruletype": "Rank Type",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "b4dea1f0-5ddb-49e3-b09c-d9c847703aee",
+                    "ruletype": "Engine Model",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "b7329e70-79f3-4131-8627-adaf848bbe60",
+                    "ruletype": "Officer Type",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "b9e00bcb-108f-4b87-9db3-4742b4f44a42",
+                    "ruletype": "Engine Make",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "c002ea6f-fb10-4c8f-a415-7ad8471a1700",
+                    "ruletype": "Vessel Category",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker",
+                        "field-name": "Issue Date"
+                    }
+                },
+                {
+                    "id": "ddcf39a4-8614-4877-b967-5d3b8b17147c",
+                    "ruletype": "Vessel Subcategory",
+                    "api": {
+                        "client": "Master",
+                        "endpoint": "/api/engine_make"
+                    },
+                    "field-type": {
+                        "field-id": "987567-e89b-12d3-a456-426614174018",
+                        "field-type": "datepicker"
+                    }
                 }]
             },
             "doc-ruleset-operatortype": {
@@ -1004,45 +1185,67 @@
                 },
                 "response": [
                     {
-                        "id": 1,
+                        "id": "f7f49b6c-2422-4cb8-9b38-8c5f1d2a4651",
                         "operator": "Contain",
-                        "rule_type_ids": [101, 102, 103]
+                        "rule_type_ids": [
+                            "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                            "2953ff89-d4c2-4225-bc8f-3050718e7dc2",
+                            "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f"
+                        ]
                     },
                     {
-                        "id": 2,
+                        "id": "dd3bf62b-69ee-4c79-8125-99a6f1aa043b",
                         "operator": "Equal",
-                        "rule_type_ids": [101, 103]
+                        "rule_type_ids": [
+                            "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                            "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f"
+                        ]
                     },
                     {
-                        "id": 3,
+                        "id": "4a56f6f1-44f2-4b0e-bb6b-09b00ccf8ef9",
                         "operator": "LessThan",
-                        "rule_type_ids": [102, 104]
+                        "rule_type_ids": [
+                            "2953ff89-d4c2-4225-bc8f-3050718e7dc2",
+                            "66a2e532-4c22-4cc5-bc85-46e0e7a9b0fc"
+                        ]
                     },
                     {
-                        "id": 4,
+                        "id": "39b6e8c3-c9c2-4f46-9973-858f25b2b37e",
                         "operator": "GreaterThan",
-                        "rule_type_ids": [101, 105]
+                        "rule_type_ids": [
+                            "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                            "ca1d6632-6c9b-4c8f-aad5-b3d33b18070b"
+                        ]
                     },
                     {
-                        "id": 5,
+                        "id": "ac8f5e0e-f6d4-4e47-a5e4-75e56995b0a1",
                         "operator": "LessThanOrEqualTo",
-                        "rule_type_ids": [103, 106]
+                        "rule_type_ids": [
+                            "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f",
+                            "8c8f059d-1998-4601-8f2a-23fc8b8e0b5c"
+                        ]
                     },
                     {
-                        "id": 6,
+                        "id": "560d4757-6e52-4b1d-87b1-11e4529a243d",
                         "operator": "GreaterThanOrEqualTo",
-                        "rule_type_ids": [104, 107]
+                        "rule_type_ids": [
+                            "66a2e532-4c22-4cc5-bc85-46e0e7a9b0fc",
+                            "e18563b3-4b7f-4986-85cc-3a518a184cfe"
+                        ]
                     },
                     {
-                        "id": 7,
+                        "id": "1e862e66-04aa-4b67-98e4-c858973ccf2d",
                         "operator": "NotEqualTo",
-                        "rule_type_ids": [101, 108]
+                        "rule_type_ids": [
+                            "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                            "bf0f5f7c-8488-4e24-a071-7ad0fa8bf8b1"
+                        ]
                     }
                 ]
+
             },
             "doc-ruleset-ruletypevalue": {
                 "request": {
-                    "ruletype": 1
                 },
                 "response": [{
                     "id": 1,
