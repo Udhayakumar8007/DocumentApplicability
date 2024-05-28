@@ -648,7 +648,7 @@
             'doc-field-post': {
                 request: {
                     "enabled": true,
-                    "field_type_id": "1",
+                    "field_type_id": "753e4567-e89b-12d3-a456-426614174018",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -661,11 +661,11 @@
                         }
                     ],
                     "condition": [{
-                        "field_source_id": 1,
+                        "field_source_id": "12353e4567-e89b-12d3-a456-426614174018",
                         "trigger_value": "some_value",
-                        "action_id": 6,
+                        "action_id": "43e4567-e89b-12d3-a456-426614174018",
                         "message": null,
-                        "field_target_id": 2,
+                        "field_target_id": "33e4567-e89b-12d3-a456-426614174018",
                         "value_to_set": null
                     }]
                 },
@@ -677,7 +677,7 @@
             'doc-field-put': {
                 request: {
                     "enabled": true,
-                    "field_type_id": "1",
+                    "field_type_id": "753e4567-e89b-12d3-a456-426614174018",
                     "title": "Issue date",
                     "options_value": [],
                     "place_holder": null,
@@ -690,11 +690,11 @@
                         }
                     ],
                     "condition": [{
-                        "field_source_id": 1,
+                        "field_source_id": "12353e4567-e89b-12d3-a456-426614174018",
                         "trigger_value": "some_value",
-                        "action_id": 7,
+                        "action_id": "43e4567-e89b-12d3-a456-426614174018",
                         "message": null,
-                        "field_target_id": 2,
+                        "field_target_id": "33e4567-e89b-12d3-a456-426614174018",
                         "value_to_set": null
                     }]
                 },
@@ -1334,17 +1334,17 @@
                             "validity_period": 120
                         },
                         "settings": {
-                            "allow_multiple_attachments": true,
-                            "allow_versioning": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
                             "is_multiple_parts": true,
                             "is_internal_document": false,
-                            "has_parent_certificate": false,
+                            "is_has_parent_certificate": false,
                             "is_doc_verification_required": false,
-                            "option_to_create_purchase_order": false,
+                            "is_option_to_create_purchase_order": false
                         },
                         "parent_document": {
                             "document_id": null,
-                            "is_optional_document": false
+                            "is_optional_supplier_certificate_present": false
                         }
                     }]
                 }
@@ -1389,17 +1389,17 @@
                             "validity_period": 120
                         },
                         "settings": {
-                            "allow_multiple_attachments": true,
-                            "allow_versioning": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
                             "is_multiple_parts": true,
                             "is_internal_document": false,
-                            "has_parent_certificate": false,
+                            "is_has_parent_certificate": false,
                             "is_doc_verification_required": false,
-                            "option_to_create_purchase_order": false,
+                            "is_option_to_create_purchase_order": false
                         },
                         "parent_document": {
                             "document_id": null,
-                            "is_optional_document": false
+                            "is_optional_supplier_certificate_present": false
                         },
                         "permissions": {
                             "view": [
@@ -1937,16 +1937,20 @@
                         },
                         "settings": {
                             "is_mandatory": true,
-                            "is_uploaded": false,
-                            "is_multiple_parts": true,
-                            "allow_multiple_attachments": true,
-                            "is_internal_document": false,
-                            "option_to_create_purchase_order": false,
+                            "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
-                            "allow_versioning": false,
-                            "is_verification_required": false,
-                            "is_verified": false
-                        }
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_supplier_certificate_present": false
+                        },
                     }]
                 }
             }, 'doc-seafarer-request': {
@@ -2000,15 +2004,19 @@
                         },
                         "settings": {
                             "is_mandatory": true,
-                            "is_uploaded": false,
-                            "is_multiple_parts": true,
-                            "allow_multiple_attachments": true,
-                            "is_internal_document": false,
-                            "option_to_create_purchase_order": false,
+                            "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
-                            "allow_versioning": false,
-                            "is_verification_required": false,
-                            "is_verified": false
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_supplier_certificate_present": false
                         },
                         "verified_by": {
                             "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
@@ -2019,10 +2027,6 @@
                                 "Documentation Executive"
                             ],
                             "date": "2022-03-15T07:12:28.255+00:00"
-                        },
-                        "parent_document": {
-                            "document_id": null,
-                            "is_optional_document": false
                         },
                         "comment_details": {
                             "approval_comment": "",
@@ -2037,10 +2041,10 @@
                             },
                             "fields": [
                                 {
-                                    "field_id": 1,
+                                    "field_id": "5423e4567-e89b-12d3-a456-426614174018",
                                     "enabled": true,
                                     "order": 1,
-                                    "field_type_id": "1",
+                                    "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
                                     "field_type": "datepicker",
                                     "field_name": "Issue Date",
                                     "title": "Issue date",
@@ -2056,23 +2060,22 @@
                                     "style": {
                                         "width": "100%"
                                     },
-                                    "selected_value": "2023-05-19",
                                     "condition": [{
-                                        "field_to_monitor_id": 1,
+                                        "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
                                         "field_to_monitor_name": "issuing_authority",
                                         "trigger_value": "some_value",
-                                        "action_id": 6,
+                                        "action_id": "456423e4567-e89b-12d3-a456-426614174018",
                                         "action_name": "show",
-                                        "field_target_id": 2,
+                                        "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
                                         "field_target_name": "place_of_issue",
                                         "value_to_set": null
                                     }]
                                 },
                                 {
-                                    "field_id": 3,
+                                    "field_id": "98423e4567-e89b-12d3-a456-426614174018",
                                     "enabled": true,
                                     "order": 2,
-                                    "field_type_id": "3",
+                                    "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
                                     "field_type": "dropdown",
                                     "field_name": "subscriptionPlan",
                                     "title": "Subscription Plan",
@@ -2085,14 +2088,13 @@
                                     "style": {
                                         "width": "100%",
                                     },
-                                    "selected_value": "basic",
                                     "condition": [{
-                                        "field_to_monitor_id": 1,
+                                        "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
                                         "field_to_monitor_name": "issuing_authority",
                                         "trigger_value": "some_value",
-                                        "action_id": 6,
+                                        "action_id": "456423e4567-e89b-12d3-a456-426614174018",
                                         "action_name": "show",
-                                        "field_target_id": 2,
+                                        "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
                                         "field_target_name": "place_of_issue",
                                         "value_to_set": null
                                     }]
@@ -2100,49 +2102,74 @@
                             ]
                         }
                     },
-                    "document_files": [
-                        {
-                            "file_id": "161220",
-                            "file_name": "ahoyweb1.PNG",
-                            "file_content_type": "image/png",
-                            "file_size": 27004,
-                            "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
-                            "upload_date": "2023-05-19",
-                            "uploaded_by": "User123",
-                            "status": "uploaded",
-                            "versions": [{
-                                "id": "161221",
-                                "file_name": "ahoyweb1121.PNG",
-                                "file_content_type": "image/png",
-                                "file_size": 27004,
-                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
-                                "upload_date": "2023-05-19",
-                                "uploaded_by": "User1",
-                                "status": "uploaded"
+                    "seafarer-response": {
+                        "versions": [
+                            {
+                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                "version_number": 1,
+                                "is_active": false,
+                                "fields": [
+                                    {
+                                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                        "field_value": "basic"
+                                    },
+                                    {
+                                        "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                        "field_value": "2023-05-19"
+                                    }
+                                ],
+                                "uploaded_files": [
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_status": "uploaded"
+                                    }
+                                ]
                             },
                             {
-                                "file_id": "161222",
-                                "file_name": "ahoyweb1788.PNG",
-                                "file_content_type": "image/png",
-                                "file_size": 27004,
-                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com",
-                                "upload_date": "2023-05-20",
-                                "uploaded_by": "User2",
-                                "status": "uploaded"
-                            }]
-                        }
-                    ]
-
+                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                "version_number": 2,
+                                "is_active": true,
+                                "fields": [
+                                    {
+                                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                        "field_value": "advanced"
+                                    },
+                                    {
+                                        "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                        "field_value": "2024-01-10"
+                                    }
+                                ],
+                                "uploaded_files": [
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_status": "uploaded"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             },
             'doc-seafarer-fields-post': {
                 request: {
                     "fields": [{
-                        "field_id": 1,
+                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
                         "selected_value": "2023-05-19"
                     },
                     {
-                        "field_id": 3,
+                        "field_id": "21228423e4567-e89b-12d3-a456-426614174018",
                         "selected_value": "basic"
                     },
                     ]
@@ -2171,11 +2198,11 @@
             'doc-seafarer-fields-put': {
                 request: {
                     "fields": [{
-                        "field_id": 1,
+                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
                         "selected_value": "2023-05-19"
                     },
                     {
-                        "field_id": 3,
+                        "field_id": "SS98423e4567-e89b-12d3-a456-426614174018",
                         "selected_value": "basic"
                     },
                     ]
