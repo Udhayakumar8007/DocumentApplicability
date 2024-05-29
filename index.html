@@ -59,6 +59,7 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 
@@ -184,22 +185,25 @@
                             /api/fields/list</a></li>
                     <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
                             /api/fields-action/list</a></li>
-
                 </ul>
                 <h3>Seafarer API</h3>
                 <ul>
+                    <h3>Document Section</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-section',this)">Get
                             /api/seafarer/{cdc_number}/section-summary/list</a>
                     </li>
-                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post
-                            /api/seafarer/{cdc_number}/documents/list</a>
-                    </li>
+                    <h3>Seafarer Request</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-request',this)">Post
                             /api/seafarer/{cdc_number}/document/{doc_id}/request</a>
+                    </li>
+                    <h3>Seafarer Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post
+                            /api/seafarer/{cdc_number}/documents/list</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
                             /api/seafarer/{cdc_number}/document/{doc_id}/details</a>
                     </li>
+                    <h3>Seafarer Document Fields</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-post',this)">Post
                             /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
                     </li>
@@ -209,6 +213,9 @@
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-delete',this)">Delete
                             /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
                     </li>
+                    <h3>Upload Seafarer Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload-get',this)">Get
+                            /api/seafarer/{cdc_number}/document/{doc_id}/upload-document</a>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-upload',this)">Post
                             /api/seafarer/{cdc_number}/document/{doc_id}/upload-document</a>
                     </li>
@@ -261,7 +268,7 @@
                 }
                 ,
                 response: {
-                    "status": "success",
+                    "success": true,
                     "pagination": {
                         "total_records": 1,
                         "records_per_page": 10,
@@ -308,7 +315,7 @@
 
                 },
                 response: {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                         "name": "Pre Joining Employment Medical Examination",
@@ -504,7 +511,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         { "id": "123e4567-e89b-12d3-a456-426614174000", "type": "show", "text": "Show" },
                         { "id": "123e4567-e89b-12d3-a456-426614174001", "type": "hide", "text": "Hide" },
@@ -523,7 +530,7 @@
             "doc-fields-type": {
                 "request": {},
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         [
                             { "id": "123e4567-e89b-12d3-a456-426614174011", "type": "textbox", "text": "Text Box" },
@@ -543,7 +550,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "123e4567-e89b-12d3-a456-426614174018",
@@ -614,7 +621,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data":
                     {
                         "id": "123e4567-e89b-12d3-a456-426614174018",
@@ -745,7 +752,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "753e4567-e89b-12d3-a456-426614174018",
@@ -776,7 +783,7 @@
                 },
                 "response":
                 {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "753e4567-e89b-12d3-a456-426614174018",
                         "name": "CRA",
@@ -858,7 +865,7 @@
                 "request": {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
@@ -896,7 +903,7 @@
                 "request": {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
                         "name": "Rule set name",
@@ -1020,7 +1027,7 @@
 
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [{
                         "id": "119b6682-58bf-49c1-80a1-fb7a805713a5",
                         "ruletype": "Engine Make & Model",
@@ -1196,7 +1203,7 @@
 
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "f7f49b6c-2422-4cb8-9b38-8c5f1d2a4651",
@@ -1263,7 +1270,7 @@
                 "request": {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [{
                         "id": 1,
                         "ruletypevalue": "Checical Tanker"
@@ -1297,7 +1304,7 @@
                 }
                 ,
                 response: {
-                    "status": "success",
+                    "success": true,
                     "pagination": {
                         "total_records": 1,
                         "records_per_page": 10,
@@ -1358,7 +1365,7 @@
                 "request": {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                         "name": "Pre Joining Employment Medical Examination",
@@ -1430,7 +1437,7 @@
 
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "b50189c6-8cb0-4e2c-b59b-b7f5bfc2cf4e",
@@ -1540,7 +1547,7 @@
                 },
                 "response":
                 {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "3e25b951-6b24-4a0d-b267-10f2c64693a4",
@@ -1605,7 +1612,7 @@
                 },
                 "response":
                 {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "12f23470-d5de-44d2-86c7-eac0f755b92f",
                         "identifier": "joining_document",
@@ -1646,7 +1653,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
@@ -1759,7 +1766,7 @@
                 },
                 "response":
                 {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
                         "identifier": "letters_and_memos",
@@ -1803,7 +1810,7 @@
                 request: {
                 },
                 "response": {
-                    "status": "success",
+                    "success": true,
                     "data": [
                         {
                             "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -1853,7 +1860,7 @@
                 },
                 "response":
                 {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "550e8400-e29b-41d4-a716-446655440005",
                         "tag": "Sales",
@@ -1905,7 +1912,7 @@
                     "status_id": null
                 },
                 response: {
-                    "status": "success",
+                    "success": true,
                     "data": [{
                         "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                         "name": "Pre Joining Employment Medical Examination",
@@ -1958,21 +1965,40 @@
                         },
                     }]
                 }
-            }, 'doc-seafarer-request': {
+            },
+             'doc-seafarer-request': {
                 request: {
-                    "status": "requested_details",
-                    "reason": "Test Comment"
+                    "status": "request",
+                    "reason": null
                 },
                 response: {
                     "success": true,
                     "message": "Document requested successfully",
+                },
+                comments    : {
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the request.",
+                        "enum": [
+                            "request",
+                            "re-request",
+                            "re-upload-request"
+                        ],
+                        "enumDescriptions": {
+                            "request": "Initial request.",
+                            "re-request": "A request for re-evaluation or re-processing.",
+                            "re-upload-request": "A request to re-upload the document."
+                        }
+                    },
+                    "reason": "Test Comment"
                 }
+
             },
             'doc-seafarer-details': {
                 request: {
                 },
                 response: {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
                         "name": "Pre Joining Employment Medical Examination",
@@ -2245,6 +2271,7 @@
             },
             'doc-seafarer-document-upload': {
                 request: {
+                    "upload_method": "seafarer_upload_document",
                     "document_files": [
                         {
                             "file_name": "ahoyweb1.PNG",
@@ -2255,6 +2282,24 @@
                 response: {
                     "success": true,
                     "message": "Document uploaded successfully"
+                },
+                comments: {
+                    "upload_method": {
+                        "type": "string",
+                        "description": "Specifies the method of upload.",
+                        "enum": [
+                            "seafarer_upload_document",
+                            "seafarer_replace_document",
+                            "upload_on_behalf_document",
+                            "upload_authentication_document"
+                        ],
+                        "enumDescriptions": {
+                            "seafarer_upload_document": "For uploading a new document for a seafarer.",
+                            "seafarer_replace_document": "For replacing an existing document for a seafarer.",
+                            "upload_on_behalf_document": "For uploading a document on behalf of someone else.",
+                            "upload_authentication_document": "For uploading a document for authentication purposes."
+                        }
+                    }
                 }
             },
             'doc-seafarer-document-delete': {
@@ -2269,72 +2314,83 @@
                 request: {
                 },
                 response: {
-                    "status": "success",
+                    "success": true,
                     "data": {
                         "summary": {
                             "sections": [
                                 {
                                     "identifier": "basic_details",
+                                    "section": "Basic Details",
                                     "is_complete": true,
                                     "completed_fields_count": 7,
                                     "mandatory_fields_count": 7
                                 },
                                 {
                                     "identifier": "personal_details",
+                                    "section": "Personal Details",
                                     "is_complete": true,
                                     "completed_fields_count": 2,
                                     "mandatory_fields_count": 2
                                 },
                                 {
                                     "identifier": "contact_details",
+                                    "section": "Contact Details",
                                     "is_complete": true,
                                     "completed_fields_count": 3,
                                     "mandatory_fields_count": 3
                                 },
                                 {
                                     "identifier": "education_details",
+                                    "section": "Education Details",
                                     "is_complete": true,
                                     "completed_fields_count": 0,
                                     "mandatory_fields_count": 0
                                 },
                                 {
                                     "identifier": "family_details",
+                                    "section": "Family Details",
                                     "is_complete": true,
                                     "completed_fields_count": 0,
                                     "mandatory_fields_count": 0
                                 },
                                 {
                                     "identifier": "other_details",
+                                    "section": "Other Details",
                                     "is_complete": false,
                                     "completed_fields_count": 0,
                                     "mandatory_fields_count": 6
                                 },
                                 {
                                     "identifier": "documents",
+                                    "section": "Documents",
                                     "is_complete": false,
                                     "completed_fields_count": 15,
                                     "mandatory_fields_count": 54
                                 },
                                 {
                                     "identifier": "covid_19_vaccination_certificate",
+                                    "section": "COVID-19 Vaccination Certificate",
                                     "is_complete": false,
                                     "completed_fields_count": 0,
                                     "mandatory_fields_count": 0
                                 },
                                 {
                                     "identifier": "self_declaration_details",
+                                    "section": "Self-Declaration Details",
                                     "is_complete": false,
                                     "completed_fields_count": 0,
                                     "mandatory_fields_count": 1
                                 },
                                 {
                                     "identifier": "only_training_documents",
+                                    "section": "Training Documents",
                                     "is_complete": false,
                                     "completed_fields_count": 1,
                                     "mandatory_fields_count": 10
                                 },
                                 {
                                     "identifier": "without_training_documents",
+                                    "section": "Non-Training Documents",
                                     "is_complete": false,
                                     "completed_fields_count": 14,
                                     "mandatory_fields_count": 44
@@ -2343,7 +2399,8 @@
                         },
                         "authentication": {
                             "is_complete": false,
-                            "identifier": "documents"
+                            "identifier": "documents",
+                            "section": "Documents"
                         },
                         "expiring_document": {
                             "flag_doc": {
@@ -2358,6 +2415,93 @@
                             "non_training": {
                                 "expiring_doc_count": 17
                             }
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-document-upload-get': {
+                request: {
+                },
+                response: {
+                    "success": true,
+                    "data": {
+                        "versions": [
+                            {
+                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                "version_number": 1,
+                                "is_active": false,
+                                "uploaded_files": [
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_status": "uploaded",
+                                        "file_upload_method": "seafarer_upload_document",
+                                    },
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_status": "uploaded",
+                                        "file_upload_method": "upload_authentication_document",
+                                    }
+                                ]
+                            },
+                            {
+                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                "version_number": 2,
+                                "is_active": true,
+                                "uploaded_files": [
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_status": "uploaded",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                    },
+                                    {
+                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_status": "uploaded",
+                                        "file_upload_method": "seafarer_replace_document",
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                comments: {
+                    "upload_method": {
+                        "type": "string",
+                        "description": "Specifies the method of upload.",
+                        "enum": [
+                            "seafarer_upload_document",
+                            "seafarer_replace_document",
+                            "upload_on_behalf_document",
+                            "upload_authentication_document"
+                        ],
+                        "enumDescriptions": {
+                            "seafarer_upload_document": "For uploading a new document for a seafarer.",
+                            "seafarer_replace_document": "For replacing an existing document for a seafarer.",
+                            "upload_on_behalf_document": "For uploading a document on behalf of someone else.",
+                            "upload_authentication_document": "For uploading a document for authentication purposes."
                         }
                     }
                 }
