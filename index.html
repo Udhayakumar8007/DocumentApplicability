@@ -59,7 +59,6 @@
                 width: 100%;
             }
         }
-
     </style>
 </head>
 
@@ -204,6 +203,9 @@
                             /api/seafarer/{cdc_number}/document/{doc_id}/details</a>
                     </li>
                     <h3>Seafarer Document Fields</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-get',this)">Get
+                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                    </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-post',this)">Post
                             /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
                     </li>
@@ -221,6 +223,10 @@
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-delete',this)">Delete
                             /api/seafarer/{cdc_number}/document/{doc_id}/delete-document</a>
+                    </li>
+                    <h3>Seafarer Verify Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload-verify',this)">Post
+                            /api/seafarer/{cdc_number}/document/{doc_id}/verify-document</a>
                     </li>
                 </ul>
             </div>
@@ -1966,7 +1972,7 @@
                     }]
                 }
             },
-             'doc-seafarer-request': {
+            'doc-seafarer-request': {
                 request: {
                     "status": "request",
                     "reason": null
@@ -1975,17 +1981,20 @@
                     "success": true,
                     "message": "Document requested successfully",
                 },
-                comments    : {
+                comments: {
                     "status": {
                         "type": "string",
                         "description": "The status of the request.",
                         "enum": [
                             "request",
+                            "request_details",
                             "re-request",
                             "re-upload-request"
+
                         ],
                         "enumDescriptions": {
                             "request": "Initial request.",
+                            "request_details": "A request to details of the document.",
                             "re-request": "A request for re-evaluation or re-processing.",
                             "re-upload-request": "A request to re-upload the document."
                         }
@@ -2135,64 +2144,167 @@
                             ]
                         }
                     },
-                    "seafarer-response": {
-                        "versions": [
-                            {
-                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
-                                "version_number": 1,
-                                "is_active": false,
-                                "fields": [
-                                    {
-                                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                        "field_value": "basic"
-                                    },
-                                    {
-                                        "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                        "field_value": "2023-05-19"
-                                    }
-                                ],
-                                "uploaded_files": [
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                    "seafarer": {
+                        "id": "4079",
+                        "first_name": "HITESH",
+                        "last_name": "CHAUHAN"
+                    },
+                    "seafarer-response": [
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": [
+                                        {
+                                            "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "basic"
+                                        },
+                                        {
+                                            "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "2023-05-19"
+                                        }
+                                    ],
+                                    "file_info": {
                                         "file_name": "ahoyweb1.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27004,
                                         "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
                                         "uploaded_date": "2023-05-19",
                                         "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
                                         "file_status": "uploaded"
                                     }
-                                ]
-                            },
-                            {
-                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
-                                "version_number": 2,
-                                "is_active": true,
-                                "fields": [
-                                    {
-                                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                        "field_value": "advanced"
-                                    },
-                                    {
-                                        "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                        "field_value": "2024-01-10"
-                                    }
-                                ],
-                                "uploaded_files": [
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": [
+                                        {
+                                            "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "advanced"
+                                        },
+                                        {
+                                            "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "2024-01-10"
+                                        }
+                                    ],
+                                    "file_info": {
                                         "file_name": "ahoyweb3.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28000,
                                         "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
                                         "uploaded_date": "2024-01-01",
                                         "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
                                         "file_status": "uploaded"
                                     }
-                                ]
-                            }
-                        ]
-                    }
+                                }
+                            ]
+                        },
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174019",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174020",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": [
+                                        {
+                                            "field_id": "field3",
+                                            "field_value": "intermediate"
+                                        },
+                                        {
+                                            "field_id": "field4",
+                                            "field_value": "2023-06-19"
+                                        }
+                                    ],
+                                    "file_info": {
+                                        "file_name": "ahoyweb2.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27005,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb2.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174021",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": [
+                                        {
+                                            "field_id": "field7",
+                                            "field_value": "expert"
+                                        },
+                                        {
+                                            "field_id": "field8",
+                                            "field_value": "2024-02-10"
+                                        }
+                                    ],
+                                    "file_info": {
+                                        "file_name": "ahoyweb4.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28001,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb4.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'doc-seafarer-fields-get': {
+                request: {
+                },
+                response: {
+                    "success": true,
+                    "data": [
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": [
+                                        {
+                                            "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "basic"
+                                        },
+                                        {
+                                            "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "2023-05-19"
+                                        }
+                                    ],
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": [
+                                        {
+                                            "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "advanced"
+                                        },
+                                        {
+                                            "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                            "field_value": "2024-01-10"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             'doc-seafarer-fields-post': {
@@ -2419,73 +2531,57 @@
                     }
                 }
             },
+            'doc-seafarer-document-upload-verify': {
+                request: {
+                    comment: null
+                },
+                response: {
+                    "success": true,
+                    "message": "Document Verified successfully"
+                }
+            },
             'doc-seafarer-document-upload-get': {
                 request: {
                 },
                 response: {
                     "success": true,
-                    "data": {
-                        "versions": [
-                            {
-                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
-                                "version_number": 1,
-                                "is_active": false,
-                                "uploaded_files": [
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                    "data": [
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "file_info": {
                                         "file_name": "ahoyweb1.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27004,
                                         "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
                                         "uploaded_date": "2023-05-19",
                                         "uploaded_by_user": "User123",
-                                        "file_status": "uploaded",
                                         "file_upload_method": "seafarer_upload_document",
-                                    },
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
-                                        "file_name": "ahoyweb3.PNG",
-                                        "file_content_type": "image/png",
-                                        "file_size_bytes": 28000,
-                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
-                                        "uploaded_date": "2024-01-01",
-                                        "uploaded_by_user": "User124",
-                                        "file_status": "uploaded",
-                                        "file_upload_method": "upload_authentication_document",
+                                        "file_status": "uploaded"
                                     }
-                                ]
-                            },
-                            {
-                                "version_id": "1223e4567-e89b-12d3-a456-426614174018",
-                                "version_number": 2,
-                                "is_active": true,
-                                "uploaded_files": [
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "file_info": {
                                         "file_name": "ahoyweb3.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28000,
                                         "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
                                         "uploaded_date": "2024-01-01",
                                         "uploaded_by_user": "User124",
-                                        "file_status": "uploaded",
                                         "file_upload_method": "upload_on_behalf_document",
-                                    },
-                                    {
-                                        "file_id": "97423e4567-e89b-12d3-a456-426614174018",
-                                        "file_name": "ahoyweb1.PNG",
-                                        "file_content_type": "image/png",
-                                        "file_size_bytes": 27004,
-                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
-                                        "uploaded_date": "2023-05-19",
-                                        "uploaded_by_user": "User123",
-                                        "file_status": "uploaded",
-                                        "file_upload_method": "seafarer_replace_document",
+                                        "file_status": "uploaded"
                                     }
-                                ]
-                            }
-                        ]
-                    }
+                                }
+                            ]
+                        }
+                    ]
                 },
                 comments: {
                     "upload_method": {
