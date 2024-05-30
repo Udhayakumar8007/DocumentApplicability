@@ -357,13 +357,14 @@
                             "validity_period": 120,
                         },
                         "settings": {
-                            "allow_multiple_attachments": true,
-                            "allow_versioning": false,
+                            "is_system_document": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
                             "is_multiple_parts": true,
                             "is_internal_document": false,
-                            "has_parent_certificate": false,
+                            "is_has_parent_certificate": false,
                             "is_verification_required": false,
-                            "option_to_create_purchase_order": false
+                            "is_option_to_create_purchase_order": false
                         },
                         "parent_document": {
                             "document_id": null,
@@ -405,13 +406,14 @@
                         "validity_period": 120
                     },
                     "settings": {
-                        "allow_multiple_attachments": true,
-                        "allow_versioning": false,
+                        "is_system_document": false,
+                        "is_allow_multiple_attachments": true,
+                        "is_allow_versioning": false,
                         "is_multiple_parts": true,
                         "is_internal_document": false,
-                        "has_parent_certificate": false,
+                        "is_has_parent_certificate": false,
                         "is_verification_required": false,
-                        "option_to_create_purchase_order": false
+                        "is_option_to_create_purchase_order": false
                     },
                     "parent_document": {
                         "document_id": "123e4567-e89b-12d3-a456-426614174005",
@@ -569,6 +571,7 @@
                             "default_value": null,
                             "place_holder": null,
                             "is_mandatory": true,
+                            "is_default_field": false,
                             "order": 1,
                             "validations": [
                                 {
@@ -601,6 +604,7 @@
                             "default_value": null,
                             "place_holder": null,
                             "is_mandatory": true,
+                            "is_default_field": false,
                             "order": 2,
                             "validations": [
                                 {
@@ -640,6 +644,7 @@
                         "default_value": null,
                         "place_holder": null,
                         "is_mandatory": true,
+                        "is_default_field": false,
                         "order": 1,
                         "validations": [
                             {
@@ -866,7 +871,6 @@
                     }
                 }
             },
-
             "doc-ruleset-get": {
                 "request": {
                 },
@@ -1206,7 +1210,6 @@
             },
             "doc-ruleset-operatortype": {
                 "request": {
-
                 },
                 "response": {
                     "status": "success",
@@ -1270,7 +1273,6 @@
                         }
                     ]
                 }
-
             },
             "doc-ruleset-ruletypevalue": {
                 "request": {
@@ -1352,6 +1354,7 @@
                             "validity_period": 120
                         },
                         "settings": {
+                            "is_system_document": false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -1407,6 +1410,7 @@
                             "validity_period": 120
                         },
                         "settings": {
+                            "is_system_document": false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -1768,7 +1772,6 @@
             },
             'doc-master-subtype-details': {
                 request: {
-
                 },
                 "response":
                 {
@@ -1963,6 +1966,7 @@
                             "expiration_date": "2024-12-31"
                         },
                         "settings": {
+                            "is_system_document": false,
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
@@ -2067,6 +2071,7 @@
                             "expiration_date": "2024-12-31"
                         },
                         "settings": {
+                            "is_system_document": false,
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
@@ -2106,6 +2111,7 @@
                                     "options_value": [],
                                     "default_value": null,
                                     "is_mandatory": true,
+                                    "is_default_field": false,
                                     "validations": [
                                         {
                                             "regex": "^\\d{4}-\\d{2}-\\d{2}$",
@@ -2141,6 +2147,7 @@
                                     ],
                                     "default_value": null,
                                     "is_mandatory": true,
+                                    "is_default_field": false,
                                     "style": {
                                         "width": "100%",
                                     },
