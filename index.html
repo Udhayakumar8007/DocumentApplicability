@@ -2111,78 +2111,68 @@
                             "remark_comment": "",
                             "document_bypass_comment": null
                         },
-                        "field-aplicable": {
-                            "button_lable": {
-                                "save_label": "Save",
-                                "update_label": "Update",
-                                "discard_label": "Discard"
+                        "field-aplicable": [
+                            {
+                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 1,
+                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "datepicker",
+                                "field_name": "Issue Date",
+                                "title": "Issue date",
+                                "place_holder": "YYYY-MM-DD",
+                                "options_value": [],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "validations": [
+                                    {
+                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                        "message": "Please enter a date in the format YYYY-MM-DD"
+                                    }
+                                ],
+                                "condition": [{
+                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
                             },
-                            "fields": [
-                                {
-                                    "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 1,
-                                    "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "datepicker",
-                                    "field_name": "Issue Date",
-                                    "title": "Issue date",
-                                    "place_holder": "YYYY-MM-DD",
-                                    "options_value": [],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "validations": [
-                                        {
-                                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                            "message": "Please enter a date in the format YYYY-MM-DD"
-                                        }
-                                    ],
-                                    "style": {
-                                        "width": "100%"
-                                    },
-                                    "condition": [{
-                                        "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
-                                        "field_to_monitor_name": "issuing_authority",
-                                        "trigger_value": "some_value",
-                                        "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                        "action_name": "show",
-                                        "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
-                                        "field_target_name": "place_of_issue",
-                                        "value_to_set": null
-                                    }]
+                            {
+                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 2,
+                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "dropdown",
+                                "field_name": "subscriptionPlan",
+                                "title": "Subscription Plan",
+                                "options_value": [
+                                    { "value": "basic", "label": "Basic" },
+                                    { "value": "premium", "label": "Premium" },
+                                    { "value": "pro", "label": "Pro" }
+                                ],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "style": {
+                                    "width": "100%",
                                 },
-                                {
-                                    "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 2,
-                                    "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "dropdown",
-                                    "field_name": "subscriptionPlan",
-                                    "title": "Subscription Plan",
-                                    "options_value": [
-                                        { "value": "basic", "label": "Basic" },
-                                        { "value": "premium", "label": "Premium" },
-                                        { "value": "pro", "label": "Pro" }
-                                    ],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "style": {
-                                        "width": "100%",
-                                    },
-                                    "condition": [{
-                                        "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
-                                        "field_to_monitor_name": "issuing_authority",
-                                        "trigger_value": "some_value",
-                                        "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                        "action_name": "show",
-                                        "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
-                                        "field_target_name": "place_of_issue",
-                                        "value_to_set": null
-                                    }]
-                                }
-                            ]
-                        }
+                                "condition": [{
+                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            }
+                        ]
                     },
                     "response": [
                         {
