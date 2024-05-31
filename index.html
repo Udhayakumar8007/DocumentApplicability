@@ -1912,7 +1912,8 @@
                         "document_type_id": null,
                         "document_sub_type_id": null
                     },
-                    "display_group_id": null
+                    "display_group_id": null,
+                    "status": null
                 },
                 response: {
                     "status": "success",
@@ -1983,6 +1984,24 @@
                             "is_optional_supplier_certificate_present": false
                         },
                     }]
+                },
+                comments: {
+                    "status": {
+                        "type": "string",
+                        "description": "Specifies the status of the document.",
+                        "enum": [
+                            "verified",
+                            "unverified",
+                            "requested",
+                            "requested_attachment"
+                        ],
+                        "enumDescriptions": {
+                            "verified": "The document has been verified.",
+                            "unverified": "The document has not been verified.",
+                            "requested": "The document has been requested.",
+                            "requested_attachment": "An attachment has been requested for the document."
+                        }
+                    }
                 }
             },
             'doc-seafarer-request': {
