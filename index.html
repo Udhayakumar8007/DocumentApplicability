@@ -189,44 +189,47 @@
                 <ul>
                     <h3>Document Section</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-section',this)">Get
-                            /api/seafarer/{cdc_number}/section-summary/list</a>
+                            /api/seafarer/{seafarerid}/section-summary/list</a>
                     </li>
                     <h3>Seafarer Request</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-request',this)">Post
-                            /api/seafarer/{cdc_number}/document/{doc_id}/request</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/request</a>
                     </li>
                     <h3>Seafarer Document</h3>
-                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Post
-                            /api/seafarer/{cdc_number}/documents/list</a>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list-sync',this)">Get
+                            /api/seafarer/{seafarerid}/documents/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Get
+                            /api/seafarer/{seafarerid}/document-checklist</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
-                            /api/seafarer/{cdc_number}/document/{doc_id}/details</a>
+                            /api/seafarer/{seafarerid}/document-checklist/{doc_id}/details</a>
                     </li>
                     <h3>Seafarer Document Fields</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-get',this)">Get
-                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-post',this)">Post
-                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-put',this)">Put
-                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-delete',this)">Delete
-                            /api/seafarer/{cdc_number}/document/{doc_id}/fields-applicable</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
                     </li>
                     <h3>Upload Seafarer Document</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-upload-get',this)">Get
-                            /api/seafarer/{cdc_number}/document/{doc_id}/upload-document</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/upload-document</a>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-upload',this)">Post
-                            /api/seafarer/{cdc_number}/document/{doc_id}/upload-document</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/upload-document</a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-delete',this)">Delete
-                            /api/seafarer/{cdc_number}/document/{doc_id}/delete-document</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/delete-document</a>
                     </li>
                     <h3>Seafarer Verify Document</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-document-upload-verify',this)">Post
-                            /api/seafarer/{cdc_number}/document/{doc_id}/verify-document</a>
+                            /api/seafarer/{seafarerid}/document/{doc_id}/verify-document</a>
                     </li>
                 </ul>
             </div>
@@ -1975,14 +1978,35 @@
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
                             "is_internal_document": false,
-                            "is_has_parent_certificate": false,
+                            "is_has_parent_certificate": true,
                             "is_doc_verification_required": false,
                             "is_option_to_create_purchase_order": false
                         },
                         "parent_document": {
-                            "document_id": null,
-                            "is_optional_supplier_certificate_present": false
-                        },
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        }
                     }]
                 },
                 comments: {
@@ -2034,6 +2058,262 @@
                     "reason": "Test Comment"
                 }
 
+            },
+            'doc-seafarer-list-sync': {
+                request: {
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "status": null
+                },
+                response: {
+                    "status": "success",
+                    "data": [{
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        },
+                        "comment_details": {
+                            "approval_comment": "",
+                            "remark_comment": "",
+                            "document_bypass_comment": null
+                        },
+                        "field-aplicable": [
+                            {
+                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 1,
+                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "datepicker",
+                                "field_name": "Issue Date",
+                                "title": "Issue date",
+                                "place_holder": "YYYY-MM-DD",
+                                "options_value": [],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "validations": [
+                                    {
+                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                        "message": "Please enter a date in the format YYYY-MM-DD"
+                                    }
+                                ],
+                                "condition": [{
+                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            },
+                            {
+                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 2,
+                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "dropdown",
+                                "field_name": "subscriptionPlan",
+                                "title": "Subscription Plan",
+                                "options_value": [
+                                    { "value": "basic", "label": "Basic" },
+                                    { "value": "premium", "label": "Premium" },
+                                    { "value": "pro", "label": "Pro" }
+                                ],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "style": {
+                                    "width": "100%",
+                                },
+                                "condition": [{
+                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            }
+                        ]
+                    }],
+                    "response": [
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "basic",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2023-05-19"
+                                    },
+                                    "file_info": {
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "advanced",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    },
+                                    "file_info": {
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174019",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174020",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "intermediate",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    },
+                                    "file_info": {
+                                        "file_name": "ahoyweb2.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27005,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb2.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174021",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "expert",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    },
+                                    "file_info": {
+                                        "file_name": "ahoyweb4.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28001,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb4.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
             },
             'doc-seafarer-details': {
                 request: {
@@ -2103,8 +2383,29 @@
                             "is_option_to_create_purchase_order": false
                         },
                         "parent_document": {
-                            "document_id": null,
-                            "is_optional_supplier_certificate_present": false
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
                         },
                         "comment_details": {
                             "approval_comment": "",
@@ -2159,7 +2460,7 @@
                                 "is_mandatory": true,
                                 "is_default_field": false,
                                 "style": {
-                                       "width": "100%",
+                                    "width": "100%",
                                 },
                                 "condition": [{
                                     "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
