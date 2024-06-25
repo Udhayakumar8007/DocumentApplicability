@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             flex-direction: row;
             height: 100vh;
         }
+
         .left-column {
             width: 30%;
             overflow-y: auto;
@@ -2408,7 +2410,7 @@
                                 "expiration_date": "2024-12-31"
                             },
                         },
-                       
+
                         "field-aplicable": [
                             {
                                 "field_id": "5423e4567-e89b-12d3-a456-426614174018",
@@ -2560,11 +2562,7 @@
                             ]
                         }
                     ],
-                    "comment_details": {
-                        "approval_comment": "",
-                        "remark_comment": "",
-                        "document_bypass_comment": null
-                    },
+
                 }
             },
             'doc-seafarer-details-multi': {
@@ -2707,6 +2705,11 @@
                         {
                             "part_id": "part1",
                             "part_name": "Part 1",
+                            "Number": 1,
+                            "Mandatory": true,
+                            "IsAttachmentRequired": true,
+                            "IsDetailsRequired": true,
+                            "IsAggregate": false,
                             "document_status": {
                                 "status": "Requested",
                                 "is_verified": true,
@@ -2802,11 +2805,21 @@
                                         }
                                     ]
                                 }
-                            ]
+                            ],
+                            "comment_details": {
+                                "approval_comment": "Approved by Pratha A",
+                                "remark_comment": "All fields verified.",
+                                "document_bypass_comment": null
+                            }
                         },
                         {
                             "part_id": "part2",
                             "part_name": "Part 2",
+                            "Number": 2,
+                            "Mandatory": false,
+                            "IsAttachmentRequired": false,
+                            "IsDetailsRequired": true,
+                            "IsAggregate": true,
                             "document_status": {
                                 "status": "Requested",
                                 "is_verified": false,
@@ -2893,7 +2906,12 @@
                                         }
                                     ]
                                 }
-                            ]
+                            ],
+                            "comment_details": {
+                                "approval_comment": "",
+                                "remark_comment": "",
+                                "document_bypass_comment": null
+                            }
                         }
                     ],
                     "comment_details": {
