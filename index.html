@@ -204,6 +204,8 @@
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
                             /api/seafarer/{seafarerid}/document-checklist/{doc_id}/details</a>
+                    <li><a href="#" onclick="showModel('doc-seafarer-details-multi',this)">Get
+                            /api/seafarer/{seafarerid}/document-checklist/{doc_id}/details <b>-Multipart</b></a>
                     </li>
                     <h3>Seafarer Document Fields</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-fields-get',this)">Get
@@ -2157,11 +2159,7 @@
                                 "expiration_date": "2024-12-31"
                             },
                         },
-                        "comment_details": {
-                            "approval_comment": "",
-                            "remark_comment": "",
-                            "document_bypass_comment": null
-                        },
+
                         "field-aplicable": [
                             {
                                 "field_id": "5423e4567-e89b-12d3-a456-426614174018",
@@ -2312,7 +2310,12 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    }
                 }
             },
             'doc-seafarer-details': {
@@ -2407,11 +2410,7 @@
                                 "expiration_date": "2024-12-31"
                             },
                         },
-                        "comment_details": {
-                            "approval_comment": "",
-                            "remark_comment": "",
-                            "document_bypass_comment": null
-                        },
+                       
                         "field-aplicable": [
                             {
                                 "field_id": "5423e4567-e89b-12d3-a456-426614174018",
@@ -2562,7 +2561,348 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    },
+                }
+            },
+            'doc-seafarer-details-multi': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": {
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        },
+                        "field-aplicable": [
+                            {
+                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 1,
+                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "datepicker",
+                                "field_name": "Issue Date",
+                                "title": "Issue date",
+                                "place_holder": "YYYY-MM-DD",
+                                "options_value": [],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "validations": [
+                                    {
+                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                        "message": "Please enter a date in the format YYYY-MM-DD"
+                                    }
+                                ],
+                                "condition": [{
+                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            },
+                            {
+                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                "enabled": true,
+                                "order": 2,
+                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
+                                "field_type": "dropdown",
+                                "field_name": "subscriptionPlan",
+                                "title": "Subscription Plan",
+                                "options_value": [
+                                    { "value": "basic", "label": "Basic" },
+                                    { "value": "premium", "label": "Premium" },
+                                    { "value": "pro", "label": "Pro" }
+                                ],
+                                "default_value": null,
+                                "is_mandatory": true,
+                                "is_default_field": false,
+                                "style": {
+                                    "width": "100%",
+                                },
+                                "condition": [{
+                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
+                                    "field_to_monitor_name": "issuing_authority",
+                                    "trigger_value": "some_value",
+                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
+                                    "action_name": "show",
+                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
+                                    "field_target_name": "place_of_issue",
+                                    "value_to_set": null
+                                }]
+                            }
+                        ]
+                    },
+                    "multipart": [
+                        {
+                            "part_id": "part1",
+                            "part_name": "Part 1",
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                            "field_applicable": [
+                                {
+                                    "field_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "enabled": true,
+                                    "order": 1,
+                                    "field_type_id": "78423e4567-e89b-12d3-a456-426614174018",
+                                    "field_type": "text",
+                                    "field_name": "Part1Field1",
+                                    "title": "Part 1 Field 1",
+                                    "place_holder": "Enter text",
+                                    "options_value": [],
+                                    "default_value": null,
+                                    "is_mandatory": true,
+                                    "is_default_field": false,
+                                    "validations": []
+                                },
+                                {
+                                    "field_id": "7423e4567-e89b-12d3-a456-426614174018",
+                                    "enabled": true,
+                                    "order": 2,
+                                    "field_type_id": "68423e4567-e89b-12d3-a456-426614174018",
+                                    "field_type": "number",
+                                    "field_name": "Part1Field2",
+                                    "title": "Part 1 Field 2",
+                                    "place_holder": "Enter number",
+                                    "options_value": [],
+                                    "default_value": null,
+                                    "is_mandatory": true,
+                                    "is_default_field": false,
+                                    "validations": []
+                                }
+                            ],
+                            "response": [
+                                {
+                                    "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                                    "versions": [
+                                        {
+                                            "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                            "version_number": 1,
+                                            "is_active": false,
+                                            "fields": {
+                                                "6423e4567-e89b-12d3-a456-426614174018": "Text for Part 1 Field 1",
+                                                "7423e4567-e89b-12d3-a456-426614174018": 100
+                                            },
+                                            "file_info": {
+                                                "file_name": "part1_v1.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 27004,
+                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part1_v1.PNG",
+                                                "uploaded_date": "2023-05-19",
+                                                "uploaded_by_user": "User123",
+                                                "file_upload_method": "seafarer_upload_document",
+                                                "file_status": "uploaded"
+                                            }
+                                        },
+                                        {
+                                            "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                            "version_number": 2,
+                                            "is_active": true,
+                                            "fields": {
+                                                "6423e4567-e89b-12d3-a456-426614174018": "Updated text for Part 1 Field 1",
+                                                "7423e4567-e89b-12d3-a456-426614174018": 150
+                                            },
+                                            "file_info": {
+                                                "file_name": "part1_v2.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 28000,
+                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part1_v2.PNG",
+                                                "uploaded_date": "2024-01-01",
+                                                "uploaded_by_user": "User124",
+                                                "file_upload_method": "upload_on_behalf_document",
+                                                "file_status": "uploaded"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "part_id": "part2",
+                            "part_name": "Part 2",
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": false,
+                                "verified_date": null,
+                                "verified_by": null,
+                                "is_uploaded": false,
+                                "uploaded_date": null,
+                                "is_expired": false,
+                                "expiration_date": null
+                            },
+                            "field_applicable": [
+                                {
+                                    "field_id": "8423e4567-e89b-12d3-a456-426614174018",
+                                    "enabled": true,
+                                    "order": 1,
+                                    "field_type_id": "88423e4567-e89b-12d3-a456-426614174018",
+                                    "field_type": "text",
+                                    "field_name": "Part2Field1",
+                                    "title": "Part 2 Field 1",
+                                    "place_holder": "Enter text",
+                                    "options_value": [],
+                                    "default_value": null,
+                                    "is_mandatory": true,
+                                    "is_default_field": false,
+                                    "validations": []
+                                },
+                                {
+                                    "field_id": "9423e4567-e89b-12d3-a456-426614174018",
+                                    "enabled": true,
+                                    "order": 2,
+                                    "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
+                                    "field_type": "number",
+                                    "field_name": "Part2Field2",
+                                    "title": "Part 2 Field 2",
+                                    "place_holder": "Enter number",
+                                    "options_value": [],
+                                    "default_value": null,
+                                    "is_mandatory": true,
+                                    "is_default_field": false,
+                                    "validations": []
+                                }
+                            ],
+                            "response": [
+                                {
+                                    "document_id": "97423e4567-e89b-12d3-a456-426614174019",
+                                    "versions": [
+                                        {
+                                            "version_id": "1223e4567-e89b-12d3-a456-426614174020",
+                                            "version_number": 1,
+                                            "is_active": false,
+                                            "fields": {
+                                                "8423e4567-e89b-12d3-a456-426614174018": "Text for Part 2 Field 1",
+                                                "9423e4567-e89b-12d3-a456-426614174018": 200
+                                            },
+                                            "file_info": {
+                                                "file_name": "part2_v1.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 27005,
+                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part2_v1.PNG",
+                                                "uploaded_date": "2023-05-19",
+                                                "uploaded_by_user": "User123",
+                                                "file_upload_method": "seafarer_upload_document",
+                                                "file_status": "uploaded"
+                                            }
+                                        },
+                                        {
+                                            "version_id": "1223e4567-e89b-12d3-a456-426614174021",
+                                            "version_number": 2,
+                                            "is_active": true,
+                                            "fields": {
+                                                "8423e4567-e89b-12d3-a456-426614174018": "Updated text for Part 2 Field 1",
+                                                "9423e4567-e89b-12d3-a456-426614174018": 250
+                                            },
+                                            "file_info": {
+                                                "file_name": "part2_v2.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 28001,
+                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part2_v2.PNG",
+                                                "uploaded_date": "2024-01-01",
+                                                "uploaded_by_user": "User124",
+                                                "file_upload_method": "upload_on_behalf_document",
+                                                "file_status": "uploaded"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    },
                 }
             },
             'doc-seafarer-fields-get': {
