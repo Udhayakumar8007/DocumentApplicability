@@ -197,7 +197,7 @@
                     </li>
                     <h3>Seafarer Document</h3>
                     <li><a href="#" onclick="showModel('doc-seafarer-list-sync',this)">Get
-                            /api/seafarer/{seafarerid}/documents/list</a>
+                            /api/seafarer/{seafarerid}/documents/list<b>- For Ahoy Use</b></a>
                     </li>
                     <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Get
                             /api/seafarer/{seafarerid}/document-checklist</a>
@@ -889,6 +889,7 @@
                             "valid_till_date": "17-05-2026",
                             "is_authentication_applicable": false,
                             "is_bypass_approval_required": false,
+                            "optional_If_Not_Present":false,
                             "is_attachment_required": true,
                             "is_details_required": true,
                             "rules": [
@@ -926,6 +927,7 @@
                         "valid_till_date": "17-05-2026",
                         "is_authentication_applicable": false,
                         "is_bypass_approval_required": false,
+                        "optional_If_Not_Present":false,
                         "is_attachment_required": true,
                         "is_details_required": true,
                         "rules": [
@@ -957,6 +959,7 @@
                     "valid_till_date": "17-05-2026",
                     "is_authentication_applicable": false,
                     "is_bypass_approval_required": false,
+                    "optional_If_Not_Present":false,
                     "is_attachment_required": true,
                     "is_details_required": true,
                     "rules": [
@@ -984,6 +987,7 @@
                     "valid_till_date": "17-05-2026",
                     "is_authentication_applicable": false,
                     "is_bypass_approval_required": false,
+                    "optional_If_Not_Present":false,
                     "is_attachment_required": true,
                     "is_details_required": true,
                     "rules": [
@@ -1976,6 +1980,7 @@
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
+                            "optional_If_Not_Present":false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -2126,6 +2131,7 @@
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
+                            "optional_If_Not_Present":false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -2160,66 +2166,61 @@
                             },
                         },
 
-                        "field-aplicable": [
+                        "field-applicable": [
                             {
-                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 1,
-                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "datepicker",
-                                "field_name": "Issue Date",
-                                "title": "Issue date",
-                                "place_holder": "YYYY-MM-DD",
-                                "options_value": [],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "validations": [
-                                    {
-                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                        "message": "Please enter a date in the format YYYY-MM-DD"
-                                    }
-                                ],
-                                "condition": [{
-                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true
                             },
                             {
-                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 2,
-                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "dropdown",
-                                "field_name": "subscriptionPlan",
-                                "title": "Subscription Plan",
-                                "options_value": [
-                                    { "value": "basic", "label": "Basic" },
-                                    { "value": "premium", "label": "Premium" },
-                                    { "value": "pro", "label": "Pro" }
-                                ],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "style": {
-                                    "width": "100%",
-                                },
-                                "condition": [{
-                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issueingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
+                                }
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ]
                             }
                         ]
                     }],
@@ -2230,12 +2231,15 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174018",
                                     "version_number": 1,
-                                    "is_active": false,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "basic",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2023-05-19"
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Government Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb1.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27004,
@@ -2249,12 +2253,15 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174019",
                                     "version_number": 2,
-                                    "is_active": true,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "advanced",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "VO Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb3.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28000,
@@ -2273,12 +2280,15 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174020",
                                     "version_number": 1,
-                                    "is_active": false,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "intermediate",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Municipal Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb2.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27005,
@@ -2292,12 +2302,15 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174021",
                                     "version_number": 2,
-                                    "is_active": true,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "expert",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb4.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28001,
@@ -2377,6 +2390,7 @@
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
+                            "optional_If_Not_Present":false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -2410,67 +2424,121 @@
                                 "expiration_date": "2024-12-31"
                             },
                         },
-
-                        "field-aplicable": [
+                        "field-applicable": [
                             {
-                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 1,
-                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "datepicker",
-                                "field_name": "Issue Date",
-                                "title": "Issue date",
-                                "place_holder": "YYYY-MM-DD",
-                                "options_value": [],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "validations": [
-                                    {
-                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                        "message": "Please enter a date in the format YYYY-MM-DD"
-                                    }
-                                ],
-                                "condition": [{
-                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                                "name": "dontHave",
+                                "label": "I don't Have",
+                                "type": "Checkbox"
                             },
                             {
-                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 2,
-                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "dropdown",
-                                "field_name": "subscriptionPlan",
-                                "title": "Subscription Plan",
-                                "options_value": [
-                                    { "value": "basic", "label": "Basic" },
-                                    { "value": "premium", "label": "Premium" },
-                                    { "value": "pro", "label": "Pro" }
-                                ],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "style": {
-                                    "width": "100%",
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issuingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
                                 },
-                                "condition": [{
-                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ],
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ],
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "908b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "remarks",
+                                "label": "Remarks",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": true,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -2481,12 +2549,16 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174018",
                                     "version_number": 1,
-                                    "is_active": false,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "basic",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2023-05-19"
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Chennai",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb1.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27004,
@@ -2500,12 +2572,16 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174019",
                                     "version_number": 2,
-                                    "is_active": true,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "advanced",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Govertment Name",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Kanchepuram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb3.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28000,
@@ -2524,12 +2600,16 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174020",
                                     "version_number": 1,
-                                    "is_active": false,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "intermediate",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Municipal Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Tambaram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb2.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 27005,
@@ -2543,12 +2623,16 @@
                                 {
                                     "version_id": "1223e4567-e89b-12d3-a456-426614174021",
                                     "version_number": 2,
-                                    "is_active": true,
-                                    "fields": {
-                                        "98423e4567-e89b-12d3-a456-426614174018": "expert",
-                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Counsil Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Central",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
                                     },
-                                    "file_info": {
+                                    "file-response": {
                                         "file_name": "ahoyweb4.PNG",
                                         "file_content_type": "image/png",
                                         "file_size_bytes": 28001,
@@ -2562,7 +2646,11 @@
                             ]
                         }
                     ],
-
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    }
                 }
             },
             'doc-seafarer-details-multi': {
@@ -2600,11 +2688,31 @@
                             "identifier": "medical_certificate",
                             "name": "Medical Certificate"
                         },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
                         "settings": {
                             "is_system_document": false,
                             "is_mandatory": true,
                             "is_authendication_applicable": false,
                             "is_bypass_approval_required": false,
+                            "optional_If_Not_Present":false,
                             "is_allow_multiple_attachments": true,
                             "is_allow_versioning": false,
                             "is_multiple_parts": true,
@@ -2638,282 +2746,254 @@
                                 "expiration_date": "2024-12-31"
                             },
                         },
-                        "field-aplicable": [
+                        "field-applicable": [
                             {
-                                "field_id": "5423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 1,
-                                "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "datepicker",
-                                "field_name": "Issue Date",
-                                "title": "Issue date",
-                                "place_holder": "YYYY-MM-DD",
-                                "options_value": [],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "validations": [
-                                    {
-                                        "regex": "^\\d{4}-\\d{2}-\\d{2}$",
-                                        "message": "Please enter a date in the format YYYY-MM-DD"
-                                    }
-                                ],
-                                "condition": [{
-                                    "field_to_monitor_id": "89423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "6423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true
                             },
                             {
-                                "field_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                "enabled": true,
-                                "order": 2,
-                                "field_type_id": "1298423e4567-e89b-12d3-a456-426614174018",
-                                "field_type": "dropdown",
-                                "field_name": "subscriptionPlan",
-                                "title": "Subscription Plan",
-                                "options_value": [
-                                    { "value": "basic", "label": "Basic" },
-                                    { "value": "premium", "label": "Premium" },
-                                    { "value": "pro", "label": "Pro" }
-                                ],
-                                "default_value": null,
-                                "is_mandatory": true,
-                                "is_default_field": false,
-                                "style": {
-                                    "width": "100%",
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issuingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
                                 },
-                                "condition": [{
-                                    "field_to_monitor_id": "2348423e4567-e89b-12d3-a456-426614174018",
-                                    "field_to_monitor_name": "issuing_authority",
-                                    "trigger_value": "some_value",
-                                    "action_id": "456423e4567-e89b-12d3-a456-426614174018",
-                                    "action_name": "show",
-                                    "field_target_id": "648423e4567-e89b-12d3-a456-426614174018",
-                                    "field_target_name": "place_of_issue",
-                                    "value_to_set": null
-                                }]
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ]
                             }
                         ]
                     },
                     "multipart": [
                         {
-                            "part_id": "part1",
-                            "part_name": "Part 1",
-                            "Number": 1,
+                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                            "part_name": "CRA",
+                            "Number": "I",
                             "Mandatory": true,
                             "IsAttachmentRequired": true,
                             "IsDetailsRequired": true,
                             "IsAggregate": false,
-                            "document_status": {
-                                "status": "Requested",
-                                "is_verified": true,
-                                "verified_date": "2024-05-30",
-                                "verified_by": {
-                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
-                                    "name": "Pratha A",
-                                    "role": [
-                                        "Administrator",
-                                        "SynergyIdentityAdminAdministrator",
-                                        "Documentation Executive"
-                                    ],
-                                    "date": "2022-03-15T07:12:28.255+00:00"
-                                },
-                                "is_uploaded": true,
-                                "uploaded_date": "2024-05-28",
-                                "is_expired": false,
-                                "expiration_date": "2024-12-31"
-                            },
                             "field_applicable": [
                                 {
-                                    "field_id": "6423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 1,
-                                    "field_type_id": "78423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "text",
-                                    "field_name": "Part1Field1",
-                                    "title": "Part 1 Field 1",
-                                    "place_holder": "Enter text",
-                                    "options_value": [],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "validations": []
+                                    "id": "3423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "CRAIssueDate",
+                                    "label": "CRA Issue Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "before",
+                                            "value": "currentDate",
+                                            "valueSource": "storedValue",
+                                            "message": "CRA issue date should be less than today's date"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "field_id": "7423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 2,
-                                    "field_type_id": "68423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "number",
-                                    "field_name": "Part1Field2",
-                                    "title": "Part 1 Field 2",
-                                    "place_holder": "Enter number",
-                                    "options_value": [],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "validations": []
-                                }
-                            ],
-                            "response": [
-                                {
-                                    "document_id": "97423e4567-e89b-12d3-a456-426614174018",
-                                    "versions": [
+                                    "id": "8423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "CRAExpiryDate",
+                                    "label": "CRA Expiry Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
                                         {
-                                            "version_id": "1223e4567-e89b-12d3-a456-426614174018",
-                                            "version_number": 1,
-                                            "is_active": false,
-                                            "fields": {
-                                                "6423e4567-e89b-12d3-a456-426614174018": "Text for Part 1 Field 1",
-                                                "7423e4567-e89b-12d3-a456-426614174018": 100
-                                            },
-                                            "file_info": {
-                                                "file_name": "part1_v1.PNG",
-                                                "file_content_type": "image/png",
-                                                "file_size_bytes": 27004,
-                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part1_v1.PNG",
-                                                "uploaded_date": "2023-05-19",
-                                                "uploaded_by_user": "User123",
-                                                "file_upload_method": "seafarer_upload_document",
-                                                "file_status": "uploaded"
-                                            }
-                                        },
-                                        {
-                                            "version_id": "1223e4567-e89b-12d3-a456-426614174019",
-                                            "version_number": 2,
-                                            "is_active": true,
-                                            "fields": {
-                                                "6423e4567-e89b-12d3-a456-426614174018": "Updated text for Part 1 Field 1",
-                                                "7423e4567-e89b-12d3-a456-426614174018": 150
-                                            },
-                                            "file_info": {
-                                                "file_name": "part1_v2.PNG",
-                                                "file_content_type": "image/png",
-                                                "file_size_bytes": 28000,
-                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part1_v2.PNG",
-                                                "uploaded_date": "2024-01-01",
-                                                "uploaded_by_user": "User124",
-                                                "file_upload_method": "upload_on_behalf_document",
-                                                "file_status": "uploaded"
-                                            }
+                                            "condition": "after",
+                                            "value": "CRAIssueDate",
+                                            "valueSource": "formFieldName",
+                                            "message": "CRA Expiry date should be greater than CRA Issue date"
                                         }
                                     ]
                                 }
-                            ],
+                            ]
                         },
                         {
-                            "part_id": "part2",
-                            "part_name": "Part 2",
-                            "Number": 2,
-                            "Mandatory": false,
-                            "IsAttachmentRequired": false,
+                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                            "part_name": "Full-time/COE",
+                            "Number": "I",
+                            "Mandatory": true,
+                            "IsAttachmentRequired": true,
                             "IsDetailsRequired": true,
-                            "IsAggregate": true,
-                            "document_status": {
-                                "status": "Requested",
-                                "is_verified": false,
-                                "verified_date": null,
-                                "verified_by": null,
-                                "is_uploaded": false,
-                                "uploaded_date": null,
-                                "is_expired": false,
-                                "expiration_date": null
-                            },
+                            "IsAggregate": false,
                             "field_applicable": [
                                 {
-                                    "field_id": "8423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 1,
-                                    "field_type_id": "88423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "text",
-                                    "field_name": "Part2Field1",
-                                    "title": "Part 2 Field 1",
-                                    "place_holder": "Enter text",
-                                    "options_value": [],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "validations": []
+                                    "id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "Full-timeIssueDate",
+                                    "label": "Full-time Issue Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "before",
+                                            "value": "currentDate",
+                                            "valueSource": "storedValue",
+                                            "message": "Full-time issue date should be less than today's date"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "field_id": "9423e4567-e89b-12d3-a456-426614174018",
-                                    "enabled": true,
-                                    "order": 2,
-                                    "field_type_id": "98423e4567-e89b-12d3-a456-426614174018",
-                                    "field_type": "number",
-                                    "field_name": "Part2Field2",
-                                    "title": "Part 2 Field 2",
-                                    "place_holder": "Enter number",
-                                    "options_value": [],
-                                    "default_value": null,
-                                    "is_mandatory": true,
-                                    "is_default_field": false,
-                                    "validations": []
-                                }
-                            ],
-                            "response": [
-                                {
-                                    "document_id": "97423e4567-e89b-12d3-a456-426614174019",
-                                    "versions": [
+                                    "id": "7423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "Full-timeExpiryDate",
+                                    "label": "Full-time Expiry Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
                                         {
-                                            "version_id": "1223e4567-e89b-12d3-a456-426614174020",
-                                            "version_number": 1,
-                                            "is_active": false,
-                                            "fields": {
-                                                "8423e4567-e89b-12d3-a456-426614174018": "Text for Part 2 Field 1",
-                                                "9423e4567-e89b-12d3-a456-426614174018": 200
-                                            },
-                                            "file_info": {
-                                                "file_name": "part2_v1.PNG",
-                                                "file_content_type": "image/png",
-                                                "file_size_bytes": 27005,
-                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part2_v1.PNG",
-                                                "uploaded_date": "2023-05-19",
-                                                "uploaded_by_user": "User123",
-                                                "file_upload_method": "seafarer_upload_document",
-                                                "file_status": "uploaded"
-                                            }
-                                        },
-                                        {
-                                            "version_id": "1223e4567-e89b-12d3-a456-426614174021",
-                                            "version_number": 2,
-                                            "is_active": true,
-                                            "fields": {
-                                                "8423e4567-e89b-12d3-a456-426614174018": "Updated text for Part 2 Field 1",
-                                                "9423e4567-e89b-12d3-a456-426614174018": 250
-                                            },
-                                            "file_info": {
-                                                "file_name": "part2_v2.PNG",
-                                                "file_content_type": "image/png",
-                                                "file_size_bytes": 28001,
-                                                "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/part2_v2.PNG",
-                                                "uploaded_date": "2024-01-01",
-                                                "uploaded_by_user": "User124",
-                                                "file_upload_method": "upload_on_behalf_document",
-                                                "file_status": "uploaded"
-                                            }
+                                            "condition": "after",
+                                            "value": "Full-timeIssueDate",
+                                            "valueSource": "formFieldName",
+                                            "message": "Full-time Expiry date should be greater than Full-time Issue date"
                                         }
                                     ]
                                 }
-                            ],
-                            "comment_details": {
-                                "approval_comment": "",
-                                "remark_comment": "",
-                                "document_bypass_comment": null
-                            }
+                            ]
+                        }
+                    ],
+
+                    "response": [
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174018",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Chennai",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                    },
+                                    "file-response": {
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Govertment Name",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Kanchepuram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                    },
+                                    "file-response": {
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "document_id": "97423e4567-e89b-12d3-a456-426614174019",
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174020",
+                                    "version_number": 1,
+                                    "is_active_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Municipal Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Tambaram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01" 
+                                    },
+                                    "file-response": {
+                                        "file_name": "ahoyweb2.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27005,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb2.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174021",
+                                    "version_number": 2,
+                                    "is_active_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Counsil Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Central",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01" 
+                                    },
+                                    "file-response": {
+                                        "file_name": "ahoyweb4.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28001,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb4.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }
+                                }
+                            ]
                         }
                     ],
                     "comment_details": {
                         "approval_comment": "",
                         "remark_comment": "",
                         "document_bypass_comment": null
-                    },
+                    }
                 }
             },
             'doc-seafarer-fields-get': {
