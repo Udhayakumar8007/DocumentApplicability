@@ -1,1 +1,3665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
 
+        .left-column {
+            width: 30%;
+            overflow-y: auto;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* Example styling for the links */
+        .left-column a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .left-column a:hover {
+            background-color: #ddd;
+        }
+
+        .models {
+            display: none;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .right-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h1>API Documentation</h1>
+            <h3>Master API</h3>
+            <div id="api-list">
+                <h3>Document Applicability Admin</h3>
+                <ul>
+                    <li><a href="#" onclick="showModel('doc-app-list',this)">Post/document-applicability-admin/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-app-detail',this)">Get
+                            /document-applicability-admin/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-post',this)">Post/document-applicability-admin</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-update',this)">Put
+                            /document-applicability-admin/{id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-action',this)">Post
+                            /document-applicability-admin/{id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-app-delete',this)">Delete
+                            /document-applicability-admin/{id}</a></li>
+                </ul>
+                <ul>
+                    <h3>Field Applicable
+                        <a style="font-size: small; color: blue; display: contents;"
+                            href="https://raw.githack.com/Udhayakumar8007/DocumentApplicability/main/ConditionEditor.html"
+                            target="_blank">- Condition Editor UI</a>
+                    </h3>
+                    <li><a href="#" onclick="showModel('doc-field-get',this)">Get
+                            /document-applicability-admin/{id}/fields-applicable/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-details',this)">Get
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-post',this)">Post
+                            /document-applicability-admin/{id}/fields-applicable</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-put',this)">Put
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-action',this)">Post
+                            /document-applicability-admin/{id}/fields-applicable/{field_id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-delete',this)">Delete
+                            /document-applicability-admin/{id}/fields-applicable</a></li>
+
+                </ul>
+                <ul>
+                    <h3>Multi Parts</h3>
+                    <li><a href="#" onclick="showModel('doc-multi-get',this)">Get
+                            /document-applicability-admin/{id}/multi-parts/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-details',this)">Get
+                            /document-applicability-admin/{id}/multi-parts/{part_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-post',this)">Post
+                            /document-applicability-admin/{id}/multi-parts</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-put',this)">Put
+                            /document-applicability-admin/{id}/multi-parts/{part_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-action',this)">Post
+                            /document-applicability-admin/{id}/multi-parts/{part_id}/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-multi-delete',this)">Delete
+                            /document-applicability-admin/{id}/multi-parts</a></li>
+                </ul>
+                <ul>
+                    <h3>Applicability Rule Sets</h3>
+                    <li><a href="#" onclick="showModel('doc-ruleset-get',this)">Get
+                            /document-applicability-admin/{id}/ruleset/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-details',this)">Get
+                            /document-applicability-admin/{id}/ruleset/{part_id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-post',this)">Post
+                            /document-applicability-admin/{id}/ruleset</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-put',this)">Put
+                            /document-applicability-admin/{id}/ruleset/{part_id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-action',this)">Post
+                            /document-applicability-admin/{id}/rulesets/action</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-delete',this)">Delete
+                            /document-applicability-admin/{id}/rulesets</a></li>
+                </ul>
+                <h3>Document Master</h3>
+                <ul>
+                    <h3>Document</h3>
+                    <li><a href="#" onclick="showModel('doc-master-list',this)">Get /api/document/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-details',this)">Get /api/document/{id}/details</a>
+                    </li>
+                    <h3>Document Display Group</h3>
+                    <li><a href="#" onclick="showModel('doc-master-displaygroup',this)"> Get
+                            /api/document/display-group/list</a></li>
+                    <h3>Document Type</h3>
+                    <li><a href="#" onclick="showModel('doc-master-type-list',this)"> Get /api/document/type/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-type-details',this)"> Get
+                            /api/document/type/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-type-post',this)"> Post /api/document/type</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-type-put',this)"> Put /api/document/type/{id}</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-type-delete',this)"> Delete
+                            /api/document/type</a></li>
+                    <h3>Document SubType</h3>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-list',this)"> Get
+                            /api/document/subtype/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-details',this)"> Get
+                            /api/document/subtype/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-post',this)"> Post /api/document/subtype</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-put',this)"> Put
+                            /api/document/subtype/{id}</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-subtype-delete',this)"> Delete
+                            /api/document/subtype</a></li>
+                    <h3>Document Tags</h3>
+                    <li><a href="#" onclick="showModel('doc-master-tags-list',this)"> Get /api/document/tags/list</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-details',this)"> Get
+                            /api/document/tags/{id}/details</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-post',this)"> Post /api/document/tags</a></li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-put',this)"> Put /api/document/tags/{id}</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-master-tags-delete',this)"> Delete
+                            /api/document/tags</a></li>
+                    <h3>Document Rule</h3>
+                    <li><a href="#" onclick="showModel('doc-ruleset-ruletype',this)">Get
+                            /api/ruletype/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-ruleset-operatortype',this)">Get
+                            /api/ruletype/operator/list</a></li>
+                    <!-- <li><a href="#" onclick="showModel('doc-ruleset-ruletypevalue',this)">Get
+                            /api/rule/{typeid}/values/list</a></li> -->
+                    <h3>Document Field</h3>
+                    <li><a href="#" onclick="showModel('doc-fields-type',this)">Get
+                            /api/fields/list</a></li>
+                    <li><a href="#" onclick="showModel('doc-field-condition',this)">Get
+                            /api/fields-action/list</a></li>
+                </ul>
+                <h3>Seafarer API</h3>
+                <ul>
+                    <h3>Document Section</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-section',this)">Get
+                            /api/seafarer/{seafarerid}/section-summary/list</a>
+                    </li>
+                    <h3>Seafarer Request</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-request',this)">Post
+                            /api/seafarer/{seafarerid}/document/{doc_id}/request</a>
+                    </li>
+                    <h3>Seafarer Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list-sync',this)">Get
+                            /api/seafarer/{seafarerid}/documents/list<b>- For Ahoy Use</b></a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-list',this)">Get
+                            /api/seafarer/{seafarerid}/document-checklist</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-details',this)">Get
+                            /api/seafarer/{seafarerid}/document-checklist/{doc_id}/details</a>
+                    <li><a href="#" onclick="showModel('doc-seafarer-details-multi',this)">Get
+                            /api/seafarer/{seafarerid}/document-checklist/{doc_id}/details <b>-Multipart</b></a>
+                    </li>
+                    <h3>Seafarer Document Fields</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-get',this)">Get
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-post',this)">Post
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-put',this)">Put
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-fields-delete',this)">Delete
+                            /api/seafarer/{seafarerid}/document/{doc_id}/fields-applicable</a>
+                    </li>
+                    <h3>Upload Seafarer Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload-get',this)">Get
+                            /api/seafarer/{seafarerid}/document/{doc_id}/upload-document</a>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload',this)">Post
+                            /api/seafarer/{seafarerid}/document/{doc_id}/upload-document</a>
+                    </li>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-delete',this)">Delete
+                            /api/seafarer/{seafarerid}/document/{doc_id}/delete-document</a>
+                    </li>
+                    <h3>Seafarer Verify Document</h3>
+                    <li><a href="#" onclick="showModel('doc-seafarer-document-upload-verify',this)">Post
+                            /api/seafarer/{seafarerid}/document/{doc_id}/verify-document</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="models" id="doc-models">
+                <h2 id="request-doc-header"></h2>
+                <h3>Request</h3>
+                <pre id="request-doc-app"></pre>
+                <h3>Response</h3>
+                <pre id="response-doc-app"></pre>
+                <h3>Comments</h3>
+                <pre id="comments-doc-app"></pre>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Common function to format and insert JSON into pre tagids
+        function displayJson(preId, jsonData) {
+            document.getElementById(preId).textContent = JSON.stringify(jsonData, null, 4);
+        }
+
+        // JSON data for different API endpoints
+        const apiData = {
+            'doc-app-list': {
+                request: {
+                    "page_number": 1,
+                    "page_size": 8,
+                    "document_name": null,
+                    "sort_column": null,
+                    "sort_direction": null,
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "rules": [
+                        {
+                            "rule_type_id": null,
+                            "rule_operator_id": null,
+                            "rule_type_value": null
+                        }
+                    ],
+                    "mandatory": true
+                }
+                ,
+                response: {
+                    "status": "success",
+                    "pagination": {
+                        "total_records": 1,
+                        "records_per_page": 10,
+                        "current_page": 1,
+                        "total_pages": 1
+                    },
+                    "data": [
+                        {
+                            "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "description": "Pre Joining Employment Medical Examination",
+                            "type": {
+                                "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "travel_documents",
+                                "name": "Travel Documents",
+                                "subType": {
+                                    "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "identifier": "international_travel_documents",
+                                    "name": "International Travel Documents"
+                                }
+                            },
+                            "tags": [
+                                {
+                                    "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "name": "Employment"
+                                },
+                                {
+                                    "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                    "name": "Travel"
+                                }
+                            ],
+                            "displaygroup": {
+                                "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "medical_certificate",
+                                "name": "Medical Certificate"
+                            },
+                        }
+                    ]
+                }
+            },
+            'doc-app-detail': {
+                request: {
+
+                },
+                response: {
+                    "status": "success",
+                    "data": {
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "period": {
+                            "cushion_period": 30,
+                            "validity_period": 120,
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_document": false
+                        },
+                        "permissions": {
+                            "view": ["rankid1", "rankid2"],
+                            "edit": ["rankid1", "rankid2"],
+                            "verify": ["rankid1"],
+                            "delete": ["rankid1"]
+                        }
+                    }
+                }
+            },
+            'doc-app-post': {
+                request: {
+                    "name": "Pre Joining Employment Medical Examination",
+                    "identifier": "PRE-JOIN",
+                    "description": "Pre Joining Employment Medical Examination",
+                    "type": {
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
+                        "subType": {
+                            "id": "123e4567-e89b-12d3-a456-426614174001"
+                        }
+                    },
+                    "tags": [
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174002"
+                        },
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174003"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": "123e4567-e89b-12d3-a456-426614174004"
+                    },
+                    "period": {
+                        "cushion_period": 30,
+                        "validity_period": 120
+                    },
+                    "settings": {
+                        "is_system_document": false,
+                        "is_allow_multiple_attachments": true,
+                        "is_allow_versioning": false,
+                        "is_multiple_parts": true,
+                        "is_internal_document": false,
+                        "is_has_parent_certificate": false,
+                        "is_verification_required": false,
+                        "is_option_to_create_purchase_order": false
+                    },
+                    "parent_document": {
+                        "document_id": "123e4567-e89b-12d3-a456-426614174005",
+                        "is_optional_document": false
+                    },
+                    "permissions": {
+                        "view": ["rankid1", "rankid2"],
+                        "edit": ["rankid1", "rankid2"],
+                        "verify": ["rankid1"],
+                        "delete": ["rankid1"]
+                    }
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document added successfully",
+                }
+
+            },
+            'doc-app-update': {
+                request: {
+                    "name": "Pre Joining Employment Medical Examination",
+                    "identifier": "PRE-JOIN",
+                    "description": "Pre Joining Employment Medical Examination",
+                    "type": {
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
+                        "subType": {
+                            "id": "123e4567-e89b-12d3-a456-426614174001"
+                        }
+                    },
+                    "tags": [
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174002"
+                        },
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174003"
+                        }
+                    ],
+                    "displaygroup": {
+                        "id": "123e4567-e89b-12d3-a456-426614174004"
+                    },
+                    "period": {
+                        "cushion_period": 30,
+                        "validity_period": 120
+                    },
+                    "settings": {
+                        "allow_multiple_attachments": true,
+                        "allow_versioning": false,
+                        "is_multiple_parts": true,
+                        "is_internal_document": false,
+                        "has_parent_certificate": false,
+                        "is_verification_required": false,
+                        "option_to_create_purchase_order": false
+                    },
+                    "parent_document": {
+                        "document_id": "123e4567-e89b-12d3-a456-426614174005",
+                        "is_optional_document": false
+                    },
+                    "permissions": {
+                        "view": ["rankid1", "rankid2"],
+                        "edit": ["rankid1", "rankid2"],
+                        "verify": ["rankid1"],
+                        "delete": ["rankid1"]
+                    }
+                },
+                response: {
+                    "success": false,
+                    "message": "Failed to update document",
+                    "error": "Error message describing the reason for failure"
+                }
+            },
+            'doc-app-action': {
+                request: {
+                    "action": "activate" // or "disable"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document applicability action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive."
+                            }
+                        }
+                    }
+                }
+            },
+            'doc-app-delete': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document applicability deleted successfully"
+                }
+            },
+            'doc-field-condition': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        { "id": "123e4567-e89b-12d3-a456-426614174000", "type": "show", "text": "Show" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174001", "type": "hide", "text": "Hide" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174002", "type": "enable", "text": "Enable" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174003", "type": "disable", "text": "Disable" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174004", "type": "require", "text": "Require" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174005", "type": "optional", "text": "Optional" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174006", "type": "set_type", "text": "Set Value" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174007", "type": "clear_value", "text": "Clear Value" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174008", "type": "readonly", "text": "Read Only" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174009", "type": "show_message", "text": "Show Message" },
+                        { "id": "123e4567-e89b-12d3-a456-426614174010", "type": "show_tooltip", "text": "Show Tooltip" }
+                    ]
+                }
+            },
+            "doc-fields-type": {
+                "request": {},
+                "response": {
+                    "status": "success",
+                    "data": [
+                        [
+                            { "id": "123e4567-e89b-12d3-a456-426614174011", "type": "textbox", "text": "Text Box" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174012", "type": "textarea", "text": "Text Area" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174013", "type": "checkbox", "text": "Checkbox" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174014", "type": "radiobutton", "text": "Radio Button" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174015", "type": "dropdown", "text": "Dropdown" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174016", "type": "date", "text": "Date Picker" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174017", "type": "number", "text": "Number" },
+                            { "id": "123e4567-e89b-12d3-a456-426614174018", "type": "email", "text": "Email" }
+                        ]
+
+                    ]
+                }
+            },
+            'doc-field-get': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "123e4567-e89b-12d3-a456-426614174018",
+                            "enabled": true,
+                            "field_type_id": "987567-e89b-12d3-a456-426614174018",
+                            "field_type": "datepicker",
+                            "field_name": "Issue Date",
+                            "title": "Issue date",
+                            "options_value": [],
+                            "default_value": null,
+                            "place_holder": null,
+                            "is_mandatory": true,
+                            "is_default_field": false,
+                            "order": 1,
+                            "validations": [
+                                {
+                                    "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                    "message": "Please enter a date in the format YYYY-MM-DD"
+                                }
+                            ],
+                            "condition": [{
+                                "field_source_id": "753e4567-e89b-12d3-a456-426614174018",
+                                "field_source_name": "issuing_authority",
+                                "trigger_value": "some_value",
+                                "action_id": "456123e4567-e89b-12d3-a456-426614174018",
+                                "action_name": "show",
+                                "message": null,
+                                "field_target_id": 2,
+                                "field_target_name": "place_of_issue",
+                                "value_to_set": null
+                            }]
+
+                        }
+                        ,
+                        {
+                            "id": "5423e4567-e89b-12d3-a456-426614174018",
+                            "enabled": true,
+                            "field_type_id": "9823e4567-e89b-12d3-a456-426614174018",
+                            "field_type": "datepicker",
+                            "field_name": "Expiration Date",
+                            "title": "Expiration date",
+                            "options_value": [],
+                            "default_value": null,
+                            "place_holder": null,
+                            "is_mandatory": true,
+                            "is_default_field": false,
+                            "order": 2,
+                            "validations": [
+                                {
+                                    "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                    "message": "Please enter a date in the format YYYY-MM-DD"
+                                }
+                            ],
+                            "condition": [{
+                                "field_source_id": "423e4567-e89b-12d3-a456-426614174018",
+                                "field_source_name": "issuing_authority",
+                                "trigger_value": "some_value",
+                                "action_id": "823e4567-e89b-12d3-a456-426614174018",
+                                "action_name": "show",
+                                "message": null,
+                                "field_target_id": "3423e4567-e89b-12d3-a456-426614174018",
+                                "field_target_name": "place_of_issue",
+                                "value_to_set": null
+                            }]
+                        }
+                    ]
+                }
+            },
+            'doc-field-details': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data":
+                    {
+                        "id": "123e4567-e89b-12d3-a456-426614174018",
+                        "enabled": true,
+                        "field_type_id": "987567-e89b-12d3-a456-426614174018",
+                        "field_type": "datepicker",
+                        "field_name": "Issue Date",
+                        "title": "Issue date",
+                        "options_value": [],
+                        "default_value": null,
+                        "place_holder": null,
+                        "is_mandatory": true,
+                        "is_default_field": false,
+                        "order": 1,
+                        "validations": [
+                            {
+                                "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                                "message": "Please enter a date in the format YYYY-MM-DD"
+                            }
+                        ],
+                        "condition": [{
+                            "field_source_id": "753e4567-e89b-12d3-a456-426614174018",
+                            "field_source_name": "issuing_authority",
+                            "trigger_value": "some_value",
+                            "action_id": "456123e4567-e89b-12d3-a456-426614174018",
+                            "action_name": "show",
+                            "message": null,
+                            "field_target_id": 2,
+                            "field_target_name": "place_of_issue",
+                            "value_to_set": null
+                        }]
+                    }
+                }
+            },
+            'doc-field-post': {
+                request: {
+                    "enabled": true,
+                    "field_type_id": "753e4567-e89b-12d3-a456-426614174018",
+                    "title": "Issue date",
+                    "options_value": [],
+                    "default_value": null,
+                    "place_holder": null,
+                    "is_mandatory": true,
+                    "order": 1,
+                    "validations": [
+                        {
+                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "message": "Please enter a date in the format YYYY-MM-DD"
+                        }
+                    ],
+                    "condition": [{
+                        "field_source_id": "12353e4567-e89b-12d3-a456-426614174018",
+                        "trigger_value": "some_value",
+                        "action_id": "43e4567-e89b-12d3-a456-426614174018",
+                        "message": null,
+                        "field_target_id": "33e4567-e89b-12d3-a456-426614174018",
+                        "value_to_set": null
+                    }]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field added successfully",
+                }
+            },
+            'doc-field-put': {
+                request: {
+                    "enabled": true,
+                    "field_type_id": "753e4567-e89b-12d3-a456-426614174018",
+                    "title": "Issue date",
+                    "options_value": [],
+                    "default_value": null,
+                    "place_holder": null,
+                    "is_mandatory": true,
+                    "order": 1,
+                    "validations": [
+                        {
+                            "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+                            "message": "Please enter a date in the format YYYY-MM-DD"
+                        }
+                    ],
+                    "condition": [{
+                        "field_source_id": "12353e4567-e89b-12d3-a456-426614174018",
+                        "trigger_value": "some_value",
+                        "action_id": "43e4567-e89b-12d3-a456-426614174018",
+                        "message": null,
+                        "field_target_id": "33e4567-e89b-12d3-a456-426614174018",
+                        "value_to_set": null
+                    }]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field updated successfully",
+                }
+            },
+            'doc-field-action': {
+                request: {
+                    "action": "activate" // or "disable"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
+                }
+            },
+            'doc-field-delete': {
+                request: {
+                    "field_ids": ["753e4567-e89b-12d3-a456-426614174018"]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document Field deleted successfully"
+                }
+            },
+            'doc-multi-get': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "753e4567-e89b-12d3-a456-426614174018",
+                            "name": "CRA",
+                            "number": "I",
+                            "is_enabled": true,
+                            "is_mandatory": false,
+                            "is_attachment_allowed": true,
+                            "is_details_required": true,
+                            "is_aggregate": false
+                        },
+                        {
+                            "id": "4553e4567-e89b-12d3-a456-426614174018",
+                            "name": "Full time /",
+                            "number": "II",
+                            "is_enabled": true,
+                            "is_mandatory": false,
+                            "is_attachment_allowed": true,
+                            "is_details_required": true,
+                            "is_aggregate": false
+                        },
+                    ]
+                }
+            },
+            'doc-multi-details': {
+                request: {
+
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": {
+                        "id": "753e4567-e89b-12d3-a456-426614174018",
+                        "name": "CRA",
+                        "number": "I",
+                        "is_enabled": true,
+                        "is_mandatory": false,
+                        "is_attachment_allowed": true,
+                        "is_details_required": true,
+                        "is_aggregate": false
+                    }
+                }
+            },
+            'doc-multi-post': {
+                request: {
+                    "name": "CRA",
+                    "number": "I",
+                    "enabled": true,
+                    "is_enabled": true,
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
+                    "is_aggregate": false
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document multi parts added successfully",
+                }
+            },
+            'doc-multi-put': {
+                request: {
+                    "name": "CRA",
+                    "number": "I",
+                    "is_enabled": true,
+                    "is_mandatory": false,
+                    "is_attachment_allowed": true,
+                    "is_details_required": true,
+                    "is_aggregate": false
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document multi parts updated successfully",
+                }
+            },
+            'doc-multi-delete': {
+                request: {
+                    "multi_parts_ids": ["753e4567-e89b-12d3-a456-426614174018"]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document multi parts deleted successfully",
+                }
+            },
+            'doc-multi-action': {
+                request: {
+                    "action": "activate" // or "disable"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document multi action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
+                }
+            },
+            "doc-ruleset-get": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
+                            "name": "Rule set name",
+                            "effective_from_date": "17-05-2024",
+                            "valid_till_date": "17-05-2026",
+                            "is_authentication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "optional_If_Not_Present": false,
+                            "is_attachment_required": true,
+                            "is_details_required": true,
+                            "rules": [
+                                {
+                                    "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                    "type": {
+                                        "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d5",
+                                        "name": "Rank"
+                                    },
+                                    "operator": {
+                                        "id": "7db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                        "name": "Contain"
+                                    },
+                                    "type_values": [
+                                        {
+                                            "id": "6b19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                            "name": "Contain"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "doc-ruleset-details": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": {
+                        "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3",
+                        "name": "Rule set name",
+                        "effective_from_date": "17-05-2024",
+                        "valid_till_date": "17-05-2026",
+                        "is_authentication_applicable": false,
+                        "is_bypass_approval_required": false,
+                        "optional_If_Not_Present": false,
+                        "is_attachment_required": true,
+                        "is_details_required": true,
+                        "rules": [
+                            {
+                                "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                "type": {
+                                    "id": "db19f7ef-6db6-4f3e-ba60-1e755ad2f8d5",
+                                    "name": "Rank"
+                                },
+                                "operator": {
+                                    "id": "7db19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                    "name": "Contain"
+                                },
+                                "type_values": [
+                                    {
+                                        "id": "6b19f7ef-6db6-4f3e-ba60-1e755ad2f8d4",
+                                        "name": "Contain"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "doc-ruleset-post": {
+                "request": {
+                    "name": "Rule set name",
+                    "effective_from_date": "17-05-2024",
+                    "valid_till_date": "17-05-2026",
+                    "is_authentication_applicable": false,
+                    "is_bypass_approval_required": false,
+                    "optional_If_Not_Present": false,
+                    "is_attachment_required": true,
+                    "is_details_required": true,
+                    "rules": [
+                        {
+                            "typeid": "36a5c3de-3451-4d88-a2b2-24e70c7fcf4b",
+                            "operatorid": "f5f2059a-3eb2-479b-99c0-6fcac814066d",
+                            "type_value_ids": [
+                                "6f5508e2-d8b2-4a0f-88c2-c4b44f77b879",
+                                "3cc34bd4-6ae5-4ab4-a9bb-1b535d5b18d5",
+                                "9b13ee44-cf5c-4f4e-b46e-724361a8176c"
+                            ]
+                        }
+                    ]
+                }
+                ,
+                "response": {
+                    "status": "success",
+                    "message": "Document ruleset added successfully"
+                }
+            },
+            "doc-ruleset-put": {
+                "request": {
+                    "name": "Rule set name",
+                    "effective_from_date": "17-05-2024",
+                    "valid_till_date": "17-05-2026",
+                    "is_authentication_applicable": false,
+                    "is_bypass_approval_required": false,
+                    "optional_If_Not_Present": false,
+                    "is_attachment_required": true,
+                    "is_details_required": true,
+                    "rules": [
+                        {
+                            "typeid": "36a5c3de-3451-4d88-a2b2-24e70c7fcf4b",
+                            "operatorid": "f5f2059a-3eb2-479b-99c0-6fcac814066d",
+                            "type_value_ids": [
+                                "6f5508e2-d8b2-4a0f-88c2-c4b44f77b879",
+                                "3cc34bd4-6ae5-4ab4-a9bb-1b535d5b18d5",
+                                "9b13ee44-cf5c-4f4e-b46e-724361a8176c"
+                            ]
+                        }
+                    ]
+                }
+                ,
+                "response": {
+                    "status": "success",
+                    "message": "Document ruleset updated successfully"
+                }
+            },
+            "doc-ruleset-delete": {
+                "request": {
+                    "ruleset_ids": ["db19f7ef-6db6-4f3e-ba60-1e755ad2f8d3"]
+                },
+                "response": {
+                    "status": "success",
+                    "message": "Document ruleset deleted successfully"
+                }
+            },
+            "doc-ruleset-action": {
+                request: {
+                    "action": "activate" // or "disable"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document ruleset action updated successfully"
+                },
+                comments: {
+                    "action": {
+                        "action": {
+                            "type": "string",
+                            "description": "Specifies the action to be performed.",
+                            "enum": ["clone", "active", "inaction", "delete"],
+                            "enumDescriptions": {
+                                "clone": "Creates a duplicate of the document and requires 'clone_name' as well.",
+                                "active": "Marks the document as active.",
+                                "inaction": "Marks the document as inactive.",
+                                "delete": "Deletes the specified document."
+                            }
+                        }
+                    }
+                }
+            },
+            "doc-ruleset-ruletype": {
+                "request": {
+
+                },
+                "response": {
+                    "status": "success",
+                    "data": [{
+                        "id": "119b6682-58bf-49c1-80a1-fb7a805713a5",
+                        "ruletype": "Engine Make & Model",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "2ab5f249-ff2f-4677-8449-948e155f5602",
+                        "ruletype": "Ecdis Type",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "2b7b5a29-347b-4a2d-b7a2-16dd893e1b1d",
+                        "ruletype": "Nationality",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "3d62a9a6-f746-40bc-be5b-d2c067ccf0e4",
+                        "ruletype": "Vessel",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "6b91612b-4339-43fb-af97-388dde301fef",
+                        "ruletype": "Seafarer State Level",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "9543a66a-971e-45a4-b18f-55c47cc3ab4b",
+                        "ruletype": "Rank Category",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "9e864f82-d47b-4947-a163-1b5d688e26d8",
+                        "ruletype": "Flag",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "b1dafebe-1d3f-4a32-a7c3-a795a8342614",
+                        "ruletype": "Rank Type",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "b4dea1f0-5ddb-49e3-b09c-d9c847703aee",
+                        "ruletype": "Engine Model",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "b7329e70-79f3-4131-8627-adaf848bbe60",
+                        "ruletype": "Officer Type",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "b9e00bcb-108f-4b87-9db3-4742b4f44a42",
+                        "ruletype": "Engine Make",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "c002ea6f-fb10-4c8f-a415-7ad8471a1700",
+                        "ruletype": "Vessel Category",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker",
+                            "field-name": "Issue Date"
+                        }
+                    },
+                    {
+                        "id": "ddcf39a4-8614-4877-b967-5d3b8b17147c",
+                        "ruletype": "Vessel Subcategory",
+                        "api": {
+                            "client": "Master",
+                            "endpoint": "/api/engine_make"
+                        },
+                        "field-type": {
+                            "field-id": "987567-e89b-12d3-a456-426614174018",
+                            "field-type": "datepicker"
+                        }
+                    }]
+                }
+            },
+            "doc-ruleset-operatortype": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "f7f49b6c-2422-4cb8-9b38-8c5f1d2a4651",
+                            "operator": "Contain",
+                            "rule_type_ids": [
+                                "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                                "2953ff89-d4c2-4225-bc8f-3050718e7dc2",
+                                "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f"
+                            ]
+                        },
+                        {
+                            "id": "dd3bf62b-69ee-4c79-8125-99a6f1aa043b",
+                            "operator": "Equal",
+                            "rule_type_ids": [
+                                "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                                "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f"
+                            ]
+                        },
+                        {
+                            "id": "4a56f6f1-44f2-4b0e-bb6b-09b00ccf8ef9",
+                            "operator": "LessThan",
+                            "rule_type_ids": [
+                                "2953ff89-d4c2-4225-bc8f-3050718e7dc2",
+                                "66a2e532-4c22-4cc5-bc85-46e0e7a9b0fc"
+                            ]
+                        },
+                        {
+                            "id": "39b6e8c3-c9c2-4f46-9973-858f25b2b37e",
+                            "operator": "GreaterThan",
+                            "rule_type_ids": [
+                                "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                                "ca1d6632-6c9b-4c8f-aad5-b3d33b18070b"
+                            ]
+                        },
+                        {
+                            "id": "ac8f5e0e-f6d4-4e47-a5e4-75e56995b0a1",
+                            "operator": "LessThanOrEqualTo",
+                            "rule_type_ids": [
+                                "4be54802-f1d9-49b1-9e1b-06e2b47e8c5f",
+                                "8c8f059d-1998-4601-8f2a-23fc8b8e0b5c"
+                            ]
+                        },
+                        {
+                            "id": "560d4757-6e52-4b1d-87b1-11e4529a243d",
+                            "operator": "GreaterThanOrEqualTo",
+                            "rule_type_ids": [
+                                "66a2e532-4c22-4cc5-bc85-46e0e7a9b0fc",
+                                "e18563b3-4b7f-4986-85cc-3a518a184cfe"
+                            ]
+                        },
+                        {
+                            "id": "1e862e66-04aa-4b67-98e4-c858973ccf2d",
+                            "operator": "NotEqualTo",
+                            "rule_type_ids": [
+                                "80e03d7a-727c-4f21-9f79-99f42c13d30a",
+                                "bf0f5f7c-8488-4e24-a071-7ad0fa8bf8b1"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "doc-ruleset-ruletypevalue": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [{
+                        "id": 1,
+                        "ruletypevalue": "Checical Tanker"
+                    },
+                    {
+                        "id": 2,
+                        "ruletypevalue": "Oil Tanker"
+                    }]
+                }
+            },
+            "doc-master-list": {
+                request: {
+                    "page_number": 1,
+                    "page_size": 8,
+                    "document_name": null,
+                    "sort_column": null,
+                    "sort_direction": null,
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "rules": [
+                        {
+                            "rule_type_id": null,
+                            "rule_operator_id": null,
+                            "rule_type_value": null
+                        }
+                    ],
+                    "mandatory": true
+                }
+                ,
+                response: {
+                    "status": "success",
+                    "pagination": {
+                        "total_records": 1,
+                        "records_per_page": 10,
+                        "current_page": 1,
+                        "total_pages": 1
+                    },
+                    "data": [{
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "period": {
+                            "cushion_period": 30,
+                            "validity_period": 120
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "audit": {
+                            "createdAt": "2024-06-01T12:00:00Z",
+                            "updatedAt": "2024-06-15T12:00:00Z",
+                            "deletedAt": null
+                        }
+                    }]
+                }
+            },
+            "doc-master-details": {
+                "request": {
+                },
+                "response": {
+                    "status": "success",
+                    "data": {
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "period": {
+                            "cushion_period": 30,
+                            "validity_period": 120
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": null,
+                            "is_optional_supplier_certificate_present": false
+                        },
+                        "permissions": {
+                            "view": [
+                                { "rank_id": 1, "rank_name": "Executive" },
+                                { "rank_id": 2, "rank_name": "Manager" }
+                            ],
+                            "edit": [
+                                { "rank_id": 1, "rank_name": "Executive" },
+                                { "rank_id": 2, "rank_name": "Manager" }
+                            ],
+                            "verify": [
+                                { "rank_id": 1, "rank_name": "Executive" }
+                            ],
+                            "delete": [
+                                { "rank_id": 1, "rank_name": "Executive" }
+                            ]
+                        },
+                        "field-applicable": [
+                            {
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issueingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
+                                }
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ]
+                            }
+                        ],
+                        "audit": {
+                            "createdAt": "2024-06-01T12:00:00Z",
+                            "updatedAt": "2024-06-15T12:00:00Z",
+                            "deletedAt": null
+                        }
+                    }
+                }
+            },
+            "doc-master-displaygroup": {
+                "request": {
+
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "b50189c6-8cb0-4e2c-b59b-b7f5bfc2cf4e",
+                            "identifier": "pre_joining_familiarization",
+                            "name": "Pre-Joining Familiarization",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a12d3f68-9cfd-47c4-8a2e-bb94878194d5",
+                            "identifier": "in_house",
+                            "name": "In House",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "5d2f02a5-9655-4a5b-9295-17d3d734c0da",
+                            "identifier": "type_specific_ecdis_certificates",
+                            "name": "Type Specific ECDIS Certificates",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "318f4311-77d3-4dcb-97c1-7dd65f8b9810",
+                            "identifier": "travel_identity_and_visas",
+                            "name": "Travel Identity and Visas",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "d87d1f6a-71c6-42fc-b8a2-dac8cf0b0e5f",
+                            "identifier": "joining_documents",
+                            "name": "Joining Documents",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "84ad2e3d-6d85-48b1-9441-b9e10cfd7b25",
+                            "identifier": "special_certificates",
+                            "name": "Special Certificates",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "927d080e-fbe2-474d-b6e4-97d712b657c8",
+                            "identifier": "external_courses",
+                            "name": "External Courses",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "9e19291e-76f7-48a0-835b-b5f0125fa73a",
+                            "identifier": "oil_chem_gas",
+                            "name": "Oil/Chem/Gas",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "0d3bb9d7-8c1d-48d4-8b1e-34b3f5abf5e1",
+                            "identifier": "dual_fuel_vessel_training_and_certification",
+                            "name": "Dual fuel Vessel training and certification",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a3b2920c-7c89-44e7-bba5-77e4d8cf5bc1",
+                            "identifier": "tanker_endorsement_and_training",
+                            "name": "Tanker Endorsement and Training",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "ccf674ff-004f-466f-9d14-d50f1f68fa96",
+                            "identifier": "stcw",
+                            "name": "STCW",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "58621a9c-ffba-4ecb-9f8c-0b3c9e978b45",
+                            "identifier": "gmdss",
+                            "name": "GMDSS",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "3a8326c3-6d9e-4c0e-b745-e0418d8a4817",
+                            "identifier": "medical",
+                            "name": "Medical",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "3f86d615-8f3b-4892-bdf0-5a30a73f8d9e",
+                            "identifier": "others",
+                            "name": "Others",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "1e5b6d5b-d3d8-4488-8b6f-8cf2fa4cf1c6",
+                            "identifier": "in_house_2",
+                            "name": "In-house",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "87d7d7d6-4ed9-4c21-8dd9-f29a7745a0f2",
+                            "identifier": "flag_documents",
+                            "name": "Flag Documents",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "22e6d226-9a3a-4d8f-bd72-5c4cbf36c555",
+                            "identifier": "dk_officer_eng_officer",
+                            "name": "DK Officer/ENG Officer",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "ed3f5f54-dc90-4f76-871f-9f4e85a93801",
+                            "identifier": "mandatory_for_all_ranks",
+                            "name": "Mandatory for all ranks",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "dc2bf367-8ab8-4990-8a9f-8c64b6f7ff84",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "b3e4fae4-50b2-42a3-9c4f-5e6b0c1b5de2",
+                            "identifier": "flag_certificate",
+                            "name": "Flag Certificate",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        }
+                    ]
+                }
+            },
+            'doc-master-type-list': {
+                request: {
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "3e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "2e7b49c0-c546-4205-ba17-73cc6af45b10",
+                            "identifier": "general_certificates",
+                            "name": "General Certificates",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "dcb3c2a4-6cf7-4da8-b0bc-24ba5ee52a79",
+                            "identifier": "training_certificates",
+                            "name": "Training Certificates",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "e70f4a06-92c5-4a92-8b1d-d4c7b3fbf086",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "b0e95b8c-98a4-4212-9850-89b0e83358e6",
+                            "identifier": "flag_state_document",
+                            "name": "Flag State Document",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "68fdeae9-ae9f-4c19-8335-e214e12f25f1",
+                            "identifier": "resume",
+                            "name": "Resume",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "af34c548-1f7e-40f8-8843-4f7f589c3f69",
+                            "identifier": "cover_letter",
+                            "name": "Cover Letter",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "6a5aeb06-c5e9-4015-bf42-0cc3b4ed2487",
+                            "identifier": "other",
+                            "name": "Other",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "in_house_training",
+                            "name": "In House Training",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "6860c6b3-e6fa-4f47-bd3f-1e1a72d3f268",
+                            "identifier": "covid_19",
+                            "name": "COVID-19",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "12f23470-d5de-44d2-86c7-eac0f755b92f",
+                            "identifier": "joining_document",
+                            "name": "Joining Document",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        }
+                    ]
+                }
+            },
+            'doc-master-type-details': {
+                request: {
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": {
+                        "id": "12f23470-d5de-44d2-86c7-eac0f755b92f",
+                        "identifier": "joining_document",
+                        "name": "Joining Document",
+                        "audit": {
+                            "createdAt": "2024-06-01T12:00:00Z",
+                            "updatedAt": "2024-06-15T12:00:00Z",
+                            "deletedAt": null
+                        }
+                    }
+                }
+            },
+            'doc-master-type-post': {
+                request: {
+                    "identifier": "joining_document",
+                    "name": "Joining Document"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document type added successfully",
+                }
+            },
+            'doc-master-type-put': {
+                request: {
+                    "identifier": "joining_document",
+                    "name": "Joining Document"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document type updated successfully",
+                }
+            },
+            'doc-master-type-delete': {
+                request: {
+                    "type_ids": ["a7d076bc-59e0-491a-b7c1-bfbc76b74d4f"]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document type deleted successfully",
+                }
+            },
+            'doc-master-subtype-list': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "letters_and_memos",
+                            "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                            "name": "Letters And Memos",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "medical_certificate",
+                            "type_id": "54e643c2-ebd1-47ac-881f-ae6fe0d79a3b",
+                            "name": "Medical Certificate",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "bahamas",
+                            "type_id": "db9a5f3e-03e7-45f8-9162-65191b5be029",
+                            "name": "Bahamas",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "belize",
+                            "type_id": "be48b38a-7735-4f7b-b1ad-00e87c3a56db",
+                            "name": "Belize",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "chennai",
+                            "type_id": "d48f1c94-8c2a-4ae2-876b-76ee67f0ba05",
+                            "name": "Chennai",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "comoros",
+                            "type_id": "d1284a16-6383-49b9-8b5a-00c792713e50",
+                            "name": "Comoros",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "cyprus",
+                            "type_id": "716f36cf-4d71-4d75-9df0-c9f69e48d6b3",
+                            "name": "Cyprus",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "danish_maritime_authority",
+                            "type_id": "8aee4f23-2ab4-4b0f-8f27-cbb688fc118d",
+                            "name": "Danish Maritime Authority",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "denmark",
+                            "type_id": "f2302313-1455-4edf-87b5-cac8b6797da9",
+                            "name": "Denmark",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "douglas",
+                            "type_id": "fb5e4d2e-53a7-42ac-91a4-33d3b1926b48",
+                            "name": "Douglas",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "england",
+                            "type_id": "f5bb9a50-6d98-4b57-988f-e9f8a0e10fb4",
+                            "name": "England",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "george_town",
+                            "type_id": "eb835f5a-ec2f-43d0-b5d9-c0736a8f4138",
+                            "name": "George Town",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "hongkong",
+                            "type_id": "89108635-cff1-4e44-8a27-fc1a611be5ab",
+                            "name": "Hongkong",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "india",
+                            "type_id": "6624f3c4-d25b-49e4-82fb-18740b2f58c7",
+                            "name": "India",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "isle_of_man",
+                            "type_id": "dbdc42d2-5054-43a8-ae1d-bda3d08b1912",
+                            "name": "Isle Of Man",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "kolkata",
+                            "type_id": "2394eb67-af6d-4f1c-95fc-4a5c72b48d39",
+                            "name": "Kolkata",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                            "identifier": "lemesos",
+                            "type_id": "6a967035-2b83-445d-aa5e-0ce7c3d6b187",
+                            "name": "Lemesos",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        }
+                    ]
+                }
+            },
+            'doc-master-subtype-details': {
+                request: {
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": {
+                        "id": "a7d076bc-59e0-491a-b7c1-bfbc76b74d4f",
+                        "identifier": "letters_and_memos",
+                        "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                        "name": "Letters And Memos",
+                        "audit": {
+                            "createdAt": "2024-06-01T12:00:00Z",
+                            "updatedAt": "2024-06-15T12:00:00Z",
+                            "deletedAt": null
+                        }
+                    }
+                }
+            },
+            'doc-master-subtype-post': {
+                request: {
+                    "identifier": "letters_and_memos",
+                    "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                    "name": "Letters And Memos"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document subtype added successfully",
+                }
+            },
+            'doc-master-subtype-put': {
+                request: {
+                    "identifier": "letters_and_memos",
+                    "type_id": "025a8633-1bf4-41e3-b5cf-ae4a4d65c85a",
+                    "name": "Letters And Memos"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document subtype updated successfully",
+                }
+            },
+            'doc-master-subtype-delete': {
+                request: {
+                    "subtype_ids": ["a7d076bc-59e0-491a-b7c1-bfbc76b74d4f"]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document subtype deleted successfully",
+                }
+            },
+            'doc-master-tags-list': {
+                request: {
+                },
+                "response": {
+                    "status": "success",
+                    "data": [
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440000",
+                            "tag": "Finance",
+                            "identifier": "finance",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440001",
+                            "tag": "HR",
+                            "identifier": "hr",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440002",
+                            "tag": "Legal",
+                            "identifier": "legal",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440003",
+                            "tag": "Marketing",
+                            "identifier": "marketing",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440004",
+                            "tag": "Operations",
+                            "identifier": "operations",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440005",
+                            "tag": "Sales",
+                            "identifier": "sales",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440006",
+                            "tag": "IT",
+                            "identifier": "it",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        },
+                        {
+                            "id": "550e8400-e29b-41d4-a716-446655440007",
+                            "tag": "R&D",
+                            "identifier": "r_and_d",
+                            "audit": {
+                                "createdAt": "2024-06-01T12:00:00Z",
+                                "updatedAt": "2024-06-15T12:00:00Z",
+                                "deletedAt": null
+                            }
+                        }
+                    ]
+                }
+            },
+            'doc-master-tags-details': {
+                request: {
+                },
+                "response":
+                {
+                    "status": "success",
+                    "data": {
+                        "id": "550e8400-e29b-41d4-a716-446655440005",
+                        "tag": "Sales",
+                        "identifier": "sales",
+                        "audit": {
+                            "createdAt": "2024-06-01T12:00:00Z",
+                            "updatedAt": "2024-06-15T12:00:00Z",
+                            "deletedAt": null
+                        }
+                    }
+                }
+            },
+            'doc-master-tags-post': {
+                request: {
+                    "tag": "Sales",
+                    "identifier": "sales"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document tags added successfully",
+                }
+            },
+            'doc-master-tags-put': {
+                request: {
+                    "tag": "Sales",
+                    "identifier": "sales"
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document tags updated successfully",
+                }
+            },
+            'doc-master-tags-delete': {
+                request: {
+                    "tags_ids": ["a29b7100-b29b-11d4-a716-446655440005"]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document tags deleted successfully",
+                }
+            },
+            'doc-seafarer-list': {
+                request: {
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "status": null
+                },
+                response: {
+                    "status": "success",
+                    "data": [{
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "optional_If_Not_Present": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": true,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        }
+                    }]
+                },
+                comments: {
+                    "status": {
+                        "type": "string",
+                        "description": "Specifies the status of the document.",
+                        "enum": [
+                            "verified",
+                            "unverified",
+                            "requested",
+                            "requested_attachment"
+                        ],
+                        "enumDescriptions": {
+                            "verified": "The document has been verified.",
+                            "unverified": "The document has not been verified.",
+                            "requested": "The document has been requested.",
+                            "requested_attachment": "An attachment has been requested for the document."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-request': {
+                request: {
+                    "status": "request",
+                    "reason": null
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document requested successfully",
+                },
+                comments: {
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the request.",
+                        "enum": [
+                            "request",
+                            "request_details",
+                            "re-request",
+                            "re-upload-request"
+
+                        ],
+                        "enumDescriptions": {
+                            "request": "Initial request.",
+                            "request_details": "A request to details of the document.",
+                            "re-request": "A request for re-evaluation or re-processing.",
+                            "re-upload-request": "A request to re-upload the document."
+                        }
+                    },
+                    "reason": "Test Comment"
+                }
+
+            },
+            'doc-seafarer-list-sync': {
+                request: {
+                    "type": {
+                        "document_type_id": null,
+                        "document_sub_type_id": null
+                    },
+                    "display_group_id": null,
+                    "status": null
+                },
+                response: {
+                    "status": "success",
+                    "data": [{
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "optional_If_Not_Present": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        },
+
+                        "field-applicable": [
+                            {
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issueingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
+                                }
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ]
+                            }
+                        ]
+                    }],
+                    "response": [
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_current_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Government Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_current_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "VO Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                }
+                            ]
+                        },
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174020",
+                                    "version_number": 1,
+                                    "is_current_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Municipal Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb2.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27005,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb2.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174021",
+                                    "version_number": 2,
+                                    "is_current_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456789",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Office",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "IN",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-05-19",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-05-19"
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb4.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28001,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb4.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                }
+                            ]
+                        }
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    }
+                }
+            },
+            'doc-seafarer-details': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": {
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "optional_If_Not_Present": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            },
+                        },
+                        "field-applicable": [
+                            {
+                                "name": "dontHave",
+                                "label": "I don't Have",
+                                "type": "Checkbox"
+                            },
+                            {
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issuingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
+                                },
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ],
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ],
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": false,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "908b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "remarks",
+                                "label": "Remarks",
+                                "type": "textField",
+                                "required": true,
+                                "visibilityRules": [
+                                    {
+                                        "field": "dontHave",
+                                        "condition": "equals",
+                                        "value": true,
+                                        "valueSource": "actualValue"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "response": [
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_current_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Chennai",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_current_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Govertment Name",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Kanchepuram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01",
+                                        "6b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": null
+                                    },
+                                    "file-response": [{
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                }
+                            ]
+                        },
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    }
+                }
+            },
+            'doc-seafarer-details-multi': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": {
+                        "id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                        "name": "Pre Joining Employment Medical Examination",
+                        "identifier": "PRE-JOIN",
+                        "description": "Pre Joining Employment Medical Examination",
+                        "type": {
+                            "id": "12e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "travel_documents",
+                            "name": "Travel Documents",
+                            "subType": {
+                                "id": "23e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "identifier": "international_travel_documents",
+                                "name": "International Travel Documents"
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": "123e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Employment"
+                            },
+                            {
+                                "id": "764e25b951-6b24-4a0d-b267-10f2c64693a4",
+                                "name": "Travel"
+                            }
+                        ],
+                        "displaygroup": {
+                            "id": "854e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "identifier": "medical_certificate",
+                            "name": "Medical Certificate"
+                        },
+                        "document_status": {
+                            "status": "Requested",
+                            "is_verified": true,
+                            "verified_date": "2024-05-30",
+                            "verified_by": {
+                                "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                "name": "Pratha A",
+                                "role": [
+                                    "Administrator",
+                                    "SynergyIdentityAdminAdministrator",
+                                    "Documentation Executive"
+                                ],
+                                "date": "2022-03-15T07:12:28.255+00:00"
+                            },
+                            "is_uploaded": true,
+                            "uploaded_date": "2024-05-28",
+                            "is_expired": false,
+                            "expiration_date": "2024-12-31"
+                        },
+                        "settings": {
+                            "is_system_document": false,
+                            "is_mandatory": true,
+                            "is_authendication_applicable": false,
+                            "is_bypass_approval_required": false,
+                            "optional_If_Not_Present": false,
+                            "is_allow_multiple_attachments": true,
+                            "is_allow_versioning": false,
+                            "is_multiple_parts": true,
+                            "is_internal_document": false,
+                            "is_has_parent_certificate": false,
+                            "is_doc_verification_required": false,
+                            "is_option_to_create_purchase_order": false
+                        },
+                        "parent_document": {
+                            "document_id": "42e25b951-6b24-4a0d-b267-10f2c64693a4",
+                            "name": "Pre Joining Employment Medical Examination",
+                            "identifier": "PRE-JOIN",
+                            "is_optional_supplier_certificate_present": false,
+                            "document_status": {
+                                "status": "Requested",
+                                "is_verified": true,
+                                "verified_date": "2024-05-30",
+                                "verified_by": {
+                                    "id": "ec9f9b9c-9635-4308-bca4-b968cb80bb35",
+                                    "name": "Pratha A",
+                                    "role": [
+                                        "Administrator",
+                                        "SynergyIdentityAdminAdministrator",
+                                        "Documentation Executive"
+                                    ],
+                                    "date": "2022-03-15T07:12:28.255+00:00"
+                                },
+                                "is_uploaded": true,
+                                "uploaded_date": "2024-05-28",
+                                "is_expired": false,
+                                "expiration_date": "2024-12-31"
+                            }
+                        },
+                        "field-applicable": [
+                            {
+                                "id": "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b",
+                                "name": "certificatenumber",
+                                "label": "Certificate Number",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a",
+                                "name": "issuingauthority",
+                                "label": "Issuing Authority",
+                                "type": "textField",
+                                "required": true
+                            },
+                            {
+                                "id": "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf",
+                                "name": "placeofissue",
+                                "label": "Place of Issue",
+                                "type": "textField",
+                                "required": true,
+                                "regexValidation": {
+                                    "pattern": "^[a-zA-Z\\s]*$",
+                                    "errorMessage": "Place of issue should contain only letters"
+                                }
+                            },
+                            {
+                                "id": "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c",
+                                "name": "issuedate",
+                                "label": "Issue Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "before",
+                                        "value": "currentDate",
+                                        "valueSource": "storedValue",
+                                        "message": "Issue date should be less than today's date"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b",
+                                "name": "expirydate",
+                                "label": "Expiry Date",
+                                "type": "datePicker",
+                                "required": true,
+                                "businessValidation": [
+                                    {
+                                        "condition": "after",
+                                        "value": "issuedate",
+                                        "valueSource": "formFieldName",
+                                        "message": "Expiry date should be after the issue date"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "parts": [
+                        {
+                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                            "part_name": "CRA",
+                            "Number": "I",
+                            "Mandatory": true,
+                            "IsAttachmentRequired": true,
+                            "IsDetailsRequired": true,
+                            "IsAggregate": false,
+                            "field_applicable": [
+                                {
+                                    "id": "3423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "CRAIssueDate",
+                                    "label": "CRA Issue Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "before",
+                                            "value": "currentDate",
+                                            "valueSource": "storedValue",
+                                            "message": "CRA issue date should be less than today's date"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "8423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "CRAExpiryDate",
+                                    "label": "CRA Expiry Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "after",
+                                            "value": "CRAIssueDate",
+                                            "valueSource": "formFieldName",
+                                            "message": "CRA Expiry date should be greater than CRA Issue date"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                            "part_name": "Full-time/COE",
+                            "Number": "I",
+                            "Mandatory": true,
+                            "IsAttachmentRequired": true,
+                            "IsDetailsRequired": true,
+                            "IsAggregate": false,
+                            "field_applicable": [
+                                {
+                                    "id": "6423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "Full-timeIssueDate",
+                                    "label": "Full-time Issue Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "before",
+                                            "value": "currentDate",
+                                            "valueSource": "storedValue",
+                                            "message": "Full-time issue date should be less than today's date"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "7423e4567-e89b-12d3-a456-426614174018",
+                                    "name": "Full-timeExpiryDate",
+                                    "label": "Full-time Expiry Date",
+                                    "type": "datePicker",
+                                    "required": true,
+                                    "businessValidation": [
+                                        {
+                                            "condition": "after",
+                                            "value": "Full-timeIssueDate",
+                                            "valueSource": "formFieldName",
+                                            "message": "Full-time Expiry date should be greater than Full-time Issue date"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "response": [
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_current_version": false,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Head Authority",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Chennai",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                    },
+                                    "parts-response": [
+                                        {
+                                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                            "part-fields-response": {
+                                                "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                                "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                            },
+                                            "part-file-response": [{
+                                                "file_name": "ahoyweb1.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 27004,
+                                                "file_url": "https://seafarer.com/ahoyweb1.PNG",
+                                                "uploaded_date": "2023-05-19",
+                                                "uploaded_by_user": "User123",
+                                                "file_upload_method": "seafarer_upload_document",
+                                                "file_status": "uploaded"
+                                            }],
+                                        },
+                                        {
+                                            "part_id": "E4346423e4567-e89b-12d3-a456-426614174018",
+                                            "part-fields-response": {
+                                                "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2002-01-01",
+                                                "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2028-01-01"
+                                            },
+                                            "part-file-response": [{
+                                                "file_name": "Demo.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 27004,
+                                                "file_url": "https://seafarer.com/ahoyweb1.PNG",
+                                                "uploaded_date": "2023-05-19",
+                                                "uploaded_by_user": "User123",
+                                                "file_upload_method": "seafarer_upload_document",
+                                                "file_status": "uploaded"
+                                            }],
+                                        }
+                                    ]
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_current_version": true,
+                                    "fields-response": {
+                                        "1e4d7f86-5b3a-4a49-94b2-48d0b68a0b6b": "123456",
+                                        "2c3e7a1a-8b4e-4c8b-930b-8e2db0a1f53a": "Govertment Name",
+                                        "3a8f4f9a-12bc-4ad2-84c6-2f6e3c517aaf": "Kanchepuram",
+                                        "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                        "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                    },
+                                    "parts-response": [
+                                        {
+                                            "part_id": "6423e4567-e89b-12d3-a456-426614174018",
+                                            "part-fields-response": {
+                                                "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2023-01-01",
+                                                "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2024-01-01"
+                                            },
+                                            "part-file-response": [{
+                                                "file_name": "ahoyweb3.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 28000,
+                                                "file_url": "https://seafarer.com/ahoyweb1.PNG",
+                                                "uploaded_date": "2024-01-01",
+                                                "uploaded_by_user": "User124",
+                                                "file_upload_method": "upload_on_behalf_document",
+                                                "file_status": "uploaded"
+                                            }],
+                                        },
+                                        {
+                                            "part_id": "E4346423e4567-e89b-12d3-a456-426614174018",
+                                            "part-fields-response": {
+                                                "4d1f8a6b-3b14-4c2f-9f4c-5a8e3aef7e3c": "2002-01-01",
+                                                "5b7f9c2d-4c8e-4a6b-9d4e-2a8c5f4e8d2b": "2028-01-01"
+                                            },
+                                            "part-file-response": [{
+                                                "file_name": "Demo.PNG",
+                                                "file_content_type": "image/png",
+                                                "file_size_bytes": 27004,
+                                                "file_url": "https://seafarer.com/ahoyweb1.PNG",
+                                                "uploaded_date": "2023-05-19",
+                                                "uploaded_by_user": "User123",
+                                                "file_upload_method": "seafarer_upload_document",
+                                                "file_status": "uploaded"
+                                            }],
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                    ],
+                    "comment_details": {
+                        "approval_comment": "",
+                        "remark_comment": "",
+                        "document_bypass_comment": null
+                    }
+                }
+            },
+            'doc-seafarer-fields-get': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": [
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "basic",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2023-05-19"
+                                    },
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "fields": {
+                                        "98423e4567-e89b-12d3-a456-426614174018": "advanced",
+                                        "5423e4567-e89b-12d3-a456-426614174018": "2024-05-19"
+                                    },
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            'doc-seafarer-fields-post': {
+                request: {
+                    "fields": [{
+                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                        "selected_value": "2023-05-19"
+                    },
+                    {
+                        "field_id": "21228423e4567-e89b-12d3-a456-426614174018",
+                        "selected_value": "basic"
+                    },
+                    ]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field added successfully"
+                },
+                comments: {
+                    "response": {
+                        "success": {
+                            "type": "boolean",
+                            "description": "Indicates whether the operation was successful. A value of true means the operation was successful, while false means it failed."
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "A message providing details about the operation's result."
+                        },
+                        "error": {
+                            "type": "string",
+                            "description": "A detailed error message explaining why the operation failed. This field is only present when 'success' is false."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-fields-put': {
+                request: {
+                    "fields": [{
+                        "field_id": "98423e4567-e89b-12d3-a456-426614174018",
+                        "selected_value": "2023-05-19"
+                    },
+                    {
+                        "field_id": "SS98423e4567-e89b-12d3-a456-426614174018",
+                        "selected_value": "basic"
+                    },
+                    ]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field updated successfully"
+                },
+                comments: {
+                    "response": {
+                        "success": {
+                            "type": "boolean",
+                            "description": "Indicates whether the operation was successful. A value of true means the operation was successful, while false means it failed."
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "A message providing details about the operation's result."
+                        },
+                        "error": {
+                            "type": "string",
+                            "description": "A detailed error message explaining why the operation failed. This field is only present when 'success' is false."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-fields-delete': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document field deleted successfully"
+                }
+            },
+            'doc-seafarer-document-upload': {
+                request: {
+                    "upload_method": "seafarer_upload_document",
+                    "document_files": [
+                        {
+                            "file_name": "ahoyweb1.PNG",
+                            "file_content_type": "image/png",
+                            "file_uploaded_path": "IN-540540670/Document/general_certificate",
+                        }]
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document uploaded successfully"
+                },
+                comments: {
+                    "upload_method": {
+                        "type": "string",
+                        "description": "Specifies the method of upload.",
+                        "enum": [
+                            "seafarer_upload_document",
+                            "seafarer_replace_document",
+                            "upload_on_behalf_document",
+                            "upload_authentication_document"
+                        ],
+                        "enumDescriptions": {
+                            "seafarer_upload_document": "For uploading a new document for a seafarer.",
+                            "seafarer_replace_document": "For replacing an existing document for a seafarer.",
+                            "upload_on_behalf_document": "For uploading a document on behalf of someone else.",
+                            "upload_authentication_document": "For uploading a document for authentication purposes."
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-document-delete': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document Deleted successfully"
+                }
+            },
+            'doc-seafarer-section': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": {
+                        "summary": {
+                            "sections": [
+                                {
+                                    "identifier": "basic_details",
+                                    "section": "Basic Details",
+                                    "is_complete": true,
+                                    "completed_fields_count": 7,
+                                    "mandatory_fields_count": 7
+                                },
+                                {
+                                    "identifier": "personal_details",
+                                    "section": "Personal Details",
+                                    "is_complete": true,
+                                    "completed_fields_count": 2,
+                                    "mandatory_fields_count": 2
+                                },
+                                {
+                                    "identifier": "contact_details",
+                                    "section": "Contact Details",
+                                    "is_complete": true,
+                                    "completed_fields_count": 3,
+                                    "mandatory_fields_count": 3
+                                },
+                                {
+                                    "identifier": "education_details",
+                                    "section": "Education Details",
+                                    "is_complete": true,
+                                    "completed_fields_count": 0,
+                                    "mandatory_fields_count": 0
+                                },
+                                {
+                                    "identifier": "family_details",
+                                    "section": "Family Details",
+                                    "is_complete": true,
+                                    "completed_fields_count": 0,
+                                    "mandatory_fields_count": 0
+                                },
+                                {
+                                    "identifier": "other_details",
+                                    "section": "Other Details",
+                                    "is_complete": false,
+                                    "completed_fields_count": 0,
+                                    "mandatory_fields_count": 6
+                                },
+                                {
+                                    "identifier": "documents",
+                                    "section": "Documents",
+                                    "is_complete": false,
+                                    "completed_fields_count": 15,
+                                    "mandatory_fields_count": 54
+                                },
+                                {
+                                    "identifier": "covid_19_vaccination_certificate",
+                                    "section": "COVID-19 Vaccination Certificate",
+                                    "is_complete": false,
+                                    "completed_fields_count": 0,
+                                    "mandatory_fields_count": 0
+                                },
+                                {
+                                    "identifier": "self_declaration_details",
+                                    "section": "Self-Declaration Details",
+                                    "is_complete": false,
+                                    "completed_fields_count": 0,
+                                    "mandatory_fields_count": 1
+                                },
+                                {
+                                    "identifier": "only_training_documents",
+                                    "section": "Training Documents",
+                                    "is_complete": false,
+                                    "completed_fields_count": 1,
+                                    "mandatory_fields_count": 10
+                                },
+                                {
+                                    "identifier": "without_training_documents",
+                                    "section": "Non-Training Documents",
+                                    "is_complete": false,
+                                    "completed_fields_count": 14,
+                                    "mandatory_fields_count": 44
+                                }
+                            ]
+                        },
+                        "authentication": {
+                            "is_complete": false,
+                            "identifier": "documents",
+                            "section": "Documents"
+                        },
+                        "expiring_document": {
+                            "flag_doc": {
+                                "expiring_doc_count": 3
+                            },
+                            "training": {
+                                "expiring_doc_count": 1
+                            },
+                            "general_doc": {
+                                "expiring_doc_count": 15
+                            },
+                            "non_training": {
+                                "expiring_doc_count": 17
+                            }
+                        }
+                    }
+                }
+            },
+            'doc-seafarer-document-upload-verify': {
+                request: {
+                    comment: null
+                },
+                response: {
+                    "status": "success",
+                    "message": "Document Verified successfully"
+                }
+            },
+            'doc-seafarer-document-upload-get': {
+                request: {
+                },
+                response: {
+                    "status": "success",
+                    "data": [
+                        {
+                            "versions": [
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174018",
+                                    "version_number": 1,
+                                    "is_active": false,
+                                    "file_info": [{
+                                        "file_name": "ahoyweb1.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 27004,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb1.PNG",
+                                        "uploaded_date": "2023-05-19",
+                                        "uploaded_by_user": "User123",
+                                        "file_upload_method": "seafarer_upload_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                },
+                                {
+                                    "version_id": "1223e4567-e89b-12d3-a456-426614174019",
+                                    "version_number": 2,
+                                    "is_active": true,
+                                    "file_info": [{
+                                        "file_name": "ahoyweb3.PNG",
+                                        "file_content_type": "image/png",
+                                        "file_size_bytes": 28000,
+                                        "file_url": "https://seafarer-devtest.s3.ap-south-1.amazonaws.com/ahoyweb3.PNG",
+                                        "uploaded_date": "2024-01-01",
+                                        "uploaded_by_user": "User124",
+                                        "file_upload_method": "upload_on_behalf_document",
+                                        "file_status": "uploaded"
+                                    }]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                comments: {
+                    "upload_method": {
+                        "type": "string",
+                        "description": "Specifies the method of upload.",
+                        "enum": [
+                            "seafarer_upload_document",
+                            "seafarer_replace_document",
+                            "upload_on_behalf_document",
+                            "upload_authentication_document"
+                        ],
+                        "enumDescriptions": {
+                            "seafarer_upload_document": "For uploading a new document for a seafarer.",
+                            "seafarer_replace_document": "For replacing an existing document for a seafarer.",
+                            "upload_on_behalf_document": "For uploading a document on behalf of someone else.",
+                            "upload_authentication_document": "For uploading a document for authentication purposes."
+                        }
+                    }
+                }
+            }
+        };
+
+        // Function to show the model
+        function showModel(apiName, clickedElement) {
+            var models = document.getElementsByClassName('models');
+            var apiDescription = clickedElement.textContent.trim(); // Get the text content of the clicked element
+
+            for (var i = 0; i < models.length; i++) {
+                models[i].style.display = 'none';
+            }
+            var docModels = document.getElementById("doc-models");
+            docModels.style.display = 'block';
+
+            var requestHeader = document.getElementById("request-doc-header");
+            var requestDoc = document.getElementById("request-doc-app");
+            var responseDoc = document.getElementById("response-doc-app");
+            var commentsDoc = document.getElementById("comments-doc-app");
+
+            if (apiData.hasOwnProperty(apiName)) {
+                requestHeader.textContent = apiDescription;
+                displayJson('request-doc-app', apiData[apiName].request);
+                displayJson('response-doc-app', apiData[apiName].response);
+                displayJson('comments-doc-app', apiData[apiName].comments);
+            } else {
+                requestHeader.textContent = "Documentation Not Found";
+                requestDoc.textContent = "No documentation available for this API.";
+                responseDoc.textContent = "No documentation available for this API.";
+                commentsDoc.textContent = "No comments available for this API.";
+            }
+        }
+
+        // Display default documentation
+        showModel('doc-app-list');
+    </script>
+</body>
+
+</html>
